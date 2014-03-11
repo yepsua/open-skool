@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>Insitute Module</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>Insitute List</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>Insitute Kanban</target>
+            </trans-unit>
+            <trans-unit id="Codigo">
+                <source>Codigo</source>
+                <target>Código</target>
+            </trans-unit>
+            <trans-unit id="Nombre">
+                <source>Nombre</source>
+                <target>Nombre del Instituto</target>
+            </trans-unit>
+            <trans-unit id="Descripcion">
+                <source>Descripcion</source>
+                <target>Descripción</target>
+            </trans-unit>
+            <trans-unit id="Direccion">
+                <source>Direccion</source>
+                <target>Dirección</target>
+            </trans-unit>
+            <trans-unit id="Acronimo">
+                <source>Acronimo</source>
+                <target>Acrónimo</target>
+            </trans-unit>
+            <trans-unit id="Imagen">
+                <source>Imagen</source>
+                <target>Logotipo</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

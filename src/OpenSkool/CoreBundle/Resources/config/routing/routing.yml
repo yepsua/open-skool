@@ -1,0 +1,12 @@
+OpenSkoolCoreBundle:
+    resource: "@OpenSkoolCoreBundle/Controller/"
+    type:     annotation
+    prefix:   admin/core
+    
+core_home:
+    defaults: { _controller: OpenSkoolCoreBundle:Core:index }
+    pattern:  admin/
+    
+home:
+    defaults: { _controller: OpenSkoolCoreBundle:Welcome:index }
+    pattern:  /

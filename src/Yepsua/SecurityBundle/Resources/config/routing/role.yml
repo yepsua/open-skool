@@ -1,0 +1,36 @@
+role:
+    pattern:  /
+    defaults: { _controller: "YepsuaSecurityBundle:Role:index" }
+    
+role_data:
+    pattern:  /data
+    defaults: { _controller: "YepsuaSecurityBundle:Role:data" }
+
+role_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "YepsuaSecurityBundle:Role:show" }
+
+role_new:
+    pattern:  /new
+    defaults: { _controller: "YepsuaSecurityBundle:Role:new" }
+
+role_create:
+    pattern:  /create
+    defaults: { _controller: "YepsuaSecurityBundle:Role:create" }
+    requirements: { _method: post }
+
+role_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "YepsuaSecurityBundle:Role:edit" }
+
+role_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "YepsuaSecurityBundle:Role:update" }
+    requirements: { _method: put|post }
+
+role_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "YepsuaSecurityBundle:Role:delete" }
+    requirements: { _method: delete|post }
+
+    

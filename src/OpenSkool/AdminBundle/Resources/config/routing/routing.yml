@@ -1,0 +1,4 @@
+OpenSkoolAdminBundle:
+    resource: "@OpenSkoolAdminBundle/Controller/"
+    type:     annotation
+    prefix:   admin

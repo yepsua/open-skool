@@ -1,0 +1,105 @@
+{% set entityLabel = "User" %}
+{% set tdomain = "user" %}
+{% ui_dialog widgetVar="dlgShowUser" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+  <div style="width:100%">
+  <table class="record_properties">
+    <tbody>
+      <tr>
+        <td><b>{{"Id"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.id }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Username"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.username }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Usernamecanonical"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.usernameCanonical }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Email"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.email }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Emailcanonical"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.emailCanonical }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Enabled"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.enabled }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Lastlogin"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.lastLogin|date('Y-m-d H:i:s') }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Locked"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.locked }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Expired"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.expired }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Expiresat"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.expiresAt|date('Y-m-d H:i:s') }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Confirmationtoken"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.confirmationToken }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Passwordrequestedat"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.passwordRequestedAt|date('Y-m-d H:i:s') }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Roles"|trans([],tdomain)}}:</b></td>
+        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.roles} %}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Credentialsexpired"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.credentialsExpired }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Credentialsexpireat"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.credentialsExpireAt|date('Y-m-d H:i:s') }}</td>
+      </tr>
+      <tr>
+        <td><b>Groups:</b></td>
+        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.groups} %}</td>
+      </tr>      
+    </tbody>
+  </table>
+
+  <br/><br/>
+  <hr class="ui-widget-content">
+    
+  {% ui_button class="crud-btn-submit" onclick="rcUserEditAgain()" value="action.edit"|trans %}
+  {% remote_command update="#userWorkspace" 
+       beforeSend=js_function("dlgShowUser.wijdialog('destroy');") 
+       type="GET" 
+       url=path("user_edit", { "id": entity.id }) 
+       name="rcUserEditAgain" %}
+    
+  {% ajax_form id="frmDeleteUser"
+       update="#userWorkspace"
+       action=path("user_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitUser').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel}) ~ "');
+           dlgShowUser.wijdialog('destroy');
+           $('#userGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitUser" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+    <div style="width:100%">
+{% end_ui_dialog %}

@@ -1,0 +1,8 @@
+YepsuaSecurityBundle:
+    resource: "@YepsuaSecurityBundle/Resources/config/routing/routing.yml"
+    prefix:   /admin
+
+OpenSkoolSecurityBundle:
+    resource: "@OpenSkoolSecurityBundle/Controller/"
+    type:     annotation
+    prefix:   /test

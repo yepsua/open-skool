@@ -1,0 +1,4 @@
+utopia_core_persona:
+    resource: "@UtopiaCoreBundle/Resources/config/routing/persona.yml"
+    prefix:   /persona
+

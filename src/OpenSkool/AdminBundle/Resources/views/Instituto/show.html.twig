@@ -1,0 +1,68 @@
+{% set entityLabel = "Instituto" %}
+{% ui_dialog widgetVar="dlgShowInstituto" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+  <div style="width:100%">
+  <table class="record_properties">
+    <tbody>
+      <tr>
+        <td><b>{{"Id"|trans([],'OpenSkoolAdminBundle_Instituto')}}:</b></td>
+        <td>{{ entity.id }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Codigo"|trans([],'OpenSkoolAdminBundle_Instituto')}}:</b></td>
+        <td>{{ entity.codigo }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Nombre"|trans([],'OpenSkoolAdminBundle_Instituto')}}:</b></td>
+        <td>{{ entity.nombre }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Descripcion"|trans([],'OpenSkoolAdminBundle_Instituto')}}:</b></td>
+        <td>{{ entity.descripcion }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Direccion"|trans([],'OpenSkoolAdminBundle_Instituto')}}:</b></td>
+        <td>{{ entity.direccion }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Acronimo"|trans([],'OpenSkoolAdminBundle_Instituto')}}:</b></td>
+        <td>{{ entity.acronimo }}</td>
+      </tr>
+      <tr>
+        <td><b>Imagen:</b></td>
+        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.imagen} %}</td>
+      </tr>      
+    </tbody>
+  </table>
+
+  <br/><br/>
+  <hr class="ui-widget-content">
+    
+  {% ui_button class="crud-btn-submit" onclick="rcInstitutoEditAgain()" value="action.edit"|trans %}
+  {% remote_command update="#institutoWorkspace" 
+       beforeSend=js_function("dlgShowInstituto.wijdialog('destroy');") 
+       type="GET" 
+       url=path("instituto_edit", { "id": entity.id }) 
+       name="rcInstitutoEditAgain" %}
+    
+  {% ajax_form id="frmDeleteInstituto"
+       update="#institutoWorkspace"
+       action=path("instituto_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitInstituto').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel}) ~ "');
+           dlgShowInstituto.wijdialog('destroy');
+           $('#institutoGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitInstituto" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+    <div style="width:100%">
+{% end_ui_dialog %}

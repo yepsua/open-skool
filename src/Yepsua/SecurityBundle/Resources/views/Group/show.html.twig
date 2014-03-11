@@ -1,0 +1,52 @@
+{% set entityLabel = "Group" %}
+{% ui_dialog widgetVar="dlgShowGroup" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+  <div style="width:100%">
+  <table class="record_properties">
+    <tbody>
+      <tr>
+        <td><b>{{"Id"|trans([],'group')}}:</b></td>
+        <td>{{ entity.id }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Name"|trans([],'group')}}:</b></td>
+        <td>{{ entity.name }}</td>
+      </tr>
+      <tr>
+        <td><b>Related Roles:</b></td>
+        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.relatedroles} %}</td>
+      </tr>      
+    </tbody>
+  </table>
+
+  <br/><br/>
+  <hr class="ui-widget-content">
+    
+  {% ui_button class="crud-btn-submit" onclick="rcGroupEditAgain()" value="action.edit"|trans %}
+  {% remote_command update="#groupWorkspace" 
+       beforeSend=js_function("dlgShowGroup.wijdialog('destroy');") 
+       type="GET" 
+       url=path("group_edit", { "id": entity.id }) 
+       name="rcGroupEditAgain" %}
+    
+  {% ajax_form id="frmDeleteGroup"
+       update="#groupWorkspace"
+       action=path("group_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitGroup').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel}) ~ "');
+           dlgShowGroup.wijdialog('destroy');
+           $('#groupGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitGroup" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+    <div style="width:100%">
+{% end_ui_dialog %}

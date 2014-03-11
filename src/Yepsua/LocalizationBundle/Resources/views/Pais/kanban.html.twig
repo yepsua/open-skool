@@ -1,0 +1,53 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% block content %}
+  <div class="crud_header">
+    <div>
+      <span class="crud_header_title">{{"kanban.view.title"|trans([],'YepsuaLocalizationBundle_Pais')}}</span>
+    </div>
+    <table class="crud_header_buttonset">
+      <tr>
+        <td>
+            <button type="button" onclick="rcNewPais()" class="btn btn-danger btn-sm">{{ 'action.new'|trans }}</button>     
+            <div class="crud_header_secondary_buttonset">
+                <a id="btnKanbanPais" href="{{ path("pais") }}" type="button"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span></a>
+                {% ui_tooltip for="#btnKanbanPais" label='btn.list.view'|trans %}
+            </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="container-fluid">
+    <div class="row crud-kanban-rows">
+    {% for key, entity in entities %}
+        <div class="col-md-4 crud-kanban-cell" ondblclick="rcEditPais{{ entity.id }}()">
+          
+          {% ui_panel %}
+                <a class="list-group-item crud-kanban-card">
+                      <table class="record_properties">
+                          <tbody>
+                            <tr>
+                              <td><b>Id:</b></td>
+                              <td>{{ entity.id }}</td>
+                            </tr>
+                            <tr>
+                              <td><b>Nombre:</b></td>
+                              <td>{{ entity.nombre }}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+              </a>
+          {% end_ui_panel %}
+            {% remote_command update="#paisWorkspace" type="GET" 
+                                url=arg(path("pais_edit", { "id": entity.id}) | raw_url_decode)  
+                                name="rcEditPais" ~ entity.id %}
+
+          </div>
+   {% endfor %}
+    </div>
+  </div>       
+  <div id="paisWorkspace"></div>
+  {% remote_command update="#paisWorkspace" type="GET" url=path("pais_new") 
+                    name="rcNewPais" %}
+
+  <input type="hidden" value="1" id="hdnKanbanPais" />
+{% endblock content %}

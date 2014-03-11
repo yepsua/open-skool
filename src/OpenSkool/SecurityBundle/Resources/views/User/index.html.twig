@@ -1,0 +1,13 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% block content %}
+  {% embed "YepsuaSecurityBundle:User:index_content.html.twig" %}
+  {% endembed %}
+{% endblock content %}
+{% block breadcrumb %}
+    {% include 'OpenSkoolCoreBundle:Breadcumb:persona_item.html.twig' %}
+    {% include 'YepsuaThemeBundle:Breadcumb:new_item.html.twig'
+       with {
+         'items': [{'action': '#','label': 'mnu.persona.users'}]
+       }
+    %}
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "YepsuaThemeBundle::main_layout.html.twig" %}
+
+{% block layout_ajax_status %}
+
+<script>
+  $(document).ready(function() {
+    $("body").ajaxComplete(function(event, XMLHttpRequest, ajaxOption){
+      if(XMLHttpRequest.getResponseHeader('x-debug-token') && $('.sf-toolbarreset').is(':visible')) {
+          closeButton =  $('.sf-toolbarreset').find('.hide-button');
+          closeButton.html('<br/>Loading');
+          $.get('{{ asset('app_dev.php') }}/_wdt/'+XMLHttpRequest.getResponseHeader('x-debug-token'),function(data){
+          $('.sf-toolbarreset').remove();
+          $('body').append(data);
+          closeButton.html('');
+        });
+      }else{
+        if(XMLHttpRequest.status === 500){
+          $('body').html(XMLHttpRequest.responseText);
+        }
+      }
+    });
+  });
+</script>
+
+    {% ajax_status onstart="$.blockUI({'message':'"~ 'msg.please.wait'|trans ~ "'})"
+          onsuccess="$.unblockUI()"
+          oncomplete="$.unblockUI();$('.crud-btn-submit').removeAttr('disabled');"
+          onerror="$.unblockUI()"
+          for="document" %}
+{% endblock %}   
+
+{% block layout_title  %}
+    {% block title 'Open Skool | Sistema de Control de Estudios' %}
+{% endblock %}
+
+{% block layout_include %}
+    {% include 'YepsuaSmarTwigBundle::smartwigAssets.html.twig' %}
+    {% include 'YepsuaGeneratorBundle::yepsuaGeneratorAssets.html.twig' %}
+    {% block include '' %}
+{% endblock %}
+
+{% block layout_main_menu %}
+    {{ knp_menu_render(['mainMenu','mnu.core'], {'allow_safe_labels': true}) }}
+{% endblock %}
+
+{% block layout_breadcrumb %}
+<li><a href="{{ path("core_home") }}"><b>Inicio</b></a></li>
+{% block breadcrumb ''%}
+{% endblock %}
+    
+{% block layout_after_breadcrumb %}
+    <b>Bienvenido: {{ app.user.username }}<b>
+    {% block after_breadcrumb ''%}
+{% endblock %}
+    
+{% block layout_left_content %}
+    <div align="center">
+        <img class="logo-image" width="100" height="100" src="http://1.bp.blogspot.com/_mDsYfbmJovc/TBBV6c0t74I/AAAAAAAAAGA/vPEC9rFZaaw/s320/LOGO%2BCUC%2Bn.JPG" alt="logo"/>
+        <hr/>
+        {% ui_datepicker inline=true %}
+        Lunes 20 de Noviembre de 2014              
+        {% block left_content '' %}
+    </div>
+{% endblock %}
+    
+{% block layout_content %}
+    {% block content ''%}
+{% endblock %}
+    
+{% block layout_footer_content %}
+    {% block footer_content '' %}
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+
+{% block content %}
+    {% include 'OpenSkoolCoreBundle:Error:no_data_found_message.html.twig'
+       with {
+         'message': 'no.institute.msg',
+         'resolve_route': path('instituto'),
+         'resolve_btn_label' : 'create.institute.link'
+       }
+    %}
+{% endblock %}

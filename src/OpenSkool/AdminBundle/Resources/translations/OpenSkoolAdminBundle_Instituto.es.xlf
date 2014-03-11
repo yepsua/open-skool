@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="OpenSkoolAdminBundle_Instituto.en.xlf">
+        <body>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>Modulo de Insitutos</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>Lista de Insitutos</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>Modulo de Insitutos</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

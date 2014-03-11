@@ -1,0 +1,28 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <!--
+    <parameters>
+        <parameter key="open_skool_core.example.class">OpenSkool\CoreBundle\Example</parameter>
+    </parameters>
+
+    <services>
+        <service id="open_skool_core.example" class="%open_skool_core.example.class%">
+            <argument type="service" id="service_id" />
+            <argument>plain_value</argument>
+            <argument>%parameter_name%</argument>
+        </service>
+    </services>
+    -->
+    <services>
+        <service id="utopia.core.menu" class="OpenSkool\CoreBundle\Menu\CoreMenu">
+            <tag name="kernel.event_listener" event="%yepsua.menu.event%" method="%yepsua.menu.method%" />
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
+    </services>
+</container>

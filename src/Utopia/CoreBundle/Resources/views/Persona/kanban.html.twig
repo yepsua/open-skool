@@ -1,0 +1,65 @@
+{% extends "UtopiaThemeBundle::layout.html.twig" %}
+{% block content %}
+  <div class="crud_header">
+    <div>
+      <span class="crud_header_title">{{"kanban.view.title"|trans([],'persona')}}</span>
+    </div>
+    <table class="crud_header_buttonset">
+      <tr>
+        <td>
+            <button type="button" onclick="rcNewPersona()" class="btn btn-danger btn-sm">{{ 'action.new'|trans }}</button>     
+            <div class="crud_header_secondary_buttonset">
+                <a id="btnKanbanPersona" href="{{ path("persona") }}" type="button"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span></a>
+                {% ui_tooltip for="#btnKanbanPersona" label='btn.list.view'|trans %}
+            </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="container-fluid">
+    <div class="row crud-kanban-rows">
+    {% for key, entity in entities %}
+        <div class="col-md-4 crud-kanban-cell" ondblclick="rcEditPersona{{ entity.id }}()">
+          
+          {% ui_panel %}
+                <a class="list-group-item crud-kanban-card">
+                      <table class="record_properties">
+                          <tbody>
+                            <tr>
+                              <td><b>Id:</b></td>
+                              <td>{{ entity.id }}</td>
+                            </tr>
+                            <tr>
+                              <td><b>Nombre:</b></td>
+                              <td>{{ entity.nombre }}</td>
+                            </tr>
+                            <tr>
+                              <td><b>Apellido:</b></td>
+                              <td>{{ entity.apellido }}</td>
+                            </tr>
+                            <tr>
+                              <td><b>Edad:</b></td>
+                              <td>{{ entity.edad }}</td>
+                            </tr>
+                            <tr>
+                              <td><b>Foto:</b></td>
+                              <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.foto} %}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+              </a>
+          {% end_ui_panel %}
+            {% remote_command update="#personaWorkspace" type="GET" 
+                                url=arg(path("persona_edit", { "id": entity.id}) | raw_url_decode)  
+                                name="rcEditPersona" ~ entity.id %}
+
+          </div>
+   {% endfor %}
+    </div>
+  </div>       
+  <div id="personaWorkspace"></div>
+  {% remote_command update="#personaWorkspace" type="GET" url=path("persona_new") 
+                    name="rcNewPersona" %}
+
+  <input type="hidden" value="1" id="hdnKanbanPersona" />
+{% endblock content %}

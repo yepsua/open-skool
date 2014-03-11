@@ -1,0 +1,36 @@
+group:
+    pattern:  /
+    defaults: { _controller: "YepsuaSecurityBundle:Group:index" }
+    
+group_data:
+    pattern:  /data
+    defaults: { _controller: "YepsuaSecurityBundle:Group:data" }
+
+group_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "YepsuaSecurityBundle:Group:show" }
+
+group_new:
+    pattern:  /new
+    defaults: { _controller: "YepsuaSecurityBundle:Group:new" }
+
+group_create:
+    pattern:  /create
+    defaults: { _controller: "YepsuaSecurityBundle:Group:create" }
+    requirements: { _method: post }
+
+group_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "YepsuaSecurityBundle:Group:edit" }
+
+group_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "YepsuaSecurityBundle:Group:update" }
+    requirements: { _method: put|post }
+
+group_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "YepsuaSecurityBundle:Group:delete" }
+    requirements: { _method: delete|post }
+
+    

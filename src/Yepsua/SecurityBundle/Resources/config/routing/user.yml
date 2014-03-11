@@ -1,0 +1,36 @@
+user:
+    pattern:  /
+    defaults: { _controller: "YepsuaSecurityBundle:User:index" }
+    
+user_data:
+    pattern:  /data
+    defaults: { _controller: "YepsuaSecurityBundle:User:data" }
+
+user_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "YepsuaSecurityBundle:User:show" }
+
+user_new:
+    pattern:  /new
+    defaults: { _controller: "YepsuaSecurityBundle:User:new" }
+
+user_create:
+    pattern:  /create
+    defaults: { _controller: "YepsuaSecurityBundle:User:create" }
+    requirements: { _method: post }
+
+user_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "YepsuaSecurityBundle:User:edit" }
+
+user_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "YepsuaSecurityBundle:User:update" }
+    requirements: { _method: put|post }
+
+user_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "YepsuaSecurityBundle:User:delete" }
+    requirements: { _method: delete|post }
+
+    

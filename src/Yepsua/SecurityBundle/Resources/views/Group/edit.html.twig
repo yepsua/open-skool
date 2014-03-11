@@ -1,0 +1,54 @@
+{% set entityLabel = "Group" %}
+{% ui_dialog title="dlg.edit.title"|trans({'%name%': entityLabel }) modal="true" widgetVar="dlgEditGroup"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+   <div style="width:100%">
+   {% ajax_form id="frmEditGroup"
+       update="#groupWorkspace"
+       action=path("group_update", { "id": entity.id })
+       method="PUT"
+       beforeSubmit=js_function("$('.btnSubmitGroup').attr('disabled',true);_dlgEditGroup = dlgEditGroup;")
+       complete=js_function("jqXHR","
+         if(jqXHR.status == 202){
+           _dlgEditGroup.wijdialog('destroy');
+           $(_dlgEditGroup).remove();
+         }
+         if (jqXHR.status == 200){
+           _dlgEditGroup.wijdialog('destroy');
+           $(_dlgEditGroup).remove();
+           $.pnotify('" ~ "msg.edit.success"|trans({'%name%': entityLabel }) ~ "');
+           $('#groupGrid').trigger('reloadGrid');
+         }")
+  %}
+
+    {% form_theme edit_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+
+    {{ form_widget(edit_form) }}
+
+    <br/><br/>
+    <hr class="ui-widget-content">
+
+    {% ui_button class="crud-btn-submit btnSubmitGroup" type="submit" value="action.save"|trans%}
+
+  {% end_ajax_form %}
+
+  {% ajax_form id="frmDeleteGroup"
+       update="#groupWorkspace"
+       action=path("group_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitGroup').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel }) ~ "');
+           dlgEditGroup.wijdialog('destroy');
+           $('#groupGrid').trigger('reloadGrid');
+         }")
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitGroup" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+  </div>
+{% end_ui_dialog %}

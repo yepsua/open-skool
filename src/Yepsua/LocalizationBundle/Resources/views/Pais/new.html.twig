@@ -1,0 +1,41 @@
+{% set entityLabel = "Pais" %}
+{% ui_dialog widgetVar="dlgNewPais" title="dlg.create.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+    <div style="width:100%">
+    {% ajax_form id="frmNewPais"
+       update="#paisWorkspace"
+       action=path("pais_create")
+       method="POST"
+       beforeSubmit=js_function("$('.btnSubmitPais').attr('disabled',true);_dlgNewPais = dlgNewPais;")
+       complete=js_function("jqXHR","
+         if(jqXHR.status == 202){
+           _dlgNewPais.wijdialog('destroy');
+           $(_dlgNewPais).remove();
+         }
+         if (jqXHR.status == 200){
+           if($('#hdnKanbanPais').val()){
+             location.reload();
+           }
+           _dlgNewPais.wijdialog('destroy');
+           $(_dlgNewPais).remove();
+           $.pnotify('" ~ "msg.create.success"|trans({'%name%': entityLabel }) ~ "');
+           $('#paisGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {% form_theme form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+
+    {{ form_widget(form) }}
+
+    <br/><br/>
+    <hr class="ui-widget-content">
+
+    <input checked="checked" id="_loop_create" type="checkbox" name="_loop_create" />
+    <label for="_loop_create">{{"chk.create.and.create.a.new.one"|trans}}</label>
+
+    {% ui_button class="crud-btn-submit btnSubmitPais" type="submit" value="action.create"|trans%}
+
+  {% end_ajax_form %}
+  </div>
+
+{% end_ui_dialog %}

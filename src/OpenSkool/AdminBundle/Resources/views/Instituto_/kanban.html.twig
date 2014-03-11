@@ -1,0 +1,73 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% block content %}
+  <div class="crud_header">
+    <div>
+      <span class="crud_header_title">{{"kanban.view.title"|trans([],'instituto')}}</span>
+    </div>
+    <table class="crud_header_buttonset">
+      <tr>
+        <td>
+            <button type="button" onclick="rcNewInstituto()" class="btn btn-danger btn-sm">{{ 'action.new'|trans }}</button>     
+            <div class="crud_header_secondary_buttonset">
+                <a id="btnKanbanInstituto" href="{{ path("instituto") }}" type="button"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list"></span></a>
+                {% ui_tooltip for="#btnKanbanInstituto" label='btn.list.view'|trans %}
+            </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="container-fluid">
+    <div class="row crud-kanban-rows">
+    {% for key, entity in entities %}
+        <div class="col-md-4 crud-kanban-cell" ondblclick="rcEditInstituto{{ entity.id }}()">
+          
+          {% ui_panel %}
+                <a class="list-group-item crud-kanban-card">
+                      <table class="record_properties">
+                          <tbody>
+                            <tr>
+                              <td><b>Id:</b></td>
+                              <td>{{ entity.id }}</td>
+                            </tr>
+                            <tr>
+                              <td><b>Codigo:</b></td>
+                              <td>{{ entity.codigo }}</td>
+                            </tr>
+                            <tr>
+                              <td><b>Nombre:</b></td>
+                              <td>{{ entity.nombre }}</td>
+                            </tr>
+                            <tr>
+                              <td><b>Descripcion:</b></td>
+                              <td>{{ entity.descripcion }}</td>
+                            </tr>
+                            <tr>
+                              <td><b>Direccion:</b></td>
+                              <td>{{ entity.direccion }}</td>
+                            </tr>
+                            <tr>
+                              <td><b>Acronimo:</b></td>
+                              <td>{{ entity.acronimo }}</td>
+                            </tr>
+                            <tr>
+                              <td><b>Imagen:</b></td>
+                              <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.imagen} %}</td>
+                            </tr>
+                          </tbody>
+                        </table>
+              </a>
+          {% end_ui_panel %}
+            {% remote_command update="#institutoWorkspace" type="GET" 
+                                url=arg(path("instituto_edit", { "id": entity.id}) | raw_url_decode)  
+                                name="rcEditInstituto" ~ entity.id %}
+
+          </div>
+   {% endfor %}
+    </div>
+  </div>       
+  <div id="institutoWorkspace"></div>
+  {% remote_command update="#institutoWorkspace" type="GET" url=path("instituto_new") 
+                    name="rcNewInstituto" %}
+
+  <input type="hidden" value="1" id="hdnKanbanInstituto" />
+{% endblock content %}

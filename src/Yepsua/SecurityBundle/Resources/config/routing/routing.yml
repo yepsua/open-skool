@@ -1,0 +1,11 @@
+YepsuaSecurityBundleUser:
+    resource: "@YepsuaSecurityBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+YepsuaSecurityBundleGroup:
+    resource: "@YepsuaSecurityBundle/Resources/config/routing/group.yml"
+    prefix:   /group
+    
+YepsuaSecurityBundleRole:
+    resource: "@YepsuaSecurityBundle/Resources/config/routing/role.yml"
+    prefix:   /role

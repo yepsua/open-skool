@@ -1,0 +1,14 @@
+{% set _trans_domain = trans_domain is defined ? trans_domain : 'OpenSkoolCoreBundle' %}
+{% block content %}
+    <div class="ui-state-error">{{message|trans([], _trans_domain)}}
+    <br/><br/>
+    {% if resolve_route is defined %}
+        {% if resolve_btn_label is defined %}
+        <a id="btnNoDataFound" href="{{ resolve_route }}" style="color:white" class="btn btn-danger btn-sm">{{ resolve_btn_label|trans([],_trans_domain) }}</a>
+        {% else %}
+        <a id="btnNoDataFound" href="{{ resolve_route }}" style="color:white" class="btn btn-danger btn-sm">{{ 'how.to.resolve' |trans([],_trans_domain) }}</a>
+        {% endif %}
+        </div>
+        {% ui_effect for="#btnNoDataFound" effect="bounce" %}
+    {% endif %}
+{% endblock %}

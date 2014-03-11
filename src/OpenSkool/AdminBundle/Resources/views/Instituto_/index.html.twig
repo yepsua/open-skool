@@ -1,0 +1,65 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% block content %}
+  <div class="crud_header">
+    <div>
+      <span class="crud_header_title">{{"list.view.title"|trans([],'instituto')}}</span>
+    </div>
+    <table class="crud_header_buttonset">
+      <tr>
+        <td>
+            
+          <button type="button" onclick="rcNewInstituto()" class="btn btn-danger btn-sm">{{ 'action.new'|trans }}</button>                               
+          <button id="btnPopUpInstituto"  onclick="popUpInstituto.wijpopup('show')" type="button" class="btn btn-primary btn-sm">{{ 'menu.more'|trans }}<span class="caret"></span></button>
+                
+          {% ui_popup  autoHide=true
+                       widgetVar="popUpInstituto"
+                       position={'of':jQuery("#btnPopUpInstituto"),
+                                 'offset':'0 0'}%}
+
+            {% ui_panel class="dropdown-menu-panel" %}
+              <ul onclick="popUpInstituto.wijpopup('hide')" class="dropdown-menu dropdown-menu-visible" role="menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcEditInstituto()" href="#">{{ 'action.edit'|trans }}</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcShowInstituto()" href="#">{{ 'action.show'|trans }}</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcDeleteInstituto()" href="#">{{ 'action.delete'|trans }}</a></li>
+              </ul>
+            {% end_ui_panel %}
+
+          {% end_ui_popup %}
+          
+          <div class="crud_header_secondary_buttonset">
+            <a id="btnKanbanInstituto" href="{{ path("instituto_kanban") }}" type="button"  class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-large"></span></a>
+            {% ui_tooltip for="#btnKanbanInstituto" label='btn.kanban.view'|trans %}
+          </div>
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+  {{ component_render(grid) }}
+  <div id="institutoWorkspace"></div>
+  
+  {% remote_command update="#institutoWorkspace" type="GET" url=path("instituto_new") 
+                    name="rcNewInstituto" %}
+
+  {% remote_command update="#institutoWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#institutoGrid','" ~ "msg.batch.empty"|trans ~ "')") 
+                    url=arg(path("instituto_edit", { "id": "'+ $('#institutoGrid').jqGrid('getGridParam','selrow')+'"}) | raw_url_decode)  
+                    name="rcEditInstituto" %}
+
+  {% remote_command update="#institutoWorkspace" type="POST"
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#institutoGrid','" ~ "msg.batch.empty"|trans ~ "') && confirm('" ~ "msg.batch.delete.confirmation"|trans ~ "')")
+                    complete=js_function("jqXHR","
+                      if (jqXHR.status == 200){
+                        $.pnotify('" ~ "msg.batch.delete.success"|trans ~ "');
+                        $('#institutoGrid').trigger('reloadGrid')
+                      }")
+                    url=arg(path("instituto_delete", { "id": "'+ $('#institutoGrid').jqGrid('getGridParam','selarrrow')+'"}) | raw_url_decode)  
+                    name="rcDeleteInstituto" %}
+
+  {% remote_command update="#institutoWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#institutoGrid','" ~ "msg.batch.empty"|trans ~ "')")
+                    url=arg(path('instituto_show', { "id": "'+ SmarTwig.grid.selectedRow('#institutoGrid')+'"}) | raw_url_decode)  
+                    name="rcShowInstituto" %}
+                                                                          
+{% endblock content %}

@@ -1,0 +1,38 @@
+{% set entityLabel = "Group" %}
+{% ui_dialog widgetVar="dlgNewGroup" title="dlg.create.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+    <div style="width:100%">
+    {% ajax_form id="frmNewGroup"
+       update="#groupWorkspace"
+       action=path("group_create")
+       method="POST"
+       beforeSubmit=js_function("$('.btnSubmitGroup').attr('disabled',true);_dlgNewGroup = dlgNewGroup;")
+       complete=js_function("jqXHR","
+         if(jqXHR.status == 202){
+           _dlgNewGroup.wijdialog('destroy');
+           $(_dlgNewGroup).remove();
+         }
+         if (jqXHR.status == 200){
+           _dlgNewGroup.wijdialog('destroy');
+           $(_dlgNewGroup).remove();
+           $.pnotify('" ~ "msg.create.success"|trans({'%name%': entityLabel }) ~ "');
+           $('#groupGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {% form_theme form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+
+    {{ form_widget(form) }}
+
+    <br/><br/>
+    <hr class="ui-widget-content">
+
+    <input checked="checked" id="_loop_create" type="checkbox" name="_loop_create" />
+    <label for="_loop_create">{{"chk.create.and.create.a.new.one"|trans}}</label>
+
+    {% ui_button class="crud-btn-submit btnSubmitGroup" type="submit" value="action.create"|trans%}
+
+  {% end_ajax_form %}
+  </div>
+
+{% end_ui_dialog %}

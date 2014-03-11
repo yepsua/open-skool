@@ -1,0 +1,60 @@
+{% set entityLabel = "Instituto" %}
+{% ui_dialog title="dlg.edit.title"|trans({'%name%': entityLabel }) modal="true" widgetVar="dlgEditInstituto"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+   <div style="width:100%">
+   {% ajax_form id="frmEditInstituto"
+       update="#institutoWorkspace"
+       action=path("instituto_update", { "id": entity.id })
+       method="POST"
+       beforeSubmit=js_function("$('.btnSubmitInstituto').attr('disabled',true);_dlgEditInstituto = dlgEditInstituto;")
+       complete=js_function("jqXHR","
+         if(jqXHR.status == 202){
+           _dlgEditInstituto.wijdialog('destroy');
+           $(_dlgEditInstituto).remove();
+         }
+         if (jqXHR.status == 200){
+           if($('#hdnKanbanInstituto').val()){
+             location.reload();
+           }
+           _dlgEditInstituto.wijdialog('destroy');
+           $(_dlgEditInstituto).remove();
+           $.pnotify('" ~ "msg.edit.success"|trans({'%name%': entityLabel }) ~ "');
+           $('#institutoGrid').trigger('reloadGrid');
+         }")
+  %}
+
+    {% form_theme edit_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+
+    {{ form_widget(edit_form) }}
+
+    <br/><br/>
+    <hr class="ui-widget-content">
+
+    {% ui_button class="crud-btn-submit btnSubmitInstituto" type="submit" value="action.save"|trans%}
+
+  {% end_ajax_form %}
+
+  {% ajax_form id="frmDeleteInstituto"
+       update="#institutoWorkspace"
+       action=path("instituto_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitInstituto').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           if($('#hdnKanbanInstituto').val()){
+             location.reload();
+           }
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel }) ~ "');
+           dlgEditInstituto.wijdialog('destroy');
+           $('#institutoGrid').trigger('reloadGrid');
+         }")
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitInstituto" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+  </div>
+{% end_ui_dialog %}
