@@ -1,36 +1,39 @@
 {% extends "YepsuaThemeBundle::main_layout.html.twig" %}
+{% set instituto = app.session.get('instituto') %}
+{% set title = instituto is empty ? 'Open Skool' : instituto.nombre %}
 
 {% block layout_ajax_status %}
 
-<script>
-  $(document).ready(function() {
-    $("body").ajaxComplete(function(event, XMLHttpRequest, ajaxOption){
-      if(XMLHttpRequest.getResponseHeader('x-debug-token') && $('.sf-toolbarreset').is(':visible')) {
-          closeButton =  $('.sf-toolbarreset').find('.hide-button');
-          closeButton.html('<br/>Loading');
-          $.get('{{ asset('app_dev.php') }}/_wdt/'+XMLHttpRequest.getResponseHeader('x-debug-token'),function(data){
-          $('.sf-toolbarreset').remove();
-          $('body').append(data);
-          closeButton.html('');
+    <script>
+      $(document).ready(function() {
+        $("body").ajaxComplete(function(event, XMLHttpRequest, ajaxOption){
+          if(XMLHttpRequest.getResponseHeader('x-debug-token') && $('.sf-toolbarreset').is(':visible')) {
+              closeButton =  $('.sf-toolbarreset').find('.hide-button');
+              closeButton.html('<br/>Loading');
+              $.get('{{ asset('app_dev.php') }}/_wdt/'+XMLHttpRequest.getResponseHeader('x-debug-token'),function(data){
+              $('.sf-toolbarreset').remove();
+              $('body').append(data);
+              closeButton.html('');
+            });
+          }else{
+            if(XMLHttpRequest.status === 500){
+              $('body').html(XMLHttpRequest.responseText);
+            }
+          }
         });
-      }else{
-        if(XMLHttpRequest.status === 500){
-          $('body').html(XMLHttpRequest.responseText);
-        }
-      }
-    });
-  });
-</script>
+      });
+    </script>
 
     {% ajax_status onstart="$.blockUI({'message':'"~ 'msg.please.wait'|trans ~ "'})"
           onsuccess="$.unblockUI()"
           oncomplete="$.unblockUI();$('.crud-btn-submit').removeAttr('disabled');"
           onerror="$.unblockUI()"
           for="document" %}
+
 {% endblock %}   
 
 {% block layout_title  %}
-    {% block title 'Open Skool | Sistema de Control de Estudios' %}
+    {% block title 'app.title'|trans({'%instituto%': title}, 'app') %}
 {% endblock %}
 
 {% block layout_include %}
@@ -55,8 +58,14 @@
     
 {% block layout_left_content %}
     <div align="center">
-        <img class="logo-image" width="100" height="100" src="http://1.bp.blogspot.com/_mDsYfbmJovc/TBBV6c0t74I/AAAAAAAAAGA/vPEC9rFZaaw/s320/LOGO%2BCUC%2Bn.JPG" alt="logo"/>
-        <hr/>
+        {% if instituto is not empty %}
+            {% if instituto.imagen is not empty %}
+                <img class="logo-image" width="100" height="100" src="{{ instituto.imagen.url }}" alt="logo"/>
+            {% endif %}
+            <br/>
+            <span class="layout-label-institute">{{ instituto.nombre }}</span>
+            <hr/>
+        {% endif %}
         {% ui_datepicker inline=true %}
         Lunes 20 de Noviembre de 2014              
         {% block left_content '' %}

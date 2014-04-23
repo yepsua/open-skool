@@ -18,19 +18,22 @@ class CoreMenu extends MenuTree
         // CORE_MENU
         $coreMenu  = $menuManager->getItem('mnu.core');
         
-            $coreMenu->addChild($menuManager->newItem('mnu.institucion',array('route' => 'instituto')));
+            $instutoMenu = $menuManager->getItem('mnu.institucion',array('route' => 'instituto'));
+            $instutoMenu->addChild($menuManager->newItem('mnu.institucion.change', array('route' => 'change_instituto')));
+            $instutoMenu->addChild($menuManager->newItem('mnu.institucion.pensum', array('route' => 'pensum')));
+            
+            $coreMenu->addChild($instutoMenu);
         
             //ADMIN_MENU
             $adminMenu = $menuManager->getItem('mnu.admin', array('icon' => 'glyphicon glyphicon-align-justify'));
-            $adminMenu->addChild($menuManager->newItem('mnu.admin.titulo'));
-            $adminMenu->addChild($menuManager->newItem('mnu.admin.menciones'));
-            $adminMenu->addChild($menuManager->newItem('mnu.admin.carreras'));
-            $adminMenu->addChild($menuManager->newItem('mnu.admin.facultad'));
-            $adminMenu->addChild($menuManager->newItem('mnu.admin.asignaturas'));
-            $adminMenu->addChild($menuManager->newItem('mnu.admin.periodos'));
-            $adminMenu->addChild($menuManager->newItem('mnu.admin.turnos'));
-            $adminMenu->addChild($menuManager->newItem('mnu.admin.secciones'));
-            $adminMenu->addChild($menuManager->newItem('mnu.admin.grupos'));
+            $adminMenu->addChild($menuManager->newItem('mnu.admin.titulo', array('route' => 'titulo')));
+            $adminMenu->addChild($menuManager->newItem('mnu.admin.mencion', array('route' => 'mencion')));
+            $adminMenu->addChild($menuManager->newItem('mnu.admin.carrera', array('route' => 'carrera')));
+            $adminMenu->addChild($menuManager->newItem('mnu.admin.facultad', array('route' => 'facultad')));
+            $adminMenu->addChild($menuManager->newItem('mnu.admin.asignatura', array('route' => 'asignatura')));
+            $adminMenu->addChild($menuManager->newItem('mnu.admin.periodo', array('route' => 'periodo')));
+            $adminMenu->addChild($menuManager->newItem('mnu.admin.turno', array('route' => 'turno')));
+            $adminMenu->addChild($menuManager->newItem('mnu.admin.seccion',array('route' => 'seccion')));
             
 
             $coreMenu->addChild($adminMenu);
@@ -51,7 +54,7 @@ class CoreMenu extends MenuTree
             $coreMenu->addChild($ofertaMenu);
             
             //OFERTA_ACADEMICA_MENU
-            $personasMenu = $menuManager->getItem('mnu.persona', array('icon' => 'glyphicon glyphicon-user'));
+            $personasMenu = $menuManager->getItem('mnu.persona', array('icon' => 'glyphicon glyphicon-user','route' => 'person'));
             $personasMenu->addChild($menuManager->newItem('mnu.persona.users',array('route' => 'user')));
             $personasMenu->addChild($menuManager->newItem('mnu.persona.groups',array('route' => 'group')));
             $personasMenu->addChild($menuManager->newItem('mnu.persona.roles',array('route' => 'role')));
@@ -69,11 +72,17 @@ class CoreMenu extends MenuTree
             $configMenu = $menuManager->getItem('mnu.settings', array('icon' => 'glyphicon glyphicon-cog'));
             $configMenu->addChild($menuManager->newItem('mnu.settings.general'));
                 
+                //LOV_MENU
+                $lovMenu = $menuManager->getItem('mnu.settings.lov');
+                $lovMenu->addChild($menuManager->newItem('mnu.settings.lov.values', array('route' => 'list_of_values')));
+                $lovMenu->addChild($menuManager->newItem('mnu.settings.lov.group', array('route' => 'list_of_values_group')));
+                $configMenu->addChild($lovMenu);
+                
                 //LOCALIZATION_MENU
-                $localizationMenu = $menuManager->getItem('mnu.settings.localization');
-                $localizationMenu->addChild($menuManager->newItem('mnu.settings.localization.country',array('route' => 'pais')));
-                $localizationMenu->addChild($menuManager->newItem('mnu.settings.localization.estate'));
-                $localizationMenu->addChild($menuManager->newItem('mnu.settings.localization.municipios'));
+                $localizationMenu = $menuManager->getItem('mnu.settings.locality');
+                $localizationMenu->addChild($menuManager->newItem('mnu.settings.locality.country',array('route' => 'country')));
+                $localizationMenu->addChild($menuManager->newItem('mnu.settings.locality.locality', array('route' => 'locality')));
+                $localizationMenu->addChild($menuManager->newItem('mnu.settings.locality.city', array('route' => 'city')));
                 $configMenu->addChild($localizationMenu);
                 
             $coreMenu->addChild($configMenu);
@@ -82,7 +91,7 @@ class CoreMenu extends MenuTree
             $profileMenu = $menuManager->getItem('mnu.profile', array('label' => 'Mi Perfil','icon' => 'glyphicon glyphicon-user'));
             
             $profileMenu->setAttribute('style', 'float:right');
-            $profileMenu->addChild($menuManager->newItem('mnu.profile.detail'));
+            $profileMenu->addChild($menuManager->newItem('mnu.profile.detail',array('route' => 'user_detail')));
             $profileMenu->addChild($menuManager->newItem('mnu.profile.settings'));
             $profileMenu->addChild($menuManager->newItem('mnu.profile.bloq'));
             $profileMenu->addChild($menuManager->newItem('mnu.profile.logout',array('route' => 'fos_user_security_logout')));

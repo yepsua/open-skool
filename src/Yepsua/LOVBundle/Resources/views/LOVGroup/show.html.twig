@@ -1,0 +1,50 @@
+{% set tdomain = "YepsuaLOVBundle_LOVGroup" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
+{% ui_dialog widgetVar="dlgShowLOVGroup" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+  <div style="width:100%">
+  <table class="record_properties">
+    <tbody>
+      <tr>
+        <td><b>{{"Id"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.id }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Groupname"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.groupName }}</td>
+      </tr>      
+    </tbody>
+  </table>
+
+  <br/><br/>
+  <hr class="ui-widget-content">
+    
+  {% ui_button class="crud-btn-submit" onclick="rcLOVGroupEditAgain()" value="action.edit"|trans %}
+  {% remote_command update="#lovgroupWorkspace" 
+       beforeSend=js_function("dlgShowLOVGroup.wijdialog('destroy');") 
+       type="GET" 
+       url=path("list_of_values_group_edit", { "id": entity.id }) 
+       name="rcLOVGroupEditAgain" %}
+    
+  {% ajax_form id="frmDeleteLOVGroup"
+       update="#lovgroupWorkspace"
+       action=path("list_of_values_group_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitLovgroup').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel}) ~ "');
+           dlgShowLOVGroup.wijdialog('destroy');
+           $('#lovgroupGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitLovgroup" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+    <div style="width:100%">
+{% end_ui_dialog %}

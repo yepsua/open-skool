@@ -1,0 +1,7 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% set tdomain = "YepsuaLOVBundle_LOV" %}
+
+{% block content %}
+  {% embed "YepsuaLOVBundle:LOVGroup:index_content.html.twig" with {'tdomain' : tdomain} %}
+  {% endembed %}
+{% endblock content %}

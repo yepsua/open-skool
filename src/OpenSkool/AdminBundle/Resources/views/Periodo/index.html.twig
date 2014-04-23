@@ -1,0 +1,74 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% set tdomain = "OpenSkoolAdminBundle_Periodo" %}
+
+{% block content %}
+  <div class="crud_header">
+    <div>
+      <span class="crud_header_title">{{"list.view.title"|trans([],tdomain)}}</span>
+    </div>
+    <table class="crud_header_buttonset">
+      <tr>
+        <td>
+            
+          <button type="button" onclick="rcNewPeriodo()" class="btn btn-danger btn-sm">{{ 'action.new'|trans }}</button>                               
+          <button id="btnPopUpPeriodo"  onclick="popUpPeriodo.wijpopup('show')" type="button" class="btn btn-primary btn-sm">{{ 'menu.more'|trans }}<span class="caret"></span></button>
+                
+          {% ui_popup  autoHide=true
+                       widgetVar="popUpPeriodo"
+                       position={'of':jQuery("#btnPopUpPeriodo"),
+                                 'offset':'0 0'}%}
+
+            {% ui_panel class="dropdown-menu-panel" %}
+              <ul onclick="popUpPeriodo.wijpopup('hide')" class="dropdown-menu dropdown-menu-visible" role="menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcEditPeriodo()" href="#">{{ 'action.edit'|trans }}</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcShowPeriodo()" href="#">{{ 'action.show'|trans }}</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcDeletePeriodo()" href="#">{{ 'action.delete'|trans }}</a></li>
+              </ul>
+            {% end_ui_panel %}
+
+          {% end_ui_popup %}
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+  {{ component_render(grid) }}
+  <div id="periodoWorkspace"></div>
+  
+  {% remote_command update="#periodoWorkspace" type="GET" url=path("periodo_new") 
+                    name="rcNewPeriodo" %}
+
+  {% remote_command update="#periodoWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#periodoGrid','" ~ "msg.batch.empty"|trans ~ "')") 
+                    url=arg(path("periodo_edit", { "id": "'+ $('#periodoGrid').jqGrid('getGridParam','selrow')+'"}) | raw_url_decode)  
+                    name="rcEditPeriodo" %}
+
+  {% remote_command update="#periodoWorkspace" type="POST"
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#periodoGrid','" ~ "msg.batch.empty"|trans ~ "') && confirm('" ~ "msg.batch.delete.confirmation"|trans ~ "')")
+                    complete=js_function("jqXHR","
+                      if (jqXHR.status == 200){
+                        $.pnotify('" ~ "msg.batch.delete.success"|trans ~ "');
+                        $('#periodoGrid').trigger('reloadGrid')
+                      }")
+                    url=arg(path("periodo_delete", { "id": "'+ $('#periodoGrid').jqGrid('getGridParam','selarrrow')+'"}) | raw_url_decode)  
+                    name="rcDeletePeriodo" %}
+
+  {% remote_command update="#periodoWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#periodoGrid','" ~ "msg.batch.empty"|trans ~ "')")
+                    url=arg(path('periodo_show', { "id": "'+ SmarTwig.grid.selectedRow('#periodoGrid')+'"}) | raw_url_decode)  
+                    name="rcShowPeriodo" %}
+                              
+  {% ui_datepicker showButtonPanel=true builtIn='input[id="gs_periodo.fechaInicio"]' builtBy='input[id="gs_periodo.fechaInicio"]' builtByEvent="ready" changeMonth=true changeYear=true %}  
+                  
+  {% ui_datepicker showButtonPanel=true builtIn='input[id="gs_periodo.fechaFin"]' builtBy='input[id="gs_periodo.fechaFin"]' builtByEvent="ready" changeMonth=true changeYear=true %}  
+              
+{% endblock content %}
+  
+{% block breadcrumb %}
+    {% include 'OpenSkoolCoreBundle:Breadcumb:admin.html.twig' 
+        with {
+          'label' : 'mnu.admin.periodo'
+        }
+    %}
+{% endblock %}

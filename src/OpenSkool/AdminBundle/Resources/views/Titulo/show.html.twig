@@ -1,0 +1,62 @@
+{% set tdomain = "OpenSkoolAdminBundle_Titulo" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
+{% ui_dialog widgetVar="dlgShowTitulo" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+  <div style="width:100%">
+  <table class="record_properties">
+    <tbody>
+      <tr>
+        <td><b>{{"Id"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.id }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Codigo"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.codigo }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Nombre"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.nombre }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Descripcion"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.descripcion }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Abreviatura"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.abreviatura }}</td>
+      </tr>      
+    </tbody>
+  </table>
+
+  <br/><br/>
+  <hr class="ui-widget-content">
+    
+  {% ui_button class="crud-btn-submit" onclick="rcTituloEditAgain()" value="action.edit"|trans %}
+  {% remote_command update="#tituloWorkspace" 
+       beforeSend=js_function("dlgShowTitulo.wijdialog('destroy');") 
+       type="GET" 
+       url=path("titulo_edit", { "id": entity.id }) 
+       name="rcTituloEditAgain" %}
+    
+  {% ajax_form id="frmDeleteTitulo"
+       update="#tituloWorkspace"
+       action=path("titulo_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitTitulo').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel}) ~ "');
+           dlgShowTitulo.wijdialog('destroy');
+           $('#tituloGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitTitulo" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+    <div style="width:100%">
+{% end_ui_dialog %}

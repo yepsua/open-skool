@@ -1,0 +1,40 @@
+{% set tdomain = "OpenSkoolAdminBundle_Asignatura" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
+{% ui_dialog widgetVar="dlgNewAsignatura" title="dlg.create.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+    <div style="width:100%">
+    {% ajax_form id="frmNewAsignatura"
+       update="#asignaturaWorkspace"
+       action=path("asignatura_create")
+       method="POST"
+       beforeSubmit=js_function("$('.btnSubmitAsignatura').attr('disabled',true);_dlgNewAsignatura = dlgNewAsignatura;")
+       complete=js_function("jqXHR","
+         if(jqXHR.status == 202){
+           _dlgNewAsignatura.wijdialog('destroy');
+           $(_dlgNewAsignatura).remove();
+         }
+         if (jqXHR.status == 200){
+           _dlgNewAsignatura.wijdialog('destroy');
+           $(_dlgNewAsignatura).remove();
+           $.pnotify('" ~ "msg.create.success"|trans({'%name%': entityLabel }) ~ "');
+           $('#asignaturaGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {% form_theme form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+
+    {{ form_widget(form) }}
+
+    <br/><br/>
+    <hr class="ui-widget-content">
+
+    <input checked="checked" id="_loop_create" type="checkbox" name="_loop_create" />
+    <label for="_loop_create">{{"chk.create.and.create.a.new.one"|trans}}</label>
+
+    {% ui_button class="crud-btn-submit btnSubmitAsignatura" type="submit" value="action.create"|trans%}
+
+  {% end_ajax_form %}
+  </div>
+
+{% end_ui_dialog %}

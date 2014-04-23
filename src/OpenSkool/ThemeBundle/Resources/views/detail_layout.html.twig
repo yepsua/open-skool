@@ -1,0 +1,18 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}    
+{% block layout_content %}
+    {% block before_title '' %}
+    {% block header_title %}
+    <div class="ui-message">
+        <div>
+        <span class="ui-message-title">{% block header_title_label ''%}</span>
+        </div>
+        {% block inner_header_title '' %}
+    </div>
+    {% block after_title '' %}
+    {% endblock %}
+    {% ui_panel id="layout-panel" %}
+        <div style="padding: 10px">
+            {% block content ''%}
+        </div>
+    {% end_ui_panel %}
+{% endblock %}

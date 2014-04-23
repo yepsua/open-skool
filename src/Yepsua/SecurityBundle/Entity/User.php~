@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="security_user")
  */
 class User extends BaseUser
-{
+{    
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
@@ -21,17 +21,9 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
+        $this->setEnabled(true);
     }
     
-    /**
-     * @ORM\ManyToMany(targetEntity="Yepsua\SecurityBundle\Entity\Group")
-     * @ORM\JoinTable(name="security_ser_security_group",
-     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
-     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
-     * )
-     */
-    protected $groups;
-
     /**
      * Get id
      *
@@ -41,6 +33,21 @@ class User extends BaseUser
     {
         return $this->id;
     }
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="Yepsua\SecurityBundle\Entity\Group")
+     * @ORM\JoinTable(name="security_user_security_group",
+     *      joinColumns={@ORM\JoinColumn(name="user_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="group_id", referencedColumnName="id")}
+     * )
+     */
+    protected $groups;
+
+    /**
+     * @ORM\OneToOne(targetEntity="OpenSkool\PeopleBundle\Entity\Person", mappedBy="user")
+     */
+    protected $userDetail;
+
     
     public function getExpiresAt(){
         return $this->expiresAt;

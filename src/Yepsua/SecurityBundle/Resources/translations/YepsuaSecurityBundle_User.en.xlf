@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>User Module</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>User List</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>User Kanban</target>
+            </trans-unit>
+            <trans-unit id="Username">
+                <source>Username</source>
+                <target>Username</target>
+            </trans-unit>
+            <trans-unit id="Usernamecanonical">
+                <source>Usernamecanonical</source>
+                <target>Username canonical</target>
+            </trans-unit>
+            <trans-unit id="Email">
+                <source>Email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="Emailcanonical">
+                <source>Emailcanonical</source>
+                <target>Email canonical</target>
+            </trans-unit>
+            <trans-unit id="Enabled">
+                <source>Enabled</source>
+                <target>Enabled</target>
+            </trans-unit>
+            <trans-unit id="Salt">
+                <source>Salt</source>
+                <target>Salt</target>
+            </trans-unit>
+            <trans-unit id="Password">
+                <source>Password</source>
+                <target>Password</target>
+            </trans-unit>
+            <trans-unit id="RepeatPassword">
+                <source>RepeatPassword</source>
+                <target>Confirm your password</target>
+            </trans-unit>
+            <trans-unit id="Lastlogin">
+                <source>Lastlogin</source>
+                <target>Last login</target>
+            </trans-unit>
+            <trans-unit id="Locked">
+                <source>Locked</source>
+                <target>Locked</target>
+            </trans-unit>
+            <trans-unit id="Expired">
+                <source>Expired</source>
+                <target>Expired</target>
+            </trans-unit>
+            <trans-unit id="Expiresat">
+                <source>ExpiresAt</source>
+                <target>Expires at</target>
+            </trans-unit>
+            <trans-unit id="Confirmationtoken">
+                <source>Confirmationtoken</source>
+                <target>Confirmation token</target>
+            </trans-unit>
+            <trans-unit id="Passwordrequestedat">
+                <source>Passwordrequestedat</source>
+                <target>Password Requested At</target>
+            </trans-unit>
+            <trans-unit id="roles">
+                <source>Roles</source>
+                <target>Roles</target>
+            </trans-unit>
+            <trans-unit id="Credentialsexpired">
+                <source>credentialsExpired</source>
+                <target>Credentials Expired</target>
+            </trans-unit>
+            <trans-unit id="Credentialsexpireat">
+                <source>credentialsExpireAt</source>
+                <target>CredentialsExpireAt</target>
+            </trans-unit>
+            <trans-unit id="Groups">
+                <source>groups</source>
+                <target>Groups</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

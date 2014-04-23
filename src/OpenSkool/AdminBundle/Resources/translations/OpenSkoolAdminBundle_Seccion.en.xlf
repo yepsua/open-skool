@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>Section</target>
+            </trans-unit>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>Section Module</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>Section List</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>Section Kanban</target>
+            </trans-unit>
+            <trans-unit id="Codigo">
+                <source>Codigo</source>
+                <target>Code</target>
+            </trans-unit>
+            <trans-unit id="Descripcion">
+                <source>Descripcion</source>
+                <target>Description</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

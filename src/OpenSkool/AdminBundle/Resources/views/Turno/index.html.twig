@@ -1,0 +1,70 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% set tdomain = "OpenSkoolAdminBundle_Turno" %}
+
+{% block content %}
+  <div class="crud_header">
+    <div>
+      <span class="crud_header_title">{{"list.view.title"|trans([],tdomain)}}</span>
+    </div>
+    <table class="crud_header_buttonset">
+      <tr>
+        <td>
+            
+          <button type="button" onclick="rcNewTurno()" class="btn btn-danger btn-sm">{{ 'action.new'|trans }}</button>                               
+          <button id="btnPopUpTurno"  onclick="popUpTurno.wijpopup('show')" type="button" class="btn btn-primary btn-sm">{{ 'menu.more'|trans }}<span class="caret"></span></button>
+                
+          {% ui_popup  autoHide=true
+                       widgetVar="popUpTurno"
+                       position={'of':jQuery("#btnPopUpTurno"),
+                                 'offset':'0 0'}%}
+
+            {% ui_panel class="dropdown-menu-panel" %}
+              <ul onclick="popUpTurno.wijpopup('hide')" class="dropdown-menu dropdown-menu-visible" role="menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcEditTurno()" href="#">{{ 'action.edit'|trans }}</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcShowTurno()" href="#">{{ 'action.show'|trans }}</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcDeleteTurno()" href="#">{{ 'action.delete'|trans }}</a></li>
+              </ul>
+            {% end_ui_panel %}
+
+          {% end_ui_popup %}
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+  {{ component_render(grid) }}
+  <div id="turnoWorkspace"></div>
+  
+  {% remote_command update="#turnoWorkspace" type="GET" url=path("turno_new") 
+                    name="rcNewTurno" %}
+
+  {% remote_command update="#turnoWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#turnoGrid','" ~ "msg.batch.empty"|trans ~ "')") 
+                    url=arg(path("turno_edit", { "id": "'+ $('#turnoGrid').jqGrid('getGridParam','selrow')+'"}) | raw_url_decode)  
+                    name="rcEditTurno" %}
+
+  {% remote_command update="#turnoWorkspace" type="POST"
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#turnoGrid','" ~ "msg.batch.empty"|trans ~ "') && confirm('" ~ "msg.batch.delete.confirmation"|trans ~ "')")
+                    complete=js_function("jqXHR","
+                      if (jqXHR.status == 200){
+                        $.pnotify('" ~ "msg.batch.delete.success"|trans ~ "');
+                        $('#turnoGrid').trigger('reloadGrid')
+                      }")
+                    url=arg(path("turno_delete", { "id": "'+ $('#turnoGrid').jqGrid('getGridParam','selarrrow')+'"}) | raw_url_decode)  
+                    name="rcDeleteTurno" %}
+
+  {% remote_command update="#turnoWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#turnoGrid','" ~ "msg.batch.empty"|trans ~ "')")
+                    url=arg(path('turno_show', { "id": "'+ SmarTwig.grid.selectedRow('#turnoGrid')+'"}) | raw_url_decode)  
+                    name="rcShowTurno" %}
+                                                  
+{% endblock content %}
+  
+{% block breadcrumb %}
+    {% include 'OpenSkoolCoreBundle:Breadcumb:admin.html.twig' 
+        with {
+          'label' : 'mnu.admin.turno'
+        }
+    %}
+{% endblock %}

@@ -1,0 +1,76 @@
+{% set uTdomain = "YepsuaSecurityBundle_User" %}
+{% set userEntityLabel = "entity.label"|trans([],uTdomain) %}  
+  <div style="width:100%">
+  <table class="record_properties">
+    <tbody>
+      <tr>
+        <td><b>{{"Id"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.id }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Firstname"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.firstName }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Lastname"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.lastName }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Idtype"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.idType }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Idnumber"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.idNumber }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Birthdate"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.birthdate|date('Y-m-d H:i:s') }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"User"|trans([],tdomain)}}:</b></td>
+        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.user} %}</td>
+      </tr>
+    </tbody>
+  </table>
+    
+    {% ui_tabs %}
+        {% ui_tab label="user.detail.address"|trans([],'app') %}
+            {{ component_render(address_grid) }}
+        {% end_ui_tab %} 
+        {% ui_tab label="user.detail.contacts"|trans([],'app') %}
+          Tabla de Contactos
+        {% end_ui_tab %}
+        {% ui_tab label="user.detail"|trans([],'app') %}
+
+          {% ajax_form id="frmEditUser"
+                 update="#userWorkspace"
+                 action=path("user_update", { "id": user.id })
+                 method="PUT"
+                 beforeSubmit=js_function("$('.btnSubmitUser').attr('disabled',true);")
+                 complete=js_function("jqXHR","
+                   if (jqXHR.status == 200){
+                     $.pnotify('" ~ "msg.edit.success"|trans({'%name%': userEntityLabel }) ~ "');
+                     $('.btnSubmitUser').removeAttr('disabled');
+                     $('#frmEditUserContainer').find('.ui-state-error').remove();
+                   }else{
+                     response = $(jqXHR.responseText);
+                     if($(':contains(form)', $('form#frmEditUser') )){
+                        $('#frmEditUserContainer').html($('#frmEditUserContainer', response).html());
+                     }
+                   }")
+            %}
+            <div id="frmEditUserContainer">  
+            {% form_theme user_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+            {{ form_widget(user_form, {'attr': { 'id' : 'test' } }) }}
+                </div>
+            {% ui_button class="crud-btn-submit btnSubmitUser" type="submit" value="action.save"|trans%}
+          
+          {% end_ajax_form %}
+        {% end_ui_tab %}
+    {% end_ui_tabs %}
+
+    {% include 'OpenSkoolPeopleBundle:Address:remote_commands.html.twig' %}
+
+
+    <div style="width:100%">

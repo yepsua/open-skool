@@ -2,9 +2,13 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="OpenSkoolAdminBundle_Instituto.en.xlf">
         <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>Insituto</target>
+            </trans-unit>
             <trans-unit id="list.view.title">
                 <source>list.view.title</source>
-                <target>Modulo de Insitutos</target>
+                <target>Módulo de Insitutos</target>
             </trans-unit>
             <trans-unit id="list.view.grid.title">
                 <source>list.view.grid.title</source>
@@ -12,7 +16,31 @@
             </trans-unit>
             <trans-unit id="kanban.view.title">
                 <source>kanban.view.title</source>
-                <target>Modulo de Insitutos</target>
+                <target>Módulo de Insitutos</target>
+            </trans-unit>
+            <trans-unit id="Codigo">
+                <source>Codigo</source>
+                <target>Código</target>
+            </trans-unit>
+            <trans-unit id="Nombre">
+                <source>Nombre</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="Descripcion">
+                <source>Descripcion</source>
+                <target>Descripción</target>
+            </trans-unit>
+            <trans-unit id="Direccion">
+                <source>Direccion</source>
+                <target>Dirección</target>
+            </trans-unit>
+            <trans-unit id="Acronimo">
+                <source>Acronimo</source>
+                <target>Acrónimo</target>
+            </trans-unit>
+            <trans-unit id="Imagen">
+                <source>Imagen</source>
+                <target>Logo</target>
             </trans-unit>
         </body>
     </file>

@@ -4,7 +4,6 @@ namespace Yepsua\SecurityBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -12,7 +11,7 @@ use Yepsua\SecurityBundle\Entity\User;
 use Yepsua\SecurityBundle\Form\UserType;
 use Yepsua\SecurityBundle\Form\UserRequiredType;
 
-
+use Yepsua\RADBundle\Controller\Controller;
 use Yepsua\GeneratorBundle\UI\Grid;
 use Yepsua\CommonsBundle\Persistence\Dao;
 use Yepsua\CommonsBundle\IO\ObjectUtil;
@@ -42,7 +41,7 @@ class UserController extends Controller
     {
         $grid = new Grid('user','list.view.grid.title');
         $grid->setUrl($this->generateUrl('user_data'));
-        $grid->setTranslator($this->get('translator'), 'SecurityBundleUser');
+        $grid->setTranslator($this->get('translator'), 'YepsuaSecurityBundle_User');
         $grid->createView();
         $grid->setEntityManager($this->getDoctrine()->getManager());
         
@@ -213,7 +212,7 @@ class UserController extends Controller
             $entity = $em->getRepository('YepsuaSecurityBundle:User')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find User entity.');
+                throw $this->createNotFoundException('msg.unable.to.find.entity');
             }
 
             $deleteForm = $this->createDeleteForm($id);
@@ -243,7 +242,7 @@ class UserController extends Controller
             $entity = $em->getRepository('YepsuaSecurityBundle:User')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find User entity.');
+                throw $this->createNotFoundException('msg.unable.to.find.entity');
             }
 
             $editForm = $this->createForm(new UserType(), $entity);
@@ -277,7 +276,7 @@ class UserController extends Controller
             $password = $entity->getPassword();
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find User entity.');
+                throw $this->createNotFoundException('msg.unable.to.find.entity');
             }
 
             $deleteForm = $this->createDeleteForm($id);
@@ -334,7 +333,7 @@ class UserController extends Controller
 
                 foreach ($entities as $entity){
                   if (!$entity) {
-                    throw $this->createNotFoundException('Unable to find User entity.');
+                    throw $this->createNotFoundException('msg.unable.to.find.entity');
                   }
                   $em->remove($entity);
                   $em->flush();
@@ -345,20 +344,5 @@ class UserController extends Controller
           $this->get('logger')->crit($e->getMessage());
           return new Response(Notification::error($e->getMessage()), 203);
         }
-    }
-
-    /**
-     * Creates a form to delete a User entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id, array $options = array())
-    {
-        return $this->createFormBuilder(array('id' => $id), $options)
-            ->add('id', 'hidden')
-            ->getForm()
-        ;
     }
 }

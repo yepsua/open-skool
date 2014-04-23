@@ -1,0 +1,10 @@
+{% extends "OpenSkoolThemeBundle::detail_layout.html.twig" %}
+{% set tdomain = "OpenSkoolPeopleBundle_Person" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
+{% block header_title_label "user.detail.title"|trans([],'app') %}
+ 
+{% block content %}
+  {% embed "OpenSkoolPeopleBundle:Person:show_content.html.twig" with {'tdomain' : tdomain, 'user' : entity.user} %}
+  {% endembed %}
+{% endblock content %}

@@ -1,0 +1,7 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% set tdomain = "YepsuaLocalityBundle_Country" %}
+
+{% block content %}
+  {% embed "YepsuaLocalityBundle:Country:index_content.html.twig" with {'tdomain' : tdomain} %}
+  {% endembed %}
+{% endblock content %}

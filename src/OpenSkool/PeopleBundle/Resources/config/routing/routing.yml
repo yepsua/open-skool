@@ -1,0 +1,4 @@
+OpenSkoolPeopleBundle:
+    resource: "@OpenSkoolPeopleBundle/Controller/"
+    type:     annotation
+    prefix:   admin

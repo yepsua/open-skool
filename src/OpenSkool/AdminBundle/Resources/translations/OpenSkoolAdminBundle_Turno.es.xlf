@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="OpenSkoolAdminBundle_Turno.en.xlf">
+        <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>Turno</target>
+            </trans-unit>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>Módulo de Turnos</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>Lista de Turnos</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>Módulo de Turnos</target>
+            </trans-unit>
+            <trans-unit id="Codigo">
+                <source>Codigo</source>
+                <target>Código</target>
+            </trans-unit>
+            <trans-unit id="Nombre">
+                <source>Nombre</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="Descripcion">
+                <source>Descripcion</source>
+                <target>Descripción</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,5 +1,6 @@
-{% set entityLabel = "User" %}
-{% set tdomain = "user" %}
+{% set tdomain = "YepsuaSecurityBundle_User" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
 {% ui_dialog widgetVar="dlgShowUser" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
   <div style="width:100%">

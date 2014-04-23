@@ -1,4 +1,6 @@
-{% set entityLabel = "Role" %}
+{% set tdomain = "YepsuaSecurityBundle_Role" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
 {% ui_dialog title="dlg.edit.title"|trans({'%name%': entityLabel }) modal="true" widgetVar="dlgEditRole"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
    <div style="width:100%">

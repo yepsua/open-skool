@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="OpenSkoolAdminBundle_Carrera.en.xlf">
+        <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>Asignatura</target>
+            </trans-unit>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>Módulo de Asignaturas</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>Lista de Asignaturas</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>Módulo de Asignaturas</target>
+            </trans-unit>
+            <trans-unit id="Codigo">
+                <source>Codigo</source>
+                <target>Código</target>
+            </trans-unit>
+            <trans-unit id="Titulo">
+                <source>Nombre</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="Mencion">
+                <source>Asignaturapadre</source>
+                <target>Asignatura Padre</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,4 @@
+YepsuaLOVBundle:
+    resource: "@YepsuaLOVBundle/Controller/"
+    type:     annotation
+    prefix:   /

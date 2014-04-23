@@ -1,15 +1,17 @@
-{% set entityLabel = "Role" %}
+{% set tdomain = "YepsuaSecurityBundle_Role" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
 {% ui_dialog widgetVar="dlgShowRole" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
   <div style="width:100%">
   <table class="record_properties">
     <tbody>
       <tr>
-        <td><b>{{"Id"|trans([],'role')}}:</b></td>
+        <td><b>{{"Id"|trans([],tdomain)}}:</b></td>
         <td>{{ entity.id }}</td>
       </tr>
       <tr>
-        <td><b>{{"Name"|trans([],'role')}}:</b></td>
+        <td><b>{{"Name"|trans([],tdomain)}}:</b></td>
         <td>{{ entity.name }}</td>
       </tr>      
     </tbody>

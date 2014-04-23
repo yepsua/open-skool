@@ -1,0 +1,58 @@
+{% set tdomain = "YepsuaLocalityBundle_Country" %}
+{% set entityLabel = "entity.label"|trans([], tdomain ) %}
+
+{% ui_dialog widgetVar="dlgShowCountry" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+  <div style="width:100%">
+  <table class="record_properties">
+    <tbody>
+      <tr>
+        <td><b>{{"Name"|trans([], tdomain)}}:</b></td>
+        <td>{{ entity.name }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Code"|trans([], tdomain)}}:</b></td>
+        <td>{{ entity.code }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Id"|trans([], tdomain)}}:</b></td>
+        <td>{{ entity.id }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Localities"|trans([], tdomain)}}:</b></td>
+        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.localities} %}</td>
+      </tr>      
+    </tbody>
+  </table>
+
+  <br/><br/>
+  <hr class="ui-widget-content">
+    
+  {% ui_button class="crud-btn-submit" onclick="rcCountryEditAgain()" value="action.edit"|trans %}
+  {% remote_command update="#countryWorkspace" 
+       beforeSend=js_function("dlgShowCountry.wijdialog('destroy');") 
+       type="GET" 
+       url=path("country_edit", { "id": entity.id }) 
+       name="rcCountryEditAgain" %}
+    
+  {% ajax_form id="frmDeleteCountry"
+       update="#countryWorkspace"
+       action=path("country_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitCountry').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel}) ~ "');
+           dlgShowCountry.wijdialog('destroy');
+           $('#countryGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitCountry" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+    </div>
+{% end_ui_dialog %}

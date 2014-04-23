@@ -1,0 +1,40 @@
+{% set tdomain = "YepsuaLocalityBundle_City" %}
+{% set entityLabel = "entity.label"|trans([], tdomain ) %}
+
+{% ui_dialog widgetVar="dlgNewCity" title="dlg.create.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+    <div style="width:100%">
+    {% ajax_form id="frmNewCity"
+       update="#cityWorkspace"
+       action=path("city_create")
+       method="POST"
+       beforeSubmit=js_function("$('.btnSubmitCity').attr('disabled',true);_dlgNewCity = dlgNewCity;")
+       complete=js_function("jqXHR","
+         if(jqXHR.status == 202){
+           _dlgNewCity.wijdialog('destroy');
+           $(_dlgNewCity).remove();
+         }
+         if (jqXHR.status == 200){
+           _dlgNewCity.wijdialog('destroy');
+           $(_dlgNewCity).remove();
+           $.pnotify('" ~ "msg.create.success"|trans({'%name%': entityLabel }) ~ "');
+           $('#cityGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {% form_theme form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+
+    {{ form_widget(form) }}
+
+    <br/><br/>
+    <hr class="ui-widget-content">
+
+    <input checked="checked" id="_loop_create" type="checkbox" name="_loop_create" />
+    <label for="_loop_create">{{"chk.create.and.create.a.new.one"|trans}}</label>
+
+    {% ui_button class="crud-btn-submit btnSubmitCity" type="submit" value="action.create"|trans%}
+
+  {% end_ajax_form %}
+  </div>
+
+{% end_ui_dialog %}

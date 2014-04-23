@@ -2,9 +2,49 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="menu_builder.en.xlf">
         <body>
+            <trans-unit id="mnu.institucion">
+                <source>mnu.institucion</source>
+                <target>Instituciones</target>
+            </trans-unit>
+            <trans-unit id="mnu.admin">
+                <source>mnu.admin</source>
+                <target>Administración</target>
+            </trans-unit>
+                <trans-unit id="mnu.admin.titulo">
+                    <source>mnu.admin.titulo</source>
+                    <target>Títulos</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.mencion">
+                    <source>mnu.admin.mencion</source>
+                    <target>Menciones</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.carrera">
+                    <source>mnu.admin.carrera</source>
+                    <target>Carreras</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.facultad">
+                    <source>mnu.admin.facultad</source>
+                    <target>Facultad</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.asignatura">
+                    <source>mnu.admin.asignatura</source>
+                    <target>Asignaturas</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.periodo">
+                    <source>mnu.admin.periodo</source>
+                    <target>Periodos</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.turno">
+                    <source>mnu.admin.turno</source>
+                    <target>Turnos</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.seccion">
+                    <source>mnu.admin.seccion</source>
+                    <target>Secciones</target>
+                </trans-unit>
             <trans-unit id="mnu.persona">
                 <source>mnu.persona</source>
-                <target>Persona</target>
+                <target>Personas</target>
             </trans-unit>
                 <trans-unit id="mnu.persona.users">
                     <source>mnu.persona.users</source>
@@ -18,6 +58,38 @@
                     <source>mnu.persona.roles</source>
                     <target>Roles</target>
                 </trans-unit>
+            <trans-unit id="mnu.settings">
+                <source>mnu.settings</source>
+                <target>Configuración</target>
+            </trans-unit>
+                <trans-unit id="mnu.settings.lov">
+                    <source>mnu.settings.lov</source>
+                    <target>Listas de Valores</target>
+                </trans-unit>
+                    <trans-unit id="mnu.settings.lov.values">
+                        <source>mnu.settings.lov.values</source>
+                        <target>Valores</target>
+                    </trans-unit>
+                    <trans-unit id="mnu.settings.lov.group">
+                        <source>mnu.settings.lov.group</source>
+                        <target>Grupos</target>
+                    </trans-unit>
+                <trans-unit id="mnu.settings.locality">
+                    <source>mnu.settings.locality</source>
+                    <target>Localidades</target>
+                </trans-unit>
+                    <trans-unit id="mnu.settings.locality.country">
+                        <source>mnu.settings.locality.country</source>
+                        <target>Países</target>
+                    </trans-unit>
+                    <trans-unit id="mnu.settings.locality.locality">
+                        <source>mnu.settings.locality.locality</source>
+                        <target>Estados</target>
+                    </trans-unit>
+                    <trans-unit id="mnu.settings.locality.city">
+                        <source>mnu.settings.locality.city</source>
+                        <target>Ciudades</target>
+                    </trans-unit>
         </body>
     </file>
 </xliff>

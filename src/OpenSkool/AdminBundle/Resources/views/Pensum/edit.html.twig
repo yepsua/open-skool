@@ -1,0 +1,56 @@
+{% set tdomain = "OpenSkoolAdminBundle_Pensum" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
+{% ui_dialog title="dlg.edit.title"|trans({'%name%': entityLabel }) modal="true" widgetVar="dlgEditPensum"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+   <div style="width:100%">
+   {% ajax_form id="frmEditPensum"
+       update="#pensumWorkspace"
+       action=path("pensum_update", { "id": entity.id })
+       method="PUT"
+       beforeSubmit=js_function("$('.btnSubmitPensum').attr('disabled',true);_dlgEditPensum = dlgEditPensum;")
+       complete=js_function("jqXHR","
+         if(jqXHR.status == 202){
+           _dlgEditPensum.wijdialog('destroy');
+           $(_dlgEditPensum).remove();
+         }
+         if (jqXHR.status == 200){
+           _dlgEditPensum.wijdialog('destroy');
+           $(_dlgEditPensum).remove();
+           $.pnotify('" ~ "msg.edit.success"|trans({'%name%': entityLabel }) ~ "');
+           $('#pensumGrid').trigger('reloadGrid');
+         }")
+  %}
+
+    {% form_theme edit_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+
+    {{ form_widget(edit_form) }}
+
+    <br/><br/>
+    <hr class="ui-widget-content">
+
+    {% ui_button class="crud-btn-submit btnSubmitPensum" type="submit" value="action.save"|trans%}
+
+  {% end_ajax_form %}
+
+  {% ajax_form id="frmDeletePensum"
+       update="#pensumWorkspace"
+       action=path("pensum_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitPensum').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel }) ~ "');
+           dlgEditPensum.wijdialog('destroy');
+           $('#pensumGrid').trigger('reloadGrid');
+         }")
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitPensum" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+  </div>
+{% end_ui_dialog %}

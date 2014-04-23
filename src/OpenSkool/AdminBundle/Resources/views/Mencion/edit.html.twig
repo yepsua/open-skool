@@ -1,0 +1,56 @@
+{% set tdomain = "OpenSkoolAdminBundle_Mencion" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
+{% ui_dialog title="dlg.edit.title"|trans({'%name%': entityLabel }) modal="true" widgetVar="dlgEditMencion"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+   <div style="width:100%">
+   {% ajax_form id="frmEditMencion"
+       update="#mencionWorkspace"
+       action=path("mencion_update", { "id": entity.id })
+       method="PUT"
+       beforeSubmit=js_function("$('.btnSubmitMencion').attr('disabled',true);_dlgEditMencion = dlgEditMencion;")
+       complete=js_function("jqXHR","
+         if(jqXHR.status == 202){
+           _dlgEditMencion.wijdialog('destroy');
+           $(_dlgEditMencion).remove();
+         }
+         if (jqXHR.status == 200){
+           _dlgEditMencion.wijdialog('destroy');
+           $(_dlgEditMencion).remove();
+           $.pnotify('" ~ "msg.edit.success"|trans({'%name%': entityLabel }) ~ "');
+           $('#mencionGrid').trigger('reloadGrid');
+         }")
+  %}
+
+    {% form_theme edit_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+
+    {{ form_widget(edit_form) }}
+
+    <br/><br/>
+    <hr class="ui-widget-content">
+
+    {% ui_button class="crud-btn-submit btnSubmitMencion" type="submit" value="action.save"|trans%}
+
+  {% end_ajax_form %}
+
+  {% ajax_form id="frmDeleteMencion"
+       update="#mencionWorkspace"
+       action=path("mencion_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitMencion').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel }) ~ "');
+           dlgEditMencion.wijdialog('destroy');
+           $('#mencionGrid').trigger('reloadGrid');
+         }")
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitMencion" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+  </div>
+{% end_ui_dialog %}

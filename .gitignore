@@ -9,3 +9,5 @@
 /build/
 /vendor/
 /bin/
+/composer.phar
+*.php~

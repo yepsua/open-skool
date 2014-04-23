@@ -2,6 +2,10 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>Insitute</target>
+            </trans-unit>
             <trans-unit id="list.view.title">
                 <source>list.view.title</source>
                 <target>Insitute Module</target>
@@ -16,19 +20,19 @@
             </trans-unit>
             <trans-unit id="Codigo">
                 <source>Codigo</source>
-                <target>Código</target>
+                <target>Code</target>
             </trans-unit>
             <trans-unit id="Nombre">
                 <source>Nombre</source>
-                <target>Nombre del Instituto</target>
+                <target>Name</target>
             </trans-unit>
             <trans-unit id="Descripcion">
                 <source>Descripcion</source>
-                <target>Descripción</target>
+                <target>Description</target>
             </trans-unit>
             <trans-unit id="Direccion">
                 <source>Direccion</source>
-                <target>Dirección</target>
+                <target>Direction</target>
             </trans-unit>
             <trans-unit id="Acronimo">
                 <source>Acronimo</source>
@@ -36,7 +40,7 @@
             </trans-unit>
             <trans-unit id="Imagen">
                 <source>Imagen</source>
-                <target>Logotipo</target>
+                <target>Logo</target>
             </trans-unit>
         </body>
     </file>

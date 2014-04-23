@@ -1,8 +1,10 @@
 {% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% set tdomain = "OpenSkoolAdminBundle_Instituto" %}
+
 {% block content %}
   <div class="crud_header">
     <div>
-      <span class="crud_header_title">{{"list.view.title"|trans([],'OpenSkoolAdminBundle_Instituto')}}</span>
+      <span class="crud_header_title">{{"list.view.title"|trans([], tdomain)}}</span>
     </div>
     <table class="crud_header_buttonset">
       <tr>

@@ -1,0 +1,58 @@
+{% set tdomain = "OpenSkoolAdminBundle_Periodo" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
+{% ui_dialog widgetVar="dlgShowPeriodo" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+  <div style="width:100%">
+  <table class="record_properties">
+    <tbody>
+      <tr>
+        <td><b>{{"Id"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.id }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Codigo"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.codigo }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Fechainicio"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.fechaInicio|date('Y-m-d H:i:s') }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Fechafin"|trans([],tdomain)}}:</b></td>
+        <td>{{ entity.fechaFin|date('Y-m-d H:i:s') }}</td>
+      </tr>      
+    </tbody>
+  </table>
+
+  <br/><br/>
+  <hr class="ui-widget-content">
+    
+  {% ui_button class="crud-btn-submit" onclick="rcPeriodoEditAgain()" value="action.edit"|trans %}
+  {% remote_command update="#periodoWorkspace" 
+       beforeSend=js_function("dlgShowPeriodo.wijdialog('destroy');") 
+       type="GET" 
+       url=path("periodo_edit", { "id": entity.id }) 
+       name="rcPeriodoEditAgain" %}
+    
+  {% ajax_form id="frmDeletePeriodo"
+       update="#periodoWorkspace"
+       action=path("periodo_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitPeriodo').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel}) ~ "');
+           dlgShowPeriodo.wijdialog('destroy');
+           $('#periodoGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitPeriodo" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+    <div style="width:100%">
+{% end_ui_dialog %}

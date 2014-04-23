@@ -1,4 +1,6 @@
-{% set entityLabel = "Group" %}
+{% set tdomain = "YepsuaSecurityBundle_Group" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
 {% ui_dialog widgetVar="dlgNewGroup" title="dlg.create.title"|trans({'%name%': entityLabel}) modal="true"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
     <div style="width:100%">

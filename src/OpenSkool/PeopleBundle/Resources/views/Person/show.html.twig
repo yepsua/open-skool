@@ -1,0 +1,40 @@
+{% set tdomain = "OpenSkoolPeopleBundle_Person" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
+{% ui_dialog width="800" widgetVar="dlgShowPerson" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+
+  {% embed "OpenSkoolPeopleBundle:Person:show_content.html.twig" with {'tdomain' : tdomain, 'user' : entity.user} %}
+  {% endembed %}
+
+  <br/><br/>
+  <hr class="ui-widget-content">
+    
+  {% ui_button class="crud-btn-submit" onclick="rcPersonEditAgain()" value="action.edit"|trans %}
+  {% remote_command update="#personWorkspace" 
+       beforeSend=js_function("dlgShowPerson.wijdialog('destroy');") 
+       type="GET" 
+       url=path("person_edit", { "id": entity.id }) 
+       name="rcPersonEditAgain" %}
+    
+  {% ajax_form id="frmDeletePerson"
+       update="#personWorkspace"
+       action=path("person_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitPerson').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel}) ~ "');
+           dlgShowPerson.wijdialog('destroy');
+           $('#personGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitPerson" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+
+{% end_ui_dialog %}

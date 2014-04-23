@@ -1,0 +1,70 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% set tdomain = "OpenSkoolAdminBundle_Mencion" %}
+
+{% block content %}
+  <div class="crud_header">
+    <div>
+      <span class="crud_header_title">{{"list.view.title"|trans([],tdomain)}}</span>
+    </div>
+    <table class="crud_header_buttonset">
+      <tr>
+        <td>
+            
+          <button type="button" onclick="rcNewMencion()" class="btn btn-danger btn-sm">{{ 'action.new'|trans }}</button>                               
+          <button id="btnPopUpMencion"  onclick="popUpMencion.wijpopup('show')" type="button" class="btn btn-primary btn-sm">{{ 'menu.more'|trans }}<span class="caret"></span></button>
+                
+          {% ui_popup  autoHide=true
+                       widgetVar="popUpMencion"
+                       position={'of':jQuery("#btnPopUpMencion"),
+                                 'offset':'0 0'}%}
+
+            {% ui_panel class="dropdown-menu-panel" %}
+              <ul onclick="popUpMencion.wijpopup('hide')" class="dropdown-menu dropdown-menu-visible" role="menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcEditMencion()" href="#">{{ 'action.edit'|trans }}</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcShowMencion()" href="#">{{ 'action.show'|trans }}</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcDeleteMencion()" href="#">{{ 'action.delete'|trans }}</a></li>
+              </ul>
+            {% end_ui_panel %}
+
+          {% end_ui_popup %}
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+  {{ component_render(grid) }}
+  <div id="mencionWorkspace"></div>
+  
+  {% remote_command update="#mencionWorkspace" type="GET" url=path("mencion_new") 
+                    name="rcNewMencion" %}
+
+  {% remote_command update="#mencionWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#mencionGrid','" ~ "msg.batch.empty"|trans ~ "')") 
+                    url=arg(path("mencion_edit", { "id": "'+ $('#mencionGrid').jqGrid('getGridParam','selrow')+'"}) | raw_url_decode)  
+                    name="rcEditMencion" %}
+
+  {% remote_command update="#mencionWorkspace" type="POST"
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#mencionGrid','" ~ "msg.batch.empty"|trans ~ "') && confirm('" ~ "msg.batch.delete.confirmation"|trans ~ "')")
+                    complete=js_function("jqXHR","
+                      if (jqXHR.status == 200){
+                        $.pnotify('" ~ "msg.batch.delete.success"|trans ~ "');
+                        $('#mencionGrid').trigger('reloadGrid')
+                      }")
+                    url=arg(path("mencion_delete", { "id": "'+ $('#mencionGrid').jqGrid('getGridParam','selarrrow')+'"}) | raw_url_decode)  
+                    name="rcDeleteMencion" %}
+
+  {% remote_command update="#mencionWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#mencionGrid','" ~ "msg.batch.empty"|trans ~ "')")
+                    url=arg(path('mencion_show', { "id": "'+ SmarTwig.grid.selectedRow('#mencionGrid')+'"}) | raw_url_decode)  
+                    name="rcShowMencion" %}
+                                                              
+{% endblock content %}
+  
+{% block breadcrumb %}
+    {% include 'OpenSkoolCoreBundle:Breadcumb:admin.html.twig' 
+        with {
+          'label' : 'mnu.admin.mencion'
+        }
+    %}
+{% endblock %}

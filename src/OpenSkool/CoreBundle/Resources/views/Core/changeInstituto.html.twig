@@ -1,0 +1,41 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% set instituto_seleccionado = app.session.get('instituto') %}
+
+{% block content %}
+    {% include 'OpenSkoolThemeBundle::message.html.twig'
+       with {
+         'message': 'no.selected.institute.msg'
+       }
+    %}
+
+    {% for key, instituto in institutos %}
+        <div class="col-md-2 crud-kanban-cell">
+            {% ui_panel %}
+                  {% if instituto_seleccionado is not empty and instituto_seleccionado.id == instituto.id %}
+                  <a href="#" class="list-group-item crud-kanban-card">
+                  {% else %}
+                  <a href="{{ path('changed_instituto', {'id': instituto.id}) }}" class="list-group-item crud-kanban-card">        
+                  {% endif %}        
+                      <table class="record_properties">
+                          <tbody>
+                            <tr>
+                              <td align="center">
+                                {% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : instituto.imagen} %}
+                                {{ instituto.nombre }}
+                              </td>
+                            </tr>
+                          </tbody>
+                       </table>
+                  </a>
+            {% end_ui_panel %}
+        </div>
+   {% endfor %}
+{% endblock %}
+
+{% block breadcrumb %}
+    {% include 'OpenSkoolCoreBundle:Breadcumb:instituto.html.twig' 
+        with {
+          'label' : ' mnu.institucion.change'
+        }
+    %}
+{% endblock %}

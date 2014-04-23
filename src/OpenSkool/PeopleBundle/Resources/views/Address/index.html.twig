@@ -1,0 +1,40 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% set tdomain = "OpenSkoolPeopleBundle_Address" %}
+
+{% block content %}
+  <div class="crud_header">
+    <div>
+      <span class="crud_header_title">{{"list.view.title"|trans([],tdomain)}}</span>
+    </div>
+    <table class="crud_header_buttonset">
+      <tr>
+        <td>
+            
+          <button type="button" onclick="rcNewAddress()" class="btn btn-danger btn-sm">{{ 'action.new'|trans }}</button>                               
+          <button id="btnPopUpAddress"  onclick="popUpAddress.wijpopup('show')" type="button" class="btn btn-primary btn-sm">{{ 'menu.more'|trans }}<span class="caret"></span></button>
+                
+          {% ui_popup  autoHide=true
+                       widgetVar="popUpAddress"
+                       position={'of':jQuery("#btnPopUpAddress"),
+                                 'offset':'0 0'}%}
+
+            {% ui_panel class="dropdown-menu-panel" %}
+              <ul onclick="popUpAddress.wijpopup('hide')" class="dropdown-menu dropdown-menu-visible" role="menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcEditAddress()" href="#">{{ 'action.edit'|trans }}</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcShowAddress()" href="#">{{ 'action.show'|trans }}</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcDeleteAddress()" href="#">{{ 'action.delete'|trans }}</a></li>
+              </ul>
+            {% end_ui_panel %}
+
+          {% end_ui_popup %}
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+  {{ component_render(grid) }}
+
+  {% include 'OpenSkoolPeopleBundle:Address:remote_commands.html.twig' %}    
+                                                  
+{% endblock content %}

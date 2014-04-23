@@ -4,13 +4,13 @@ namespace Yepsua\SecurityBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Yepsua\SecurityBundle\Entity\Group;
 use Yepsua\SecurityBundle\Form\GroupType;
 
+use Yepsua\RADBundle\Controller\Controller;
 use Yepsua\GeneratorBundle\UI\Grid;
 use Yepsua\CommonsBundle\Persistence\Dao;
 use Yepsua\CommonsBundle\IO\ObjectUtil;
@@ -40,7 +40,7 @@ class GroupController extends Controller
     {
         $grid = new Grid('group','list.view.grid.title');
         $grid->setUrl($this->generateUrl('group_data'));
-        $grid->setTranslator($this->get('translator'));
+        $grid->setTranslator($this->get('translator'), 'YepsuaSecurityBundle_Group');
         $grid->createView();
         $grid->setEntityManager($this->getDoctrine()->getManager());
         
@@ -194,7 +194,7 @@ class GroupController extends Controller
             $entity = $em->getRepository('YepsuaSecurityBundle:Group')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Group entity.');
+                throw $this->createNotFoundException('msg.unable.to.find.entity');
             }
 
             $deleteForm = $this->createDeleteForm($id);
@@ -224,7 +224,7 @@ class GroupController extends Controller
             $entity = $em->getRepository('YepsuaSecurityBundle:Group')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Group entity.');
+                throw $this->createNotFoundException('msg.unable.to.find.entity');
             }
 
             $editForm = $this->createForm(new GroupType(), $entity);
@@ -255,7 +255,7 @@ class GroupController extends Controller
             $entity = $em->getRepository('YepsuaSecurityBundle:Group')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Group entity.');
+                throw $this->createNotFoundException('msg.unable.to.find.entity');
             }
 
             $deleteForm = $this->createDeleteForm($id);
@@ -308,7 +308,7 @@ class GroupController extends Controller
 
                 foreach ($entities as $entity){
                   if (!$entity) {
-                    throw $this->createNotFoundException('Unable to find Group entity.');
+                    throw $this->createNotFoundException('msg.unable.to.find.entity');
                   }
                   $em->remove($entity);
                   $em->flush();
@@ -319,20 +319,5 @@ class GroupController extends Controller
           $this->get('logger')->crit($e->getMessage());
           return new Response(Notification::error($e->getMessage()), 203);
         }
-    }
-
-    /**
-     * Creates a form to delete a Group entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id, array $options = array())
-    {
-        return $this->createFormBuilder(array('id' => $id), $options)
-            ->add('id', 'hidden')
-            ->getForm()
-        ;
     }
 }

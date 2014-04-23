@@ -1,0 +1,7 @@
+{% extends "YepsuaGeneratorBundle::layout.html.twig" %}
+{% set tdomain = "YepsuaLocalityBundle_City" %}
+
+{% block content %}
+  {% embed "YepsuaLocalityBundle:City:index_content.html.twig" with {'tdomain' : tdomain} %}
+  {% endembed %}
+{% endblock content %}

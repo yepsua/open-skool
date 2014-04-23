@@ -1,0 +1,69 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% set tdomain = "OpenSkoolAdminBundle_Asignatura" %}
+{% block content %}
+  <div class="crud_header">
+    <div>
+      <span class="crud_header_title">{{"list.view.title"|trans([],tdomain)}}</span>
+    </div>
+    <table class="crud_header_buttonset">
+      <tr>
+        <td>
+            
+          <button type="button" onclick="rcNewAsignatura()" class="btn btn-danger btn-sm">{{ 'action.new'|trans }}</button>                               
+          <button id="btnPopUpAsignatura"  onclick="popUpAsignatura.wijpopup('show')" type="button" class="btn btn-primary btn-sm">{{ 'menu.more'|trans }}<span class="caret"></span></button>
+                
+          {% ui_popup  autoHide=true
+                       widgetVar="popUpAsignatura"
+                       position={'of':jQuery("#btnPopUpAsignatura"),
+                                 'offset':'0 0'}%}
+
+            {% ui_panel class="dropdown-menu-panel" %}
+              <ul onclick="popUpAsignatura.wijpopup('hide')" class="dropdown-menu dropdown-menu-visible" role="menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcEditAsignatura()" href="#">{{ 'action.edit'|trans }}</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcShowAsignatura()" href="#">{{ 'action.show'|trans }}</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcDeleteAsignatura()" href="#">{{ 'action.delete'|trans }}</a></li>
+              </ul>
+            {% end_ui_panel %}
+
+          {% end_ui_popup %}
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+  {{ component_render(grid) }}
+  <div id="asignaturaWorkspace"></div>
+  
+  {% remote_command update="#asignaturaWorkspace" type="GET" url=path("asignatura_new") 
+                    name="rcNewAsignatura" %}
+
+  {% remote_command update="#asignaturaWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#asignaturaGrid','" ~ "msg.batch.empty"|trans ~ "')") 
+                    url=arg(path("asignatura_edit", { "id": "'+ $('#asignaturaGrid').jqGrid('getGridParam','selrow')+'"}) | raw_url_decode)  
+                    name="rcEditAsignatura" %}
+
+  {% remote_command update="#asignaturaWorkspace" type="POST"
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#asignaturaGrid','" ~ "msg.batch.empty"|trans ~ "') && confirm('" ~ "msg.batch.delete.confirmation"|trans ~ "')")
+                    complete=js_function("jqXHR","
+                      if (jqXHR.status == 200){
+                        $.pnotify('" ~ "msg.batch.delete.success"|trans ~ "');
+                        $('#asignaturaGrid').trigger('reloadGrid')
+                      }")
+                    url=arg(path("asignatura_delete", { "id": "'+ $('#asignaturaGrid').jqGrid('getGridParam','selarrrow')+'"}) | raw_url_decode)  
+                    name="rcDeleteAsignatura" %}
+
+  {% remote_command update="#asignaturaWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#asignaturaGrid','" ~ "msg.batch.empty"|trans ~ "')")
+                    url=arg(path('asignatura_show', { "id": "'+ SmarTwig.grid.selectedRow('#asignaturaGrid')+'"}) | raw_url_decode)  
+                    name="rcShowAsignatura" %}
+                                      
+{% endblock content %}
+  
+{% block breadcrumb %}
+    {% include 'OpenSkoolCoreBundle:Breadcumb:admin.html.twig' 
+        with {
+          'label' : 'mnu.admin.asignatura'
+        }
+    %}
+{% endblock %}

@@ -1,0 +1,23 @@
+  <div id="addressWorkspace"></div>
+  {% remote_command update="#addressWorkspace" type="GET" url=path("address_new") 
+                    name="rcNewAddress" %}
+
+  {% remote_command update="#addressWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#addressGrid','" ~ "msg.batch.empty"|trans ~ "')") 
+                    url=arg(path("address_edit", { "id": "'+ $('#addressGrid').jqGrid('getGridParam','selrow')+'"}) | raw_url_decode)  
+                    name="rcEditAddress" %}
+
+  {% remote_command update="#addressWorkspace" type="POST"
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#addressGrid','" ~ "msg.batch.empty"|trans ~ "') && confirm('" ~ "msg.batch.delete.confirmation"|trans ~ "')")
+                    complete=js_function("jqXHR","
+                      if (jqXHR.status == 200){
+                        $.pnotify('" ~ "msg.batch.delete.success"|trans ~ "');
+                        $('#addressGrid').trigger('reloadGrid')
+                      }")
+                    url=arg(path("address_delete", { "id": "'+ $('#addressGrid').jqGrid('getGridParam','selarrrow')+'"}) | raw_url_decode)  
+                    name="rcDeleteAddress" %}
+
+  {% remote_command update="#addressWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#addressGrid','" ~ "msg.batch.empty"|trans ~ "')")
+                    url=arg(path('address_show', { "id": "'+ SmarTwig.grid.selectedRow('#addressGrid')+'"}) | raw_url_decode)  
+                    name="rcShowAddress" %}

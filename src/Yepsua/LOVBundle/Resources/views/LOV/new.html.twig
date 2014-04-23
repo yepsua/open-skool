@@ -1,0 +1,40 @@
+{% set tdomain = "YepsuaLOVBundle_LOV" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
+{% ui_dialog widgetVar="dlgNewLOV" title="dlg.create.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+    <div style="width:100%">
+    {% ajax_form id="frmNewLOV"
+       update="#lovWorkspace"
+       action=path("list_of_values_create")
+       method="POST"
+       beforeSubmit=js_function("$('.btnSubmitLov').attr('disabled',true);_dlgNewLOV = dlgNewLOV;")
+       complete=js_function("jqXHR","
+         if(jqXHR.status == 202){
+           _dlgNewLOV.wijdialog('destroy');
+           $(_dlgNewLOV).remove();
+         }
+         if (jqXHR.status == 200){
+           _dlgNewLOV.wijdialog('destroy');
+           $(_dlgNewLOV).remove();
+           $.pnotify('" ~ "msg.create.success"|trans({'%name%': entityLabel }) ~ "');
+           $('#lovGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {% form_theme form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+
+    {{ form_widget(form) }}
+
+    <br/><br/>
+    <hr class="ui-widget-content">
+
+    <input checked="checked" id="_loop_create" type="checkbox" name="_loop_create" />
+    <label for="_loop_create">{{"chk.create.and.create.a.new.one"|trans}}</label>
+
+    {% ui_button class="crud-btn-submit btnSubmitLov" type="submit" value="action.create"|trans%}
+
+  {% end_ajax_form %}
+  </div>
+
+{% end_ui_dialog %}

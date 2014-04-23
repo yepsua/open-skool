@@ -40,4 +40,4 @@
     </form>
 </div>
 {% endblock layout_form %}
-{% ui_effect for=".panelAuth" effect="slide" callback=js_function("$('body').find('div:first').hide();$('body').append($('#authContainer'))") %}
+{% ui_effect for=".panelAuth" effect="slide" condition="typeof jQuery != 'undefined'" callback=js_function("$('body').find('div:first').hide();$('body').append($('#authContainer'))") %}

@@ -82,7 +82,13 @@ class Group extends BaseGroup
         return $this->related_roles;
     }
     
+    /**
+     * Synchronize all roles with the related roles.
+     */
     public function synchronizeRoles(){
+      foreach($this->getRoles() as $role){
+        $this->removeRole($role);
+      }
       foreach($this->getRelatedRoles() as $role){
         $this->addRole($role->getName());
       }

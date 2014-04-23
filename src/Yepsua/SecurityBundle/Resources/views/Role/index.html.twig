@@ -1,5 +1,7 @@
 {% extends "YepsuaGeneratorBundle::layout.html.twig" %}
+{% set tdomain = "YepsuaSecurityBundle_Role" %}
+
 {% block content %}
-  {% embed "YepsuaSecurityBundle:Role:index_content.html.twig" %}
+  {% embed "YepsuaSecurityBundle:Role:index_content.html.twig" with {'tdomain' : tdomain} %}
   {% endembed %}
 {% endblock content %}

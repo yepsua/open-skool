@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="SecurityBundleUser.en.xlf">
+        <body>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>Modulo de Usuarios</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>Lista de Usuarios</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>Modulo de Persona</target>
+            </trans-unit>
+            <trans-unit id="Username">
+                <source>Username</source>
+                <target>Usuario</target>
+            </trans-unit>
+            <trans-unit id="Usernamecanonical">
+                <source>Usernamecanonical</source>
+                <target>Usuario canónico</target>
+            </trans-unit>
+            <trans-unit id="Email">
+                <source>Email</source>
+                <target>Correo</target>
+            </trans-unit>
+            <trans-unit id="Emailcanonical">
+                <source>Emailcanonical</source>
+                <target>Correo canónico</target>
+            </trans-unit>
+            <trans-unit id="Enabled">
+                <source>Enabled</source>
+                <target>Habilitado</target>
+            </trans-unit>
+            <trans-unit id="Salt">
+                <source>Salt</source>
+                <target>Salt</target>
+            </trans-unit>
+            <trans-unit id="Password">
+                <source>Password</source>
+                <target>Contraseña</target>
+            </trans-unit>
+            <trans-unit id="RepeatPassword">
+                <source>RepeatPassword</source>
+                <target>Confirme su contraseña</target>
+            </trans-unit>
+            <trans-unit id="Lastlogin">
+                <source>Lastlogin</source>
+                <target>Ultimo acceso</target>
+            </trans-unit>
+            <trans-unit id="Locked">
+                <source>Locked</source>
+                <target>Bloqueado</target>
+            </trans-unit>
+            <trans-unit id="Expired">
+                <source>Expired</source>
+                <target>Vencido</target>
+            </trans-unit>
+            <trans-unit id="Expiresat">
+                <source>Expiresat</source>
+                <target>Vence en</target>
+            </trans-unit>
+            <trans-unit id="Confirmationtoken">
+                <source>Confirmationtoken</source>
+                <target>Token de confirmación</target>
+            </trans-unit>
+            <trans-unit id="Passwordrequestedat">
+                <source>Passwordrequestedat</source>
+                <target>Solicutd de Password</target>
+            </trans-unit>
+            <trans-unit id="roles">
+                <source>Roles</source>
+                <target>Roles</target>
+            </trans-unit>
+            <trans-unit id="Credentialsexpired">
+                <source>credentialsExpired</source>
+                <target>Credenciales vencidas</target>
+            </trans-unit>
+            <trans-unit id="Credentialsexpireat">
+                <source>credentialsExpireAt</source>
+                <target>Credenciales vencidas en</target>
+            </trans-unit>
+            <trans-unit id="Groups">
+                <source>groups</source>
+                <target>Grupos</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

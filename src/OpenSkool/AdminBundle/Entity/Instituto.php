@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * Instituto
  *
- * @ORM\Table()
+ * @ORM\Table(name="instituto")
  * @ORM\Entity(repositoryClass="OpenSkool\AdminBundle\Entity\InstitutoRepository")
  */
 class Instituto
@@ -26,7 +26,7 @@ class Instituto
     /**
      * @var string
      *
-     * @ORM\Column(name="codigo", type="string", length=10)
+     * @ORM\Column(name="codigo", type="string", length=10, unique=true)
      */
     private $codigo;
 
@@ -68,8 +68,7 @@ class Instituto
      * @Assert\File(maxSize="6000000")
      */
     private $imagenFile;
-
-
+    
     /**
      * Get id
      *
@@ -253,5 +252,14 @@ class Instituto
                       : $this->getNombre();
       $fileName = sprintf('%s.%s',$fileName,$file->getClientOriginalExtension());
       return $fileName;
+    }
+    
+        
+    /**
+     * Get to String
+     * @return type
+     */
+    public function __toString() {
+        return $this->getNombre();
     }
 }

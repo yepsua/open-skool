@@ -25,20 +25,25 @@ class AppKernel extends Kernel
             new Yepsua\GeneratorBundle\YepsuaGeneratorBundle(),
             new Yepsua\ThemeBundle\YepsuaThemeBundle(),
             new Yepsua\LocalizationBundle\YepsuaLocalizationBundle(),
-            new Utopia\CoreBundle\UtopiaCoreBundle(),
+            //new Utopia\CoreBundle\UtopiaCoreBundle(),
             new OpenSkool\ThemeBundle\OpenSkoolThemeBundle(),
-            new Utopia\LocalizationBundle\UtopiaLocalizationBundle(),
+            //new Utopia\LocalizationBundle\UtopiaLocalizationBundle(),
             new OpenSkool\CoreBundle\OpenSkoolCoreBundle(),
             new OpenSkool\AdminBundle\OpenSkoolAdminBundle(),
             new OpenSkool\PeopleBundle\OpenSkoolPeopleBundle(),
             new OpenSkool\SecurityBundle\OpenSkoolSecurityBundle(),
+            new Yepsua\LOVBundle\YepsuaLOVBundle(),
+            new OpenSkool\LOVBundle\OpenSkoolLOVBundle(),
+            new Yepsua\RADBundle\YepsuaRADBundle(),
+            new Yepsua\LocalityBundle\YepsuaLocalityBundle(),
+            new OpenSkool\LocalityBundle\OpenSkoolLocalityBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            //$bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
+            $bundles[] = new OpenSkool\AssetsBundle\OpenSkoolAssetsBundle();
         }
 
         return $bundles;

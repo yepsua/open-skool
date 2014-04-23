@@ -1,4 +1,6 @@
-{% set entityLabel = "User" %}
+{% set tdomain = "YepsuaSecurityBundle_User" %}
+{% set entityLabel = "entity.label"|trans([],tdomain) %}
+
 {% ui_dialog title="dlg.edit.title"|trans({'%name%': entityLabel }) modal="true" widgetVar="dlgEditUser"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
    <div style="width:100%">
@@ -19,11 +21,10 @@
            $('#userGrid').trigger('reloadGrid');
          }")
   %}
-
-    {% form_theme edit_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
-
-    {{ form_widget(edit_form) }}
-
+    <div id="frmEditUserContainer">   
+      {% form_theme edit_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+      {{ form_widget(edit_form) }}
+    </div>
     <br/><br/>
     <hr class="ui-widget-content">
 

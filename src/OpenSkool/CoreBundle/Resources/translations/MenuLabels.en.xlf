@@ -2,6 +2,46 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" datatype="plaintext" original="file.ext">
         <body>
+            <trans-unit id="mnu.institucion">
+                <source>mnu.institucion</source>
+                <target>Institutions</target>
+            </trans-unit>
+            <trans-unit id="mnu.admin">
+                <source>mnu.admin</source>
+                <target>Administration</target>
+            </trans-unit>
+                <trans-unit id="mnu.admin.titulo">
+                    <source>mnu.admin.titulo</source>
+                    <target>Titles</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.mencion">
+                    <source>mnu.admin.mencion</source>
+                    <target>Mentions</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.carrera">
+                    <source>mnu.admin.carrera</source>
+                    <target>Careers</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.facultad">
+                    <source>mnu.admin.facultad</source>
+                    <target>Faculty</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.asignatura">
+                    <source>mnu.admin.asignatura</source>
+                    <target>Subject-Matter</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.periodo">
+                    <source>mnu.admin.periodo</source>
+                    <target>Periods</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.turno">
+                    <source>mnu.admin.turno</source>
+                    <target>Turns</target>
+                </trans-unit>
+                <trans-unit id="mnu.admin.seccion">
+                    <source>mnu.admin.seccion</source>
+                    <target>Sections</target>
+                </trans-unit>
             <trans-unit id="mnu.persona">
                 <source>mnu.persona</source>
                 <target>People</target>
@@ -18,6 +58,38 @@
                     <source>mnu.persona.roles</source>
                     <target>Roles</target>
                 </trans-unit>
+            <trans-unit id="mnu.settings">
+                <source>mnu.settings</source>
+                <target>Settings</target>
+            </trans-unit>
+                <trans-unit id="mnu.settings.lov">
+                    <source>mnu.settings.lov</source>
+                    <target>List of Values</target>
+                </trans-unit>
+                    <trans-unit id="mnu.settings.lov.values">
+                        <source>mnu.settings.lov.values</source>
+                        <target>Values</target>
+                    </trans-unit>
+                    <trans-unit id="mnu.settings.lov.group">
+                        <source>mnu.settings.lov.group</source>
+                        <target>Groups</target>
+                    </trans-unit>
+                <trans-unit id="mnu.settings.locality">
+                    <source>mnu.settings.locality</source>
+                    <target>Localities</target>
+                </trans-unit>
+                    <trans-unit id="mnu.settings.locality.country">
+                        <source>mnu.settings.locality.country</source>
+                        <target>Countries</target>
+                    </trans-unit>
+                    <trans-unit id="mnu.settings.locality.locality">
+                        <source>mnu.settings.locality.locality</source>
+                        <target>Localities</target>
+                    </trans-unit>
+                    <trans-unit id="mnu.settings.locality.city">
+                        <source>mnu.settings.locality.city</source>
+                        <target>Cities</target>
+                    </trans-unit>
         </body>
     </file>
 </xliff>

@@ -4,13 +4,13 @@ namespace OpenSkool\AdminBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use OpenSkool\AdminBundle\Entity\Instituto;
 use OpenSkool\AdminBundle\Form\InstitutoType;
 
+use Yepsua\RADBundle\Controller\Controller;
 use Yepsua\GeneratorBundle\UI\Grid;
 use Yepsua\CommonsBundle\Persistence\Dao;
 use Yepsua\CommonsBundle\IO\ObjectUtil;
@@ -53,7 +53,7 @@ class InstitutoController extends Controller
           'instituto.direccion' => 'Direccion',
           'imagen.id' => array('title' => 'Imagen', 'search' => false, 'association' => 'OpenSkool\AdminBundle\Entity\Imagen')
         );
-          
+
         $grid->setArrayGridField($fields);
         
         return array(
@@ -152,6 +152,9 @@ class InstitutoController extends Controller
                 $em->persist($entity);
                 $em->flush();
                 
+                $repository = $em->getRepository('OpenSkoolAdminBundle:Carrera');
+                $repository->synchronizeInstitutos($entity);
+                
                 if($this->getRequest()->get('_loop_create')){
                     $form = $this->createForm(new InstitutoType(), new Instituto());
                     return $this->render('OpenSkoolAdminBundle:Instituto:new.html.twig',array(
@@ -225,7 +228,7 @@ class InstitutoController extends Controller
             $entity = $em->getRepository('OpenSkoolAdminBundle:Instituto')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Instituto entity.');
+                throw $this->createNotFoundException('msg.unable.to.find.entity');
             }
 
             $deleteForm = $this->createDeleteForm($id);
@@ -259,7 +262,7 @@ class InstitutoController extends Controller
             $entity = $em->getRepository('OpenSkoolAdminBundle:Instituto')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Instituto entity.');
+                throw $this->createNotFoundException('msg.unable.to.find.entity');
             }
 
             $editForm = $this->createForm(new InstitutoType(), $entity);
@@ -290,7 +293,7 @@ class InstitutoController extends Controller
             $entity = $em->getRepository('OpenSkoolAdminBundle:Instituto')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Instituto entity.');
+                throw $this->createNotFoundException('msg.unable.to.find.entity');
             }
 
             $deleteForm = $this->createDeleteForm($id);
@@ -342,7 +345,7 @@ class InstitutoController extends Controller
 
                 foreach ($entities as $entity){
                   if (!$entity) {
-                    throw $this->createNotFoundException('Unable to find Instituto entity.');
+                    throw $this->createNotFoundException('msg.unable.to.find.entity');
                   }
                   $em->remove($entity);
                   $em->flush();
@@ -353,20 +356,5 @@ class InstitutoController extends Controller
           $this->get('logger')->crit($e->getMessage());
           return new Response(Notification::error($e->getMessage()), 203);
         }
-    }
-
-    /**
-     * Creates a form to delete a Instituto entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id, array $options = array())
-    {
-        return $this->createFormBuilder(array('id' => $id), $options)
-            ->add('id', 'hidden')
-            ->getForm()
-        ;
     }
 }
