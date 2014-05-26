@@ -333,4 +333,35 @@ class CityController extends Controller
           return new Response(Notification::error($e->getMessage()), 203);
         }
     }
+    
+    
+    /**
+     * Lists all Locality entities.
+     *
+     * @Route("/api/html/{id}", name="locality_html_api")
+     * @Method("GET")
+     * @Template()
+     */
+    public function apiHTMLAction(Request $request, $id){
+      try{
+          
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('YepsuaLocalityBundle:City');
+        $localities = $repository->findAllByLocality($id);
+        
+        $options = array();
+        
+        foreach ($localities as $locality){
+          $options[] = array('label' => $locality->getName(),'value' => $locality->getId());
+        }
+        
+        return $this->render(
+          'YepsuaRADBundle:Form:option_item.html.twig',
+           array('options' => $options)
+        );    
+      }catch(\Exception $e){
+        $this->get('logger')->crit($e->getMessage());
+        return new Response(Notification::error($e->getMessage()), 203);
+      }
+    }
 }

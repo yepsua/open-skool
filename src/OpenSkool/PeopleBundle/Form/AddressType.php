@@ -5,8 +5,7 @@ namespace OpenSkool\PeopleBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
-use Yepsua\LOVBundle\Form\EventListener\AddLOVEventSubscriber;
-use Yepsua\LocalityBundle\Form\EventListener\AddLocalityEventSubscriber;
+use Yepsua\LOVBundle\Form\EventDispatcher\AddLOVEventSubscriber;
 
 class AddressType extends AbstractType
 {
@@ -20,14 +19,39 @@ class AddressType extends AbstractType
             ->add('lineOne')
             ->add('lineTwo')
             ->add('zipcode')
-            ->add('country','entity', array('mapped' => false,'class' => 'YepsuaLocalityBundle:Country'))
-            //->add('locality','entity', array('mapped' => false,'class' => 'YepsuaLocalityBundle:Locality'))
-            ->add('city')
         ;
         
+        $suscriber = new \Yepsua\RADBundle\Form\EventDispatcher\RelatedEntityEventSubscriber();
+        
+        $suscriber->add('country', array(
+          'class'=> 'YepsuaLocalityBundle:Country',
+          'empty_value' => 'form.choice.empty.country'
+        ));
+        
+        $suscriber->add('locality', array(
+          'class'=> 'YepsuaLocalityBundle:Locality',
+          'empty_value' => 'form.choice.empty.locality',
+          'query_builder' => array(
+              'method' => '_findAllByCountry',
+              'args' => array(
+                'data.getCity().getLocality().getCountry().getId()' => 0
+              )
+        )));
+        
+        $suscriber->add('city', array(
+          'class'=> 'YepsuaLocalityBundle:City',
+          'empty_value' => 'form.choice.empty.city',
+          'query_builder' => array(
+              'method' => '_findAllByLocality',
+              'args' => array(
+                'data.getCity().getLocality().getId()' => 0
+              )
+        )));
+        
         $builder
+            //->addEventSubscriber(new AddLocalityEventSubscriber())
+            ->addEventSubscriber($suscriber)
             ->addEventSubscriber(new AddLOVEventSubscriber('PERSON_ADDRESS_TYPE'))
-            ->addEventSubscriber(new AddLocalityEventSubscriber())   
         ;
     }
     
@@ -37,7 +61,8 @@ class AddressType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OpenSkool\PeopleBundle\Entity\Address'
+            'data_class' => 'OpenSkool\PeopleBundle\Entity\Address',
+            'translation_domain' => 'OpenSkoolPeopleBundle_Address'
         ));
     }
 

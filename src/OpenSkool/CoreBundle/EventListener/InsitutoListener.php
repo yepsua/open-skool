@@ -4,10 +4,9 @@ namespace OpenSkool\CoreBundle\EventListener;
 
 use Symfony\Component\HttpKernel\Event\FilterResponseEvent;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController;
 use FOS\UserBundle\Controller\SecurityController;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-
 /**
  * Description of InsitutoListener
  *
@@ -15,7 +14,13 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
  */
 class InsitutoListener {
     
+    /**
+     *
+     * @var Symfony\Component\Routing\Generator\UrlGeneratorInterface
+     */
     protected $router;
+    
+    protected $forceRedirect;
     
     public function __construct($router)
     {
@@ -24,51 +29,28 @@ class InsitutoListener {
     
     public function onKernelController(FilterControllerEvent $event)
     {
-        /*$controller = $event->getController();
-        
-        if (!is_array($controller)) {
-            return;
-        }
-        if (!$this->verifyController($controller[0])) {
-            try {
-                $request = $event->getRequest();
-                $objInst = $request->getSession()->get('instituto');
-                if($objInst === null){
-                    $url = $this->router->generate('change_instituto');
-                    $route = $request->get('_route');
-                    if ($route !== 'change_instituto'){
-                        $event->setController(function() use ($url) {
-                            return new RedirectResponse($url);
-                        }); 
-                    }else{
-                        return;
-                    }
-
-                }
-            } catch (Exception $e) {
-                return;
-            }
-        }*/
-        
+      $controller = $event->getController();
+      $this->forceRedirect = false;
+      if ($this->verifyController($controller[0]) && !$event->getRequest()->isXmlHttpRequest()) {
+        $this->forceRedirect = true;
+      }
     }
     
     public function onKernelResponse(FilterResponseEvent $event)
     {
-        /*$objInst = $event->getRequest()->getSession()->get('instituto');
-        $route = $event->getRequest()->get('_route');
-        if($objInst === null && $route !== 'change_instituto'){
-            $url = $this->router->generate('change_instituto');
-            $response = new RedirectResponse($url);
-            //$event->setResponse($response);
-        }*/
+      if($this->forceRedirect && !$event->getRequest()->getSession()->has('instituto')){
+        $event->setResponse(new RedirectResponse($this->router->generate('core')));
+      }
     }
     
     protected function verifyController($controller){
-        return $controller instanceof ProfilerController || 
-               $controller instanceof SecurityController;
+        return ! ($controller instanceof \OpenSkool\AdminBundle\Controller\InstitutoController 
+               || $controller instanceof \OpenSkool\CoreBundle\Controller\WelcomeController
+               || $controller instanceof \Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController
+               || $controller instanceof \FOS\UserBundle\Controller\SecurityController);
     }
     
     public function setRouter($router) {
         $this->router = $router;
-    }    
+    }
 }

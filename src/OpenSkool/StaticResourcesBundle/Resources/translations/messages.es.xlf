@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="messages.en.xlf">
+        <body>
+            <trans-unit id="msg.form.select.loading">
+                <source>msg.form.select.loading</source>
+                <target>Cargando datos.</target>
+            </trans-unit>
+            <trans-unit id="msg.no.selected.institute">
+                <source>msg.no.selected.institute</source>
+                <target>Por favor seleccione un instituto para Administrar.</target>
+            </trans-unit>
+            <trans-unit id="msg.no.institute">
+                <source>msg.no.institute</source>
+                <target>Le recomendamos crear un Instituto en el Sistema</target>
+            </trans-unit>
+            <trans-unit id="create.institute.action">
+                <source>create.institute.action</source>
+                <target>Crear Institución</target>
+            </trans-unit>
+            <trans-unit id="how.to.resolve">
+                <source>how.to.resolve</source>
+                <target>Como resolverlo...</target>
+            </trans-unit>
+            <trans-unit id="msg.not.implemented">
+                <source>msg.not.implemented</source>
+                <target>Esta funcionalidad sera implementada muy pronto</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

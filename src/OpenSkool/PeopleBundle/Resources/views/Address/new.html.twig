@@ -36,5 +36,7 @@
 
   {% end_ajax_form %}
   </div>
-
+  
+  {% include 'OpenSkoolPeopleBundle:Address:related_selects.html.twig' with {'formSelector': '#frmNewAddress'} %}
+  
 {% end_ui_dialog %}

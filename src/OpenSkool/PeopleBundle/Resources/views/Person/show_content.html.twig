@@ -35,13 +35,13 @@
   </table>
     
     {% ui_tabs %}
-        {% ui_tab label="user.detail.address"|trans([],'app') %}
+        {% ui_tab label="app.view.user.detail.tab.address"|trans([],'app') %}
             {{ component_render(address_grid) }}
         {% end_ui_tab %} 
-        {% ui_tab label="user.detail.contacts"|trans([],'app') %}
+        {% ui_tab label="app.view.user.detail.tab.contacts"|trans([],'app') %}
           Tabla de Contactos
         {% end_ui_tab %}
-        {% ui_tab label="user.detail"|trans([],'app') %}
+        {% ui_tab label="app.view.user.detail.tab.user"|trans([],'app') %}
 
           {% ajax_form id="frmEditUser"
                  update="#userWorkspace"

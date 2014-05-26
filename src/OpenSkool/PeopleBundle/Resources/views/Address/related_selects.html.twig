@@ -1,0 +1,7 @@
+  {% ui_related_selects for=formSelector selects=["openskool_peoplebundle_address[country]", 
+       "openskool_peoplebundle_address[locality]", 
+       "openskool_peoplebundle_address[city]"] 
+       loadingMessage="msg.form.select.loading"|trans
+       dataType="html"
+       onChangeLoad=path("related_selects") 
+  %}

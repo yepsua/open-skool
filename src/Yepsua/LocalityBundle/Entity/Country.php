@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Country
  *
  * @ORM\Table(name="country")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Yepsua\LocalityBundle\Entity\Repository\CountryRepository")
  */
 class Country extends BaseAttribute
 {

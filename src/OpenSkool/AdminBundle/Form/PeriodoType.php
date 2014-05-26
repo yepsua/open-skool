@@ -27,7 +27,8 @@ class PeriodoType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OpenSkool\AdminBundle\Entity\Periodo'
+            'data_class' => 'OpenSkool\AdminBundle\Entity\Periodo',
+            'translation_domain' => 'OpenSkoolAdminBundle_Periodo'
         ));
     }
 

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * LOV
  *
  * @ORM\Table(name="list_of_value")
- * @ORM\Entity(repositoryClass="Yepsua\LOVBundle\Entity\LOVRepository")
+ * @ORM\Entity(repositoryClass="Yepsua\LOVBundle\Entity\Repository\LOVRepository")
  */
 class LOV
 {

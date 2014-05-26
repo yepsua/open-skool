@@ -2,7 +2,7 @@
 {% set tdomain = "OpenSkoolPeopleBundle_Person" %}
 {% set entityLabel = "entity.label"|trans([],tdomain) %}
 
-{% block header_title_label "user.detail.title"|trans([],'app') %}
+{% block header_title_label "app.view.user.detail.title"|trans([],'app') %}
  
 {% block content %}
   {% embed "OpenSkoolPeopleBundle:Person:show_content.html.twig" with {'tdomain' : tdomain, 'user' : entity.user} %}

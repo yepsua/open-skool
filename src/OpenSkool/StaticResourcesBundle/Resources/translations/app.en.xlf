@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="app.title">
+                <source>app.title</source>
+                <target>%instituto% | School Management Software</target>
+            </trans-unit>
+            <trans-unit id="app.view.user.detail.title">
+                <source>app.view.user.detail.title</source>
+                <target>app.view.user.detail.title</target>
+            </trans-unit>
+            <trans-unit id="app.view.user.detail.tab.address">
+                <source>app.view.user.detail.tab.address</source>
+                <target>Adresses</target>
+            </trans-unit>
+            <trans-unit id="app.view.user.detail.tab.contacts">
+                <source>app.view.user.detail.tab.contacts</source>
+                <target>Contacts</target>
+            </trans-unit>
+            <trans-unit id="app.view.user.detail.tab.user">
+                <source>app.view.user.detail.tab.user</source>
+                <target>User</target>
+            </trans-unit>
+            <trans-unit id="app.label.sorry">
+                <source>app.label.sorry</source>
+                <target>Sorry</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

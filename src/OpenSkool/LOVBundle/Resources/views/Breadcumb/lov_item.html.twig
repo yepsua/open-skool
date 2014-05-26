@@ -1,0 +1,8 @@
+{% block breadcrumb %}
+    {% include 'OpenSkoolCoreBundle:Breadcumb:system_item.html.twig' %}
+    {% include 'YepsuaThemeBundle:Breadcumb:new_item.html.twig'
+       with {
+         'items': [{'action': '#','label': 'mnu.settings.lov'}]
+       }
+    %}
+{% endblock %}

@@ -9,10 +9,6 @@ OpenSkoolCoreBundle:
     
 OpenSkoolPeopleBundle:
     resource: "@OpenSkoolPeopleBundle/Resources/config/routing/routing.yml"
-
-YepsuaLocalizationBundle:
-    resource: "@YepsuaLocalizationBundle/Controller/"
-    type:     annotation
     
 YepsuaLOVBundle:
     resource: "@YepsuaLOVBundle/Resources/config/routing/routing.yml"
@@ -22,11 +18,6 @@ YepsuaLocalityBundle:
     resource: "@YepsuaLocalityBundle/Resources/config/routing/routing.yml"
     prefix:   /admin
     
-#UtopiaCoreBundle:
-#    resource: "@UtopiaCoreBundle/Controller"
-#    type:     annotation
-#    prefix:   /utopia/
-
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 

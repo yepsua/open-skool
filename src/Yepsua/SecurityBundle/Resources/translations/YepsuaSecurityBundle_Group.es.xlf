@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="YepsuaSecurityBundle_Group.en.xlf">
+        <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>Grupo</target>
+            </trans-unit>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>Módulo de Grupos de Usuarios</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>Lista de Grupos de Usuarios</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>Módulo de Grupos de Usuarios</target>
+            </trans-unit>
+            <trans-unit id="Name">
+                <source>Name</source>
+                <target>Nombre del Grupo</target>
+            </trans-unit>
+            <trans-unit id="Related_Roles">
+                <source>Related_Roles</source>
+                <target>Roles relacionados</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

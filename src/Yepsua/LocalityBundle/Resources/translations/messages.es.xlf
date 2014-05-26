@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="messages.en.xlf">
+        <body>
+            <trans-unit id="form.choice.empty.country">
+                <source>form.choice.empty.country</source>
+                <target>Seleccione un País</target>
+            </trans-unit>
+            <trans-unit id="form.choice.empty.locality">
+                <source>form.choice.empty.locality</source>
+                <target>Seleccione un Estado</target>
+            </trans-unit>
+            <trans-unit id="form.choice.empty.city">
+                <source>form.choice.empty.city</source>
+                <target>Seleccione una Ciudad</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

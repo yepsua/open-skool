@@ -8,6 +8,12 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class UserType extends AbstractType
 {
+    private $user;
+  
+    public function __construct($user = null){
+      $this->user = $user;
+    }
+  
     /**
      * @param FormBuilderInterface $builder
      * @param array $options

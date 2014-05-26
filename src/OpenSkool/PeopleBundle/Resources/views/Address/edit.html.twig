@@ -51,6 +51,8 @@
                  onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
                  value="action.delete"|trans %}
 
-  {% end_ajax_form %}  
+  {% end_ajax_form %}
+  
+  {% include 'OpenSkoolPeopleBundle:Address:related_selects.html.twig' with {'formSelector': '#frmEditAddress'} %}
   </div>
 {% end_ui_dialog %}

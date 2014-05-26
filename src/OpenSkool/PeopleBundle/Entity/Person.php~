@@ -1,0 +1,242 @@
+<?php
+
+namespace OpenSkool\PeopleBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Person
+ *
+ * @ORM\Table(name="person")
+ * @ORM\Entity
+ */
+class Person
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="first_name", type="string", length=64)
+     */
+    private $firstName;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="last_name", type="string", length=64)
+     */
+    private $lastName;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Yepsua\LOVBundle\Entity\LOV")
+     */
+    private $idType;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_number", type="integer")
+     */
+    private $idNumber;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="birthdate", type="date")
+     */
+    private $birthdate;
+    
+    /**
+     * @ORM\OneToOne(targetEntity="Yepsua\SecurityBundle\Entity\User", cascade={"persist"}, inversedBy="userDetail")
+     * @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     */
+    protected $user;
+    
+    /**
+     * @ORM\ManyToMany(targetEntity="OpenSkool\PeopleBundle\Entity\Address", mappedBy="owners")
+     */
+    protected $addresses;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * Set firstName
+     *
+     * @param string $firstName
+     * @return People
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    /**
+     * Get firstName
+     *
+     * @return string 
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * Set lastName
+     *
+     * @param string $lastName
+     * @return People
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    /**
+     * Get lastName
+     *
+     * @return string 
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * Set idNumber
+     *
+     * @param integer $idNumber
+     * @return People
+     */
+    public function setIdNumber($idNumber)
+    {
+        $this->idNumber = $idNumber;
+
+        return $this;
+    }
+
+    /**
+     * Get idNumber
+     *
+     * @return integer 
+     */
+    public function getIdNumber()
+    {
+        return $this->idNumber;
+    }
+
+    /**
+     * Set birthdate
+     *
+     * @param \DateTime $birthdate
+     * @return People
+     */
+    public function setBirthdate($birthdate)
+    {
+        $this->birthdate = $birthdate;
+
+        return $this;
+    }
+
+    /**
+     * Get birthdate
+     *
+     * @return \DateTime 
+     */
+    public function getBirthdate()
+    {
+        return $this->birthdate;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \Yepsua\SecurityBundle\Entity\User $user
+     * @return Person
+     */
+    public function setUser(\Yepsua\SecurityBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \Yepsua\SecurityBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->addresses = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add addresses
+     *
+     * @param \OpenSkool\PeopleBundle\Entity\Address $addresses
+     * @return Person
+     */
+    public function addAddress(\OpenSkool\PeopleBundle\Entity\Address $addresses)
+    {
+        $this->addresses[] = $addresses;
+
+        return $this;
+    }
+
+    /**
+     * Remove addresses
+     *
+     * @param \OpenSkool\PeopleBundle\Entity\Address $addresses
+     */
+    public function removeAddress(\OpenSkool\PeopleBundle\Entity\Address $addresses)
+    {
+        $this->addresses->removeElement($addresses);
+    }
+
+    /**
+     * Get addresses
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getAddresses()
+    {
+        return $this->addresses;
+    }
+    
+    public function __toString() {
+        return sprintf('%s %s',$this->getFirstName(),$this->getLastName());
+    }
+}

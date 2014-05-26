@@ -1,10 +1,14 @@
 <?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file source-language="en" datatype="plaintext" original="SecurityBundleUser.en.xlf">
+    <file source-language="en" datatype="plaintext" original="YepsuaSecurityBundle_User.en.xlf">
         <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>Usuario</target>
+            </trans-unit>
             <trans-unit id="list.view.title">
                 <source>list.view.title</source>
-                <target>Modulo de Usuarios</target>
+                <target>Módulo de Usuarios</target>
             </trans-unit>
             <trans-unit id="list.view.grid.title">
                 <source>list.view.grid.title</source>
@@ -12,7 +16,7 @@
             </trans-unit>
             <trans-unit id="kanban.view.title">
                 <source>kanban.view.title</source>
-                <target>Modulo de Persona</target>
+                <target>Módulo de Persona</target>
             </trans-unit>
             <trans-unit id="Username">
                 <source>Username</source>

@@ -24,19 +24,17 @@ class AppKernel extends Kernel
             new Yepsua\CommonsBundle\YepsuaCommonsBundle(),
             new Yepsua\GeneratorBundle\YepsuaGeneratorBundle(),
             new Yepsua\ThemeBundle\YepsuaThemeBundle(),
-            new Yepsua\LocalizationBundle\YepsuaLocalizationBundle(),
-            //new Utopia\CoreBundle\UtopiaCoreBundle(),
+            new Yepsua\RADBundle\YepsuaRADBundle(),
+            new Yepsua\LocalityBundle\YepsuaLocalityBundle(),
+            new Yepsua\LOVBundle\YepsuaLOVBundle(),
             new OpenSkool\ThemeBundle\OpenSkoolThemeBundle(),
-            //new Utopia\LocalizationBundle\UtopiaLocalizationBundle(),
             new OpenSkool\CoreBundle\OpenSkoolCoreBundle(),
             new OpenSkool\AdminBundle\OpenSkoolAdminBundle(),
             new OpenSkool\PeopleBundle\OpenSkoolPeopleBundle(),
             new OpenSkool\SecurityBundle\OpenSkoolSecurityBundle(),
-            new Yepsua\LOVBundle\YepsuaLOVBundle(),
             new OpenSkool\LOVBundle\OpenSkoolLOVBundle(),
-            new Yepsua\RADBundle\YepsuaRADBundle(),
-            new Yepsua\LocalityBundle\YepsuaLocalityBundle(),
             new OpenSkool\LocalityBundle\OpenSkoolLocalityBundle(),
+            new OpenSkool\StaticResourcesBundle\OpenSkoolStaticResourcesBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

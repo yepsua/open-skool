@@ -1,0 +1,9 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+
+{% block content %}
+    {% include 'OpenSkoolCoreBundle:Error:no_data_found_message.html.twig'
+       with {
+         'message': 'no.institute.msg'
+       }
+    %}
+{% endblock %}

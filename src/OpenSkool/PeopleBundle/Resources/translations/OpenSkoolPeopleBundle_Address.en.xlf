@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>Address</target>
+            </trans-unit>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>Address Module</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>Address List</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>Address Kanban</target>
+            </trans-unit>
+            <trans-unit id="AddresssType">
+                <source>AddresssType</source>
+                <target>AddresssType</target>
+            </trans-unit>
+            <trans-unit id="Lineone">
+                <source>Lineone</source>
+                <target>Lineone</target>
+            </trans-unit>
+            <trans-unit id="Linetwo">
+                <source>Linetwo</source>
+                <target>Linetwo</target>
+            </trans-unit>
+            <trans-unit id="Zipcode">
+                <source>Zipcode</source>
+                <target>Zipcode</target>
+            </trans-unit>
+            <trans-unit id="Owners">
+                <source>Owners</source>
+                <target>Owners</target>
+            </trans-unit>
+            <trans-unit id="form.choice.empty.country">
+                <source>form.choice.empty.country</source>
+                <target>Choose a Country</target>
+            </trans-unit>
+            <trans-unit id="form.choice.empty.locality">
+                <source>form.choice.empty.locality</source>
+                <target>Choose a Locality</target>
+            </trans-unit>
+            <trans-unit id="form.choice.empty.city">
+                <source>form.choice.empty.city</source>
+                <target>Choose a City</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

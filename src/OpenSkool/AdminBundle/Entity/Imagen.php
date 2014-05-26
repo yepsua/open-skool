@@ -7,7 +7,7 @@ use Yepsua\CommonsBundle\Entity\Document;
 
 /**
  * @ORM\Table(name="imagen_metadata")
- * @ORM\Entity()
+ * @ORM\Entity(repositoryClass="OpenSkool\AdminBundle\Entity\Repository\ImagenRepository")
  */
 class Imagen extends Document
 {

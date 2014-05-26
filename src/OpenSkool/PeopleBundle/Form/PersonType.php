@@ -32,7 +32,8 @@ class PersonType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OpenSkool\PeopleBundle\Entity\Person'
+            'data_class' => 'OpenSkool\PeopleBundle\Entity\Person',
+            'translation_domain' => 'OpenSkoolPeopleBundle_Person'
         ));
     }
 

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>Person</target>
+            </trans-unit>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>Person Module</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>Person List</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>Person Kanban</target>
+            </trans-unit>
+            <trans-unit id="Firstname">
+                <source>Firstname</source>
+                <target>Firstname</target>
+            </trans-unit>
+            <trans-unit id="Lastname">
+                <source>Lastname</source>
+                <target>Lastname</target>
+            </trans-unit>
+            <trans-unit id="Idtype">
+                <source>Idtype</source>
+                <target>Idtype</target>
+            </trans-unit>
+            <trans-unit id="Idnumber">
+                <source>Idnumber</source>
+                <target>Idnumber</target>
+            </trans-unit>
+            <trans-unit id="Birthdate">
+                <source>Birthdate</source>
+                <target>Birthdate</target>
+            </trans-unit>
+            <trans-unit id="User">
+                <source>User</source>
+                <target>User</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

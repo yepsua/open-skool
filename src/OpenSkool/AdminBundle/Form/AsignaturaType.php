@@ -27,7 +27,8 @@ class AsignaturaType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OpenSkool\AdminBundle\Entity\Asignatura'
+            'data_class' => 'OpenSkool\AdminBundle\Entity\Asignatura',
+            'translation_domain' => 'OpenSkoolAdminBundle_Asignatura'
         ));
     }
 

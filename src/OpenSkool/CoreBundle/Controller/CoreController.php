@@ -23,7 +23,8 @@ class CoreController extends Controller
         ;
         
         if($repo->isDataNotFound()){
-             return $this->render('OpenSkoolCoreBundle:Core:noInstituto.html.twig');
+          $this->get('session')->remove(Constant::INSTITUTO_SESSION_NAME);
+          return $this->render('OpenSkoolCoreBundle:Core:noInstituto.html.twig');
         }
         
         $objInst = $this->get('session')->get(Constant::INSTITUTO_SESSION_NAME);
@@ -51,6 +52,11 @@ class CoreController extends Controller
             return $this->render('OpenSkoolCoreBundle:Core:index.html.twig');
         }
         
+        if(sizeof($arrInst) === 0){
+          $this->get('session')->remove(Constant::INSTITUTO_SESSION_NAME);
+          return $this->render('OpenSkoolCoreBundle:Core:noInstituto.html.twig');
+        }
+        
         return array('institutos' => $arrInst);
     }
     
@@ -75,6 +81,4 @@ class CoreController extends Controller
         }
         return $this->redirect($this->generateUrl('core'));
     }
-
-    
 }

@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Pensum
  *
  * @ORM\Table(name="pensum")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="OpenSkool\AdminBundle\Entity\Repository\PensumRepository")
  */
 class Pensum
 {

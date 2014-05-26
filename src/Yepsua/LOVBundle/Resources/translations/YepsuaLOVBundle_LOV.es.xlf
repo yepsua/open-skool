@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="YepsuaSecurityBundle_Group.en.xlf">
+        <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>Valor</target>
+            </trans-unit>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>Módulo de Lista de Valores</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>Lista de Valores</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>Módulo de Lista de Valores</target>
+            </trans-unit>
+            <trans-unit id="Group">
+                <source>Group</source>
+                <target>Nombre del Grupo</target>
+            </trans-unit>
+            <trans-unit id="Value">
+                <source>Value</source>
+                <target>Valor</target>
+            </trans-unit>
+            <trans-unit id="Description">
+                <source>Description</source>
+                <target>Descripción</target>
+            </trans-unit>
+            <trans-unit id="Order_By">
+                <source>Order_By</source>
+                <target>Orden</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

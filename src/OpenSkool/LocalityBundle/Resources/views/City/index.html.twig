@@ -5,3 +5,12 @@
   {% embed "YepsuaLocalityBundle:City:index_content.html.twig" with {'tdomain' : tdomain} %}
   {% endembed %}
 {% endblock content %}
+
+{% block breadcrumb %}
+    {% include 'OpenSkoolLocalityBundle:Breadcumb:locality_item.html.twig' %}
+    {% include 'YepsuaThemeBundle:Breadcumb:new_item.html.twig'
+       with {
+         'items': [{'action': '#','label': 'mnu.settings.locality.city'}]
+       }
+    %}
+{% endblock %}

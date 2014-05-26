@@ -10,3 +10,9 @@ core_home:
 home:
     defaults: { _controller: OpenSkoolCoreBundle:Welcome:index }
     pattern:  /
+    
+not_implemented:
+    path: admin/not_implemented
+    defaults:
+        _controller:  FrameworkBundle:Template:template
+        template:     'OpenSkoolCoreBundle:Core:not_implemented.html.twig'

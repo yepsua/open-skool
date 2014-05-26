@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>List of value group</target>
+            </trans-unit>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>List of Group Values Module</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>List of Group Values</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>List of Group Values Module</target>
+            </trans-unit>
+            <trans-unit id="Groupname">
+                <source>Groupname</source>
+                <target>Group Name</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

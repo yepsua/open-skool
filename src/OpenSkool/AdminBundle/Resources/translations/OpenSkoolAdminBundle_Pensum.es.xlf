@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="OpenSkoolAdminBundle_Pensum.en.xlf">
+        <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>Pensum</target>
+            </trans-unit>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>Módulo de Pensums</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>Lista de Pensums</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>Módulo de Pensums</target>
+            </trans-unit>
+            <trans-unit id="Instituto">
+                <source>Instituto</source>
+                <target>Instituto</target>
+            </trans-unit>
+            <trans-unit id="Carrera">
+                <source>Carrera</source>
+                <target>Carrera</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -49,6 +49,8 @@ class TituloController extends Controller
           'titulo.descripcion' => 'Descripcion',      
           'titulo.abreviatura' => 'Abreviatura',        
         );
+        
+        //$grid->setOnRightClickRow(\YsJsFunction::newInstance("alert(rowid);jQuery('#tituloGrid').jqGrid('setSelection',rowid); e.preventDefault();return false;","rowid, iRow, iCol, e"));
   
         $grid->setArrayGridField($fields);
         

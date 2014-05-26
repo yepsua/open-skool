@@ -28,7 +28,8 @@ class FacultadType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OpenSkool\AdminBundle\Entity\Facultad'
+            'data_class' => 'OpenSkool\AdminBundle\Entity\Facultad',
+            'translation_domain' => 'OpenSkoolAdminBundle_Facultad'
         ));
     }
 

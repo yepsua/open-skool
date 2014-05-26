@@ -26,7 +26,8 @@ class PensumType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OpenSkool\AdminBundle\Entity\Pensum'
+            'data_class' => 'OpenSkool\AdminBundle\Entity\Pensum',
+            'translation_domain' => 'OpenSkoolAdminBundle_Pensum'
         ));
     }
 

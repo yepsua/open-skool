@@ -1,6 +1,6 @@
 {% set type = type is defined ? type : 'info' %}
 {% extends "YepsuaThemeBundle:Message:"~ type ~".html.twig" %}
-{% set _trans_domain = trans_domain is defined ? trans_domain : 'OpenSkoolCoreBundle' %}
+{% set _trans_domain = trans_domain is defined ? trans_domain : 'messages' %}
 
 {% block message %}
     {{message|trans([], _trans_domain)}}

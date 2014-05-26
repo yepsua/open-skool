@@ -1,0 +1,35 @@
+{
+    "name": "yepsua/locality-bundle",
+    "description": "Bundle to manage localities(Countries,Cities,Localities)",
+    "keywords": ["symfony2","extensions","list of values"],
+    "homepage": "http://www.yepsua.com",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Omar Yepez",
+            "email": "omar.yepez@yepsua.com"
+        }
+    ],
+    "scripts": {
+        "post-install-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-update-cmd": [
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::clearCache",
+            "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets"
+        ]
+    },
+    "require": {
+      "yepsua/generator-bundle": "1.3.x-dev"
+    },
+    "autoload": {
+        "psr-0": { "Yepsua\\CommonsBundle": "" }
+    },
+    "target-dir": "Yepsua/CommonsBundle",
+    "extra": {
+        "symfony-app-dir": "app",
+        "symfony-web-dir": "web"
+    }
+}

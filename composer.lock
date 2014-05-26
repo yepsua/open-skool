@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3b8a7ab7e25eeca797c4e5a607cbf4a4",
+    "hash": "731b479060a95cab46a4e2ea65b42f41",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -1730,22 +1730,22 @@
         },
         {
             "name": "yepsua/commons-bundle",
-            "version": "1.0.0",
+            "version": "1.1.x-dev",
             "target-dir": "Yepsua/CommonsBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oyepez003/YepsuaCommonsBundle.git",
-                "reference": "62caa8b36999f4f57cda70d4b9eef6c3e0253b40"
+                "reference": "c9b82e55aa1b03f839a6addeda37ba9c5772593e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oyepez003/YepsuaCommonsBundle/zipball/62caa8b36999f4f57cda70d4b9eef6c3e0253b40",
-                "reference": "62caa8b36999f4f57cda70d4b9eef6c3e0253b40",
+                "url": "https://api.github.com/repos/oyepez003/YepsuaCommonsBundle/zipball/c9b82e55aa1b03f839a6addeda37ba9c5772593e",
+                "reference": "c9b82e55aa1b03f839a6addeda37ba9c5772593e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "symfony/framework-bundle": "2.*"
+                "symfony/framework-bundle": ">=2.3"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -1775,28 +1775,26 @@
                 "extensions",
                 "utils"
             ],
-            "time": "2013-05-06 03:35:01"
+            "time": "2014-04-24 20:20:52"
         },
         {
             "name": "yepsua/generator-bundle",
-            "version": "v1.2.0",
+            "version": "1.3.x-dev",
             "target-dir": "Yepsua/GeneratorBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oyepez003/YepsuaGeneratorBundle.git",
-                "reference": "00faf1410edc37a18f886f2f191188f3e1ce7419"
+                "reference": "b015a426eb270cdc110642fc2c8bbc8e0d3ef5f8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oyepez003/YepsuaGeneratorBundle/zipball/00faf1410edc37a18f886f2f191188f3e1ce7419",
-                "reference": "00faf1410edc37a18f886f2f191188f3e1ce7419",
+                "url": "https://api.github.com/repos/oyepez003/YepsuaGeneratorBundle/zipball/b015a426eb270cdc110642fc2c8bbc8e0d3ef5f8",
+                "reference": "b015a426eb270cdc110642fc2c8bbc8e0d3ef5f8",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": ">=2.3",
-                "yepsua/commons-bundle": "1.0.*",
-                "yepsua/smartwig-bundle": "1.1.*"
+                "yepsua/rad-bundle": "1.1.x-dev",
+                "yepsua/smartwig-bundle": "1.2.x-dev"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -1829,20 +1827,20 @@
                 "jquery",
                 "ui"
             ],
-            "time": "2014-01-29 22:05:44"
+            "time": "2014-04-24 20:57:17"
         },
         {
             "name": "yepsua/jquery4php",
-            "version": "v1.0.0",
+            "version": "1.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oyepez003/jQuery4PHP.git",
-                "reference": "8771acb5fee17e831af920a8301ea51b39d14f7c"
+                "reference": "9ece5d4bab8d5d58184549fd7085a61df144fc8a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oyepez003/jQuery4PHP/zipball/8771acb5fee17e831af920a8301ea51b39d14f7c",
-                "reference": "8771acb5fee17e831af920a8301ea51b39d14f7c",
+                "url": "https://api.github.com/repos/oyepez003/jQuery4PHP/zipball/9ece5d4bab8d5d58184549fd7085a61df144fc8a",
+                "reference": "9ece5d4bab8d5d58184549fd7085a61df144fc8a",
                 "shasum": ""
             },
             "require": {
@@ -1874,21 +1872,21 @@
                 "jquery",
                 "php"
             ],
-            "time": "2013-02-19 04:40:33"
+            "time": "2014-04-23 19:19:24"
         },
         {
             "name": "yepsua/menu-bundle",
-            "version": "v1.1.0",
+            "version": "1.2.x-dev",
             "target-dir": "Yepsua/MenuBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oyepez003/YepsuaMenuBundle.git",
-                "reference": "770858ef58e9822db8f641f2864af32027941cbc"
+                "reference": "a66fbabd7c3f1d8b18c3d27d837b4719a40ef8d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oyepez003/YepsuaMenuBundle/zipball/770858ef58e9822db8f641f2864af32027941cbc",
-                "reference": "770858ef58e9822db8f641f2864af32027941cbc",
+                "url": "https://api.github.com/repos/oyepez003/YepsuaMenuBundle/zipball/a66fbabd7c3f1d8b18c3d27d837b4719a40ef8d8",
+                "reference": "a66fbabd7c3f1d8b18c3d27d837b4719a40ef8d8",
                 "shasum": ""
             },
             "require": {
@@ -1918,25 +1916,76 @@
                 "menu",
                 "yepsua"
             ],
-            "time": "2014-01-29 22:01:56"
+            "time": "2014-04-24 21:47:19"
         },
         {
-            "name": "yepsua/smartwig",
-            "version": "v1.0.0",
+            "name": "yepsua/rad-bundle",
+            "version": "1.1.x-dev",
+            "target-dir": "Yepsua/RADBundle",
             "source": {
                 "type": "git",
-                "url": "https://github.com/oyepez003/smartwig.git",
-                "reference": "5203c6fcc9666ca7eaf7fb44e65d9a7c8e7b9637"
+                "url": "https://github.com/oyepez003/YepsuaRADBundle.git",
+                "reference": "ee5358fdb70fe4ae228e1785d75eb1f4e398570c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oyepez003/smartwig/zipball/5203c6fcc9666ca7eaf7fb44e65d9a7c8e7b9637",
-                "reference": "5203c6fcc9666ca7eaf7fb44e65d9a7c8e7b9637",
+                "url": "https://api.github.com/repos/oyepez003/YepsuaRADBundle/zipball/ee5358fdb70fe4ae228e1785d75eb1f4e398570c",
+                "reference": "ee5358fdb70fe4ae228e1785d75eb1f4e398570c",
+                "shasum": ""
+            },
+            "require": {
+                "yepsua/commons-bundle": "1.1.x-dev"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "symfony-app-dir": "app",
+                "symfony-web-dir": "web"
+            },
+            "autoload": {
+                "psr-0": {
+                    "Yepsua\\RADBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Omar Yepez",
+                    "email": "omar.yepez@yepsua.com"
+                }
+            ],
+            "description": "YepsuaRADBundle Rapid Application Development for Symfony2 ",
+            "homepage": "http://www.yepsua.com",
+            "keywords": [
+                "SmarTwigBundle",
+                "Symfony2",
+                "admin",
+                "jQuery4PHP",
+                "rad",
+                "smartwig",
+                "twig"
+            ],
+            "time": "2014-04-24 20:22:03"
+        },
+        {
+            "name": "yepsua/smartwig",
+            "version": "1.1.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oyepez003/smartwig.git",
+                "reference": "6c754b6b411f65648eab997afdb9c4790cd8c6c5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oyepez003/smartwig/zipball/6c754b6b411f65648eab997afdb9c4790cd8c6c5",
+                "reference": "6c754b6b411f65648eab997afdb9c4790cd8c6c5",
                 "shasum": ""
             },
             "require": {
                 "twig/twig": "~1.0",
-                "yepsua/jquery4php": "1.0.*"
+                "yepsua/jquery4php": "1.1.x-dev"
             },
             "suggest": {
                 "symfony/config": "",
@@ -1954,28 +2003,28 @@
                 "MIT"
             ],
             "description": "Ultimate Components Extension for Twig.",
-            "time": "2014-01-15 15:20:34"
+            "time": "2014-04-24 20:20:02"
         },
         {
             "name": "yepsua/smartwig-bundle",
-            "version": "v1.1.0",
+            "version": "1.2.x-dev",
             "target-dir": "Yepsua/SmarTwigBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oyepez003/YepsuaSmarTwigBundle.git",
-                "reference": "55a01943641473387785922d29609392ac6bea4f"
+                "reference": "60e161a3393cbda32632b3a7410d09b199cffd1a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oyepez003/YepsuaSmarTwigBundle/zipball/55a01943641473387785922d29609392ac6bea4f",
-                "reference": "55a01943641473387785922d29609392ac6bea4f",
+                "url": "https://api.github.com/repos/oyepez003/YepsuaSmarTwigBundle/zipball/60e161a3393cbda32632b3a7410d09b199cffd1a",
+                "reference": "60e161a3393cbda32632b3a7410d09b199cffd1a",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
                 "symfony/framework-bundle": "2.*",
-                "yepsua/jquery4php": "1.0.*",
-                "yepsua/smartwig": "1.*"
+                "yepsua/jquery4php": "1.1.x-dev",
+                "yepsua/smartwig": "1.1.x-dev"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -2008,25 +2057,25 @@
                 "twig",
                 "ui"
             ],
-            "time": "2014-01-29 22:57:37"
+            "time": "2014-04-24 20:22:37"
         },
         {
             "name": "yepsua/theme-bundle",
-            "version": "v1.1.0",
+            "version": "1.2.x-dev",
             "target-dir": "Yepsua/ThemeBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oyepez003/YepsuaThemeBundle.git",
-                "reference": "4ff7b5259172aeaa4797efb9f213a4408dc85c08"
+                "reference": "271eda11735144da3c7700dbb38a23bf1aae1c55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oyepez003/YepsuaThemeBundle/zipball/4ff7b5259172aeaa4797efb9f213a4408dc85c08",
-                "reference": "4ff7b5259172aeaa4797efb9f213a4408dc85c08",
+                "url": "https://api.github.com/repos/oyepez003/YepsuaThemeBundle/zipball/271eda11735144da3c7700dbb38a23bf1aae1c55",
+                "reference": "271eda11735144da3c7700dbb38a23bf1aae1c55",
                 "shasum": ""
             },
             "require": {
-                "yepsua/smartwig-bundle": "1.1.0"
+                "yepsua/smartwig-bundle": "1.2.x-dev"
             },
             "suggest": {
                 "yepsua/generator-bundle": "1.1.0",
@@ -2057,7 +2106,7 @@
                 "theme",
                 "yepsua"
             ],
-            "time": "2014-01-29 21:36:16"
+            "time": "2014-04-24 21:43:35"
         }
     ],
     "packages-dev": [
@@ -2067,9 +2116,11 @@
 
     ],
     "minimum-stability": "dev",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "yepsua/generator-bundle": 20,
+        "yepsua/theme-bundle": 20,
+        "yepsua/menu-bundle": 20
+    },
     "platform": {
         "php": ">=5.3.3"
     },

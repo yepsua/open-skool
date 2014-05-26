@@ -30,7 +30,8 @@ class InstitutoType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OpenSkool\AdminBundle\Entity\Instituto'
+            'data_class' => 'OpenSkool\AdminBundle\Entity\Instituto',
+            'translation_domain' => 'OpenSkoolAdminBundle_Instituto'
         ));
     }
 

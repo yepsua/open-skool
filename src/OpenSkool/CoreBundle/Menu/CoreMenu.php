@@ -40,17 +40,17 @@ class CoreMenu extends MenuTree
             
             //PLAN_ESTUDIOS_MENU
             $planEstudiosMenu = $menuManager->getItem('mnu.plan.estudios');
-            $planEstudiosMenu->addChild($menuManager->newItem('mnu.plan.estudios.admin'));
-            $planEstudiosMenu->addChild($menuManager->newItem('mnu.plan.estudios.etapas'));
-            $planEstudiosMenu->addChild($menuManager->newItem('mnu.plan.estudios.grupos'));
+            $planEstudiosMenu->addChild($menuManager->newItem('mnu.plan.estudios.admin', array('route' => 'not_implemented')));
+            $planEstudiosMenu->addChild($menuManager->newItem('mnu.plan.estudios.etapas', array('route' => 'not_implemented')));
+            $planEstudiosMenu->addChild($menuManager->newItem('mnu.plan.estudios.grupos', array('route' => 'not_implemented')));
             $coreMenu->addChild($planEstudiosMenu);
             
             //OFERTA_ACADEMICA_MENU
             $ofertaMenu = $menuManager->getItem('mnu.oferta');
             
-            $ofertaMenu->addChild($menuManager->newItem('mnu.oferta.academica'));
-            $ofertaMenu->addChild($menuManager->newItem('mnu.oferta.seccion'));
-            $ofertaMenu->addChild($menuManager->newItem('mnu.oferta.grupos'));
+            $ofertaMenu->addChild($menuManager->newItem('mnu.oferta.academica', array('route' => 'not_implemented')));
+            $ofertaMenu->addChild($menuManager->newItem('mnu.oferta.seccion', array('route' => 'not_implemented')));
+            $ofertaMenu->addChild($menuManager->newItem('mnu.oferta.grupos', array('route' => 'not_implemented')));
             $coreMenu->addChild($ofertaMenu);
             
             //OFERTA_ACADEMICA_MENU
@@ -63,14 +63,14 @@ class CoreMenu extends MenuTree
             
             //INSCRIPCION_MENU
             $inscripcionMenu = $menuManager->getItem('mnu.inscripcion');
-            $inscripcionMenu->addChild($menuManager->newItem('mnu.inscripcion.pre'));
-            $inscripcionMenu->addChild($menuManager->newItem('mnu.inscripcion.post'));
+            $inscripcionMenu->addChild($menuManager->newItem('mnu.inscripcion.pre', array('route' => 'not_implemented')));
+            $inscripcionMenu->addChild($menuManager->newItem('mnu.inscripcion.post', array('route' => 'not_implemented')));
             $coreMenu->addChild($inscripcionMenu);
             
             
             //CONFIGURATION_MENU
             $configMenu = $menuManager->getItem('mnu.settings', array('icon' => 'glyphicon glyphicon-cog'));
-            $configMenu->addChild($menuManager->newItem('mnu.settings.general'));
+            $configMenu->addChild($menuManager->newItem('mnu.settings.general', array('route' => 'not_implemented')));
                 
                 //LOV_MENU
                 $lovMenu = $menuManager->getItem('mnu.settings.lov');
@@ -88,12 +88,12 @@ class CoreMenu extends MenuTree
             $coreMenu->addChild($configMenu);
 
             // PROFILE_MENU
-            $profileMenu = $menuManager->getItem('mnu.profile', array('label' => 'Mi Perfil','icon' => 'glyphicon glyphicon-user'));
+            $profileMenu = $menuManager->getItem('mnu.profile', array('icon' => 'glyphicon glyphicon-user'));
             
             $profileMenu->setAttribute('style', 'float:right');
             $profileMenu->addChild($menuManager->newItem('mnu.profile.detail',array('route' => 'user_detail')));
-            $profileMenu->addChild($menuManager->newItem('mnu.profile.settings'));
-            $profileMenu->addChild($menuManager->newItem('mnu.profile.bloq'));
+            $profileMenu->addChild($menuManager->newItem('mnu.profile.settings', array('route' => 'not_implemented')));
+            //$profileMenu->addChild($menuManager->newItem('mnu.profile.bloq'));
             $profileMenu->addChild($menuManager->newItem('mnu.profile.logout',array('route' => 'fos_user_security_logout')));
             $coreMenu->addChild($profileMenu);
         

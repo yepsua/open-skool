@@ -8,8 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Locality
  *
  * @ORM\Table(name="locality")
- * @ORM\Entity
- * @ORM\Entity(repositoryClass="Yepsua\LocalityBundle\Entity\LocalityRepository")
+ * @ORM\Entity(repositoryClass="Yepsua\LocalityBundle\Entity\Repository\LocalityRepository")
  */
 class Locality extends BaseAttribute
 {

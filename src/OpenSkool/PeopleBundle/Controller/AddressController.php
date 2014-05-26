@@ -29,7 +29,7 @@ use \YsGridRow as GridRow;
  */
 class AddressController extends Controller
 {
-    const TRANSLATOR_DOMAIN = 'OpenSkoolPeopleBundle_Addres';
+    const TRANSLATOR_DOMAIN = 'OpenSkoolPeopleBundle_Address';
     
     /**
      * Lists all Address entities.
@@ -350,6 +350,34 @@ class AddressController extends Controller
                 }
             }
             return new Response();
+        }catch(\Exception $e){
+          $this->get('logger')->crit($e->getMessage());
+          return new Response(Notification::error($e->getMessage()), 203);
+        }
+    }
+    
+    /**
+     * Deletes a Address entity.
+     *
+     * @Route("/selected/localities", name="related_selects")
+     * @Method("GET")
+     */
+    public function testSelects(Request $request){
+      try{
+            $form = new AddressType();
+            $data = $request->get($form->getName());
+            
+            if(isset($data['locality'])){
+               $response = $this->forward('YepsuaLocalityBundle:City:apiHTML', array(
+                'id'  => $data['locality'],
+               ));
+            }else if(isset($data['country'])){
+              $response = $this->forward('YepsuaLocalityBundle:Locality:apiHTML', array(
+                'id'  => $data['country'],
+               ));
+            }
+            
+            return $response;           
         }catch(\Exception $e){
           $this->get('logger')->crit($e->getMessage());
           return new Response(Notification::error($e->getMessage()), 203);

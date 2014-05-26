@@ -26,7 +26,8 @@ class SeccionType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OpenSkool\AdminBundle\Entity\Seccion'
+            'data_class' => 'OpenSkool\AdminBundle\Entity\Seccion',
+            'translation_domain' => 'OpenSkoolAdminBundle_Seccion'
         ));
     }
 

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="OpenSkoolPeopleBundle_Person.en.xlf">
+        <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>Dirección</target>
+            </trans-unit>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>Módulo de Direcciones de Usuarios</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>Lista de Direcciones</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>Módulo de Direcciones de Usuarios</target>
+            </trans-unit>
+            <trans-unit id="AddresssType">
+                <source>AddresssType</source>
+                <target>Tipo</target>
+            </trans-unit>
+            <trans-unit id="Lineone">
+                <source>Lineone</source>
+                <target>Calle, Av.</target>
+            </trans-unit>
+            <trans-unit id="Linetwo">
+                <source>Linetwo</source>
+                <target>Casa, Edif.</target>
+            </trans-unit>
+            <trans-unit id="Zipcode">
+                <source>Zipcode</source>
+                <target>Código Postal</target>
+            </trans-unit>
+            <trans-unit id="Owners">
+                <source>Owners</source>
+                <target>Propietario</target>
+            </trans-unit>
+            <trans-unit id="form.choice.empty.country">
+                <source>form.choice.empty.country</source>
+                <target>Seleccione un País</target>
+            </trans-unit>
+            <trans-unit id="form.choice.empty.locality">
+                <source>form.choice.empty.locality</source>
+                <target>Seleccione un Estado</target>
+            </trans-unit>
+            <trans-unit id="form.choice.empty.city">
+                <source>form.choice.empty.city</source>
+                <target>Seleccione una Ciudad</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

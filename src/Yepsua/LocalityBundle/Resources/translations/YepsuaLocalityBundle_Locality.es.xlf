@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="YepsuaLocalityBundle_Country.en.xlf">
+        <body>
+            <trans-unit id="entity.label">
+                <source>entity.label</source>
+                <target>Localidad</target>
+            </trans-unit>
+            <trans-unit id="list.view.title">
+                <source>list.view.title</source>
+                <target>Módulo de Localidades</target>
+            </trans-unit>
+            <trans-unit id="list.view.grid.title">
+                <source>list.view.grid.title</source>
+                <target>Lidta de Localidades</target>
+            </trans-unit>
+            <trans-unit id="kanban.view.title">
+                <source>kanban.view.title</source>
+                <target>Módulo de Localidades</target>
+            </trans-unit>
+            <trans-unit id="Name">
+                <source>Name</source>
+                <target>Nombre</target>
+            </trans-unit>
+            <trans-unit id="Code">
+                <source>Code</source>
+                <target>Código</target>
+            </trans-unit>
+            <trans-unit id="Cities">
+                <source>Cities</source>
+                <target>Ciudades</target>
+            </trans-unit>
+            <trans-unit id="Country">
+                <source>Country</source>
+                <target>País</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

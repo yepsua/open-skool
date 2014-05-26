@@ -22,6 +22,7 @@
            $(_dlgNewInstituto).remove();
            $.pnotify('" ~ "msg.create.success"|trans({'%name%': entityLabel }) ~ "');
            $('#institutoGrid').trigger('reloadGrid');
+           window.location = '" ~ path("change_instituto") ~ "'
          }") 
   %}
 

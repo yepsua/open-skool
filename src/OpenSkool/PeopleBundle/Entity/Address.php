@@ -9,7 +9,7 @@ use OpenSkool\CoreBundle\Entity\Address as BaseAddress;
  * Address
  *
  * @ORM\Table(name="address")
- * @ORM\Entity(repositoryClass="OpenSkool\PeopleBundle\Entity\AddressRepository")
+ * @ORM\Entity(repositoryClass="OpenSkool\PeopleBundle\Entity\Repository\AddressRepository")
  */
 class Address extends BaseAddress
 {
@@ -125,4 +125,13 @@ class Address extends BaseAddress
         return $country;
     }
     
+    public function setCountry(\Yepsua\LocalityBundle\Entity\Country $country = null)
+    {
+        return $this;
+    }
+    
+    public function setLocality(\Yepsua\LocalityBundle\Entity\Locality $locality = null)
+    {
+        return $this;
+    }
 }

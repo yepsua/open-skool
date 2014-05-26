@@ -1,0 +1,39 @@
+<?php
+
+namespace Yepsua\LocalityBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Country
+ *
+ * @ORM\Table(name="country")
+ * @ORM\Entity
+ */
+class Country extends BaseAttribute
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    protected $id;
+    
+    /**
+     * @ORM\OneToMany(targetEntity="Yepsua\LocalityBundle\Entity\Locality", mappedBy="country")
+     */
+    protected $localities;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

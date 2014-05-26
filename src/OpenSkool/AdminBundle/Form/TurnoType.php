@@ -27,7 +27,8 @@ class TurnoType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OpenSkool\AdminBundle\Entity\Turno'
+            'data_class' => 'OpenSkool\AdminBundle\Entity\Turno',
+            'translation_domain' => 'OpenSkoolAdminBundle_Turno'
         ));
     }
 

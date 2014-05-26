@@ -26,7 +26,8 @@ class PensunType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OpenSkool\AdminBundle\Entity\Pensun'
+            'data_class' => 'OpenSkool\AdminBundle\Entity\Pensun',
+            'translation_domain' => 'OpenSkoolAdminBundle_Pensun'
         ));
     }
 

@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="carrera",uniqueConstraints={
  * @ORM\UniqueConstraint(name="carrera_uid", columns={"titulo_id", "mencion_id"})})
- * @ORM\Entity(repositoryClass="OpenSkool\AdminBundle\Entity\CarreraRepository")
+ * @ORM\Entity(repositoryClass="OpenSkool\AdminBundle\Entity\Repository\CarreraRepository")
  */
 class Carrera
 {

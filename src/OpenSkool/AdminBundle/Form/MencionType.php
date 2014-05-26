@@ -28,7 +28,8 @@ class MencionType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'OpenSkool\AdminBundle\Entity\Mencion'
+            'data_class' => 'OpenSkool\AdminBundle\Entity\Mencion',
+            'translation_domain' => 'OpenSkoolAdminBundle_Mencion'
         ));
     }
 

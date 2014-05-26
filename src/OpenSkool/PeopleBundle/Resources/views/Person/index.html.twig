@@ -62,3 +62,7 @@
   {% ui_datepicker showButtonPanel=true builtIn='input[id="gs_person.birthdate"]' builtBy='input[id="gs_person.birthdate"]' builtByEvent="ready" changeMonth=true changeYear=true %}  
               
 {% endblock content %}
+
+{% block breadcrumb %}
+    {% include 'OpenSkoolCoreBundle:Breadcumb:persona_item.html.twig' %}
+{% endblock %}

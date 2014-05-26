@@ -9,6 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use OpenSkool\AdminBundle\Entity\Instituto;
 use OpenSkool\AdminBundle\Form\InstitutoType;
+use OpenSkool\CoreBundle\Util\Constant;
 
 use Yepsua\RADBundle\Controller\Controller;
 use Yepsua\GeneratorBundle\UI\Grid;
@@ -304,7 +305,13 @@ class InstitutoController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($entity);
                 $em->flush();
-
+                
+                $instituto = $this->get('session')->get(Constant::INSTITUTO_SESSION_NAME);
+                
+                if($instituto === null || $entity->getId() === $instituto->getId()){
+                  $request->getSession()->remove(Constant::INSTITUTO_SESSION_NAME);
+                }
+                
                 return $this->render('OpenSkoolAdminBundle:Instituto:show.html.twig',array(
                   'entity'      => $entity,
                   'delete_form' => $deleteForm->createView(),)
