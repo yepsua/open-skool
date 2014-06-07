@@ -25,7 +25,6 @@ use \YsGridRow as GridRow;
 
 /**
  * Instituto controller.
- *
  * @Route("/instituto")
  */
 class InstitutoController extends Controller

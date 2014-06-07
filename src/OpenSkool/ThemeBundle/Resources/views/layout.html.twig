@@ -27,7 +27,7 @@
     {% ajax_status onstart="$.blockUI({'message':'"~ 'msg.please.wait'|trans ~ "'})"
           onsuccess="$.unblockUI()"
           oncomplete="$.unblockUI();$('.crud-btn-submit').removeAttr('disabled');"
-          onerror="$.unblockUI()"
+          onerror=js_function("event,jqXHR,ajaxSettings,thrownError","$.unblockUI();alert('Ha ocurrido un error: ' + thrownError)")
           for="document" %}
 
 {% endblock %}   

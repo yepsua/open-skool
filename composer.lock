@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
+        "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
     ],
-    "hash": "731b479060a95cab46a4e2ea65b42f41",
+    "hash": "2410efcb3641b51c73394d26ebe53bc8",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -221,16 +222,16 @@
         },
         {
             "name": "doctrine/common",
-            "version": "v2.4.1",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "ceb18cf9b0230f3ea208b6238130fd415abda0a7"
+                "reference": "5db6ab40e4c531f14dad4ca96a394dfce5d4255b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/ceb18cf9b0230f3ea208b6238130fd415abda0a7",
-                "reference": "ceb18cf9b0230f3ea208b6238130fd415abda0a7",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/5db6ab40e4c531f14dad4ca96a394dfce5d4255b",
+                "reference": "5db6ab40e4c531f14dad4ca96a394dfce5d4255b",
                 "shasum": ""
             },
             "require": {
@@ -240,6 +241,9 @@
                 "doctrine/inflector": "1.*",
                 "doctrine/lexer": "1.*",
                 "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
             },
             "type": "library",
             "extra": {
@@ -292,7 +296,63 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2013-09-07 10:20:34"
+            "time": "2014-05-21 19:28:51"
+        },
+        {
+            "name": "doctrine/data-fixtures",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/data-fixtures.git",
+                "reference": "b4a135c7db56ecc4602b54a2184368f440cac33e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/b4a135c7db56ecc4602b54a2184368f440cac33e",
+                "reference": "b4a135c7db56ecc4602b54a2184368f440cac33e",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": ">=2.2,<2.5-dev",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "doctrine/orm": ">=2.2,<2.5-dev"
+            },
+            "suggest": {
+                "doctrine/mongodb-odm": "For loading MongoDB ODM fixtures",
+                "doctrine/orm": "For loading ORM fixtures",
+                "doctrine/phpcr-odm": "For loading PHPCR ODM fixtures"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\DataFixtures": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com",
+                    "homepage": "http://www.jwage.com/",
+                    "role": "Creator"
+                }
+            ],
+            "description": "Data Fixtures for all Doctrine Object Managers",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database"
+            ],
+            "time": "2013-07-10 17:04:07"
         },
         {
             "name": "doctrine/dbal",
@@ -429,6 +489,66 @@
                 "persistence"
             ],
             "time": "2013-03-25 20:13:59"
+        },
+        {
+            "name": "doctrine/doctrine-fixtures-bundle",
+            "version": "v2.2.0",
+            "target-dir": "Doctrine/Bundle/FixturesBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/DoctrineFixturesBundle.git",
+                "reference": "c811f96f0cf83b997e3a3ed037cac729bbe3e803"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/c811f96f0cf83b997e3a3ed037cac729bbe3e803",
+                "reference": "c811f96f0cf83b997e3a3ed037cac729bbe3e803",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/data-fixtures": "~1.0",
+                "doctrine/doctrine-bundle": "~1.0",
+                "php": ">=5.3.2",
+                "symfony/doctrine-bridge": "~2.1"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Bundle\\FixturesBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Doctrine Project",
+                    "homepage": "http://www.doctrine-project.org"
+                }
+            ],
+            "description": "Symfony DoctrineFixturesBundle",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "Fixture",
+                "persistence"
+            ],
+            "time": "2013-09-05 11:23:37"
         },
         {
             "name": "doctrine/inflector",
@@ -691,6 +811,110 @@
             "time": "2013-09-23 08:24:12"
         },
         {
+            "name": "fzaninotto/faker",
+            "version": "v1.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "010c7efedd88bf31141a02719f51fb44c732d5a0"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/010c7efedd88bf31141a02719f51fb44c732d5a0",
+                "reference": "010c7efedd88bf31141a02719f51fb44c732d5a0",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0",
+                "squizlabs/php_codesniffer": "~1.5"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": [
+
+                ]
+            },
+            "autoload": {
+                "psr-0": {
+                    "Faker": "src/",
+                    "Faker\\PHPUnit": "test/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2014-06-04 14:43:02"
+        },
+        {
+            "name": "hautelook/alice-bundle",
+            "version": "0.1.5",
+            "target-dir": "Hautelook/AliceBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hautelook/AliceBundle.git",
+                "reference": "912ca5351cd26e283255d53d7d29d247cbc32ea9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hautelook/AliceBundle/zipball/912ca5351cd26e283255d53d7d29d247cbc32ea9",
+                "reference": "912ca5351cd26e283255d53d7d29d247cbc32ea9",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/doctrine-bundle": "~1.2",
+                "doctrine/doctrine-fixtures-bundle": "~2.2",
+                "nelmio/alice": "~1.6",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "doctrine/orm": "~2.4",
+                "symfony/browser-kit": "~2.1",
+                "symfony/console": "~2.1",
+                "symfony/framework-bundle": "~2.1",
+                "symfony/yaml": "~2.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Hautelook\\AliceBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Baldur Rensch",
+                    "email": "brensch@gmail.com",
+                    "role": "The guy that does the dirty work"
+                }
+            ],
+            "description": "Symfony2 Bundle that helps loading fixture data written with the Alice library",
+            "keywords": [
+                "Fixture",
+                "Symfony2",
+                "alice",
+                "orm"
+            ],
+            "time": "2014-03-12 05:18:55"
+        },
+        {
             "name": "incenteev/composer-parameter-handler",
             "version": "v2.1.0",
             "target-dir": "Incenteev/ParameterHandler",
@@ -798,12 +1022,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenu.git",
-                "reference": "835ee51d911e4d8c9adf129907ebbebfa9a1e906"
+                "reference": "80b87cb4ebc5f046ee5c3a57dae6c1f97f281068"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/835ee51d911e4d8c9adf129907ebbebfa9a1e906",
-                "reference": "835ee51d911e4d8c9adf129907ebbebfa9a1e906",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/80b87cb4ebc5f046ee5c3a57dae6c1f97f281068",
+                "reference": "80b87cb4ebc5f046ee5c3a57dae6c1f97f281068",
                 "shasum": ""
             },
             "require": {
@@ -854,7 +1078,7 @@
                 "menu",
                 "tree"
             ],
-            "time": "2014-02-03 10:44:10"
+            "time": "2014-06-01 10:01:17"
         },
         {
             "name": "knplabs/knp-menu-bundle",
@@ -863,12 +1087,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "838c4a0f9b0631b37d699d9a7ebd695707298678"
+                "reference": "f6d6d5081c0e441f953200a6b5f1c760ee54377e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/838c4a0f9b0631b37d699d9a7ebd695707298678",
-                "reference": "838c4a0f9b0631b37d699d9a7ebd695707298678",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/f6d6d5081c0e441f953200a6b5f1c760ee54377e",
+                "reference": "f6d6d5081c0e441f953200a6b5f1c760ee54377e",
                 "shasum": ""
             },
             "require": {
@@ -908,7 +1132,7 @@
             "keywords": [
                 "menu"
             ],
-            "time": "2013-12-03 00:27:28"
+            "time": "2014-05-17 17:25:37"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -983,16 +1207,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.7.0",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57"
+                "reference": "25b16e801979098cb2f120e697bfce454b18bf23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/6225b22de9dcf36546be3a0b2fa8e3d986153f57",
-                "reference": "6225b22de9dcf36546be3a0b2fa8e3d986153f57",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/25b16e801979098cb2f120e697bfce454b18bf23",
+                "reference": "25b16e801979098cb2f120e697bfce454b18bf23",
                 "shasum": ""
             },
             "require": {
@@ -1000,11 +1224,11 @@
                 "psr/log": "~1.0"
             },
             "require-dev": {
-                "aws/aws-sdk-php": "~2.4.8",
-                "doctrine/couchdb": "dev-master",
-                "mlehner/gelf-php": "1.0.*",
+                "aws/aws-sdk-php": "~2.4, >2.4.8",
+                "doctrine/couchdb": "~1.0@dev",
+                "graylog2/gelf-php": "~1.0",
                 "phpunit/phpunit": "~3.7.0",
-                "raven/raven": "0.5.*",
+                "raven/raven": "~0.5",
                 "ruflin/elastica": "0.90.*"
             },
             "suggest": {
@@ -1012,19 +1236,20 @@
                 "doctrine/couchdb": "Allow sending log messages to a CouchDB server",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server",
-                "mlehner/gelf-php": "Allow sending log messages to a GrayLog2 server",
+                "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
                 "raven/raven": "Allow sending log messages to a Sentry server",
+                "rollbar/rollbar": "Allow sending log messages to Rollbar",
                 "ruflin/elastica": "Allow sending log messages to an Elastic Search server"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.7.x-dev"
+                    "dev-master": "1.10.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Monolog": "src/"
+                "psr-4": {
+                    "Monolog\\": "src/Monolog"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1046,7 +1271,61 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2013-11-14 19:48:31"
+            "time": "2014-06-04 16:30:04"
+        },
+        {
+            "name": "nelmio/alice",
+            "version": "1.7.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nelmio/alice.git",
+                "reference": "0730001c3be46dedf393ef4168d6239d9969c61c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/0730001c3be46dedf393ef4168d6239d9969c61c",
+                "reference": "0730001c3be46dedf393ef4168d6239d9969c61c",
+                "shasum": ""
+            },
+            "require": {
+                "fzaninotto/faker": "~1.0",
+                "php": ">=5.3",
+                "symfony/yaml": "~2.0"
+            },
+            "require-dev": {
+                "doctrine/common": "~2.3",
+                "phpunit/phpunit": "3.7.*",
+                "symfony/property-access": "~2.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.7.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Nelmio\\Alice\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nelmio",
+                    "homepage": "http://nelm.io"
+                }
+            ],
+            "description": "Expressive fixtures generator",
+            "keywords": [
+                "Fixture",
+                "data",
+                "orm",
+                "test"
+            ],
+            "time": "2014-04-24 13:11:29"
         },
         {
             "name": "psr/log",
@@ -1088,26 +1367,37 @@
         },
         {
             "name": "sensio/distribution-bundle",
-            "version": "v2.3.4",
+            "version": "v3.0.0",
             "target-dir": "Sensio/Bundle/DistributionBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-                "reference": "66df91b4bd637a83299d8072aed3658bfd3b3021"
+                "reference": "d7ad610b9667ed33ade22484023552eb75372a44"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/66df91b4bd637a83299d8072aed3658bfd3b3021",
-                "reference": "66df91b4bd637a83299d8072aed3658bfd3b3021",
+                "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/d7ad610b9667ed33ade22484023552eb75372a44",
+                "reference": "d7ad610b9667ed33ade22484023552eb75372a44",
                 "shasum": ""
             },
             "require": {
-                "symfony/framework-bundle": "~2.2"
+                "php": ">=5.3.3",
+                "symfony/class-loader": "~2.2",
+                "symfony/config": "~2.2",
+                "symfony/dependency-injection": "~2.2",
+                "symfony/filesystem": "~2.2",
+                "symfony/form": "~2.2",
+                "symfony/framework-bundle": "~2.2",
+                "symfony/http-foundation": "~2.2",
+                "symfony/http-kernel": "~2.2",
+                "symfony/process": "~2.2",
+                "symfony/validator": "~2.2",
+                "symfony/yaml": "~2.2"
             },
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.3.x-dev"
+                    "dev-master": "3.0.x-dev"
                 }
             },
             "autoload": {
@@ -1122,7 +1412,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "The base bundle for the Symfony Distributions",
@@ -1130,26 +1422,26 @@
                 "configuration",
                 "distribution"
             ],
-            "time": "2013-08-22 05:04:53"
+            "time": "2014-05-10 12:31:39"
         },
         {
             "name": "sensio/framework-extra-bundle",
-            "version": "v3.0.0",
+            "version": "v3.0.1",
             "target-dir": "Sensio/Bundle/FrameworkExtraBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/SensioFrameworkExtraBundle.git",
-                "reference": "2016a90bd032248e7d6e9da29def4959821127c8"
+                "reference": "dbc1e5aa830f3bf8063b29102add3c1e476d616e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/2016a90bd032248e7d6e9da29def4959821127c8",
-                "reference": "2016a90bd032248e7d6e9da29def4959821127c8",
+                "url": "https://api.github.com/repos/sensiolabs/SensioFrameworkExtraBundle/zipball/dbc1e5aa830f3bf8063b29102add3c1e476d616e",
+                "reference": "dbc1e5aa830f3bf8063b29102add3c1e476d616e",
                 "shasum": ""
             },
             "require": {
                 "doctrine/common": "~2.2",
-                "symfony/framework-bundle": "~2.4"
+                "symfony/framework-bundle": "~2.5"
             },
             "require-dev": {
                 "symfony/expression-language": "~2.4",
@@ -1177,7 +1469,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 }
             ],
             "description": "This bundle provides a way to configure your controllers with annotations",
@@ -1185,77 +1479,32 @@
                 "annotations",
                 "controllers"
             ],
-            "time": "2013-12-03 07:53:39"
-        },
-        {
-            "name": "sensio/generator-bundle",
-            "version": "v2.3.4",
-            "target-dir": "Sensio/Bundle/GeneratorBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
-                "reference": "4a7b126e9c22f858e3584b19ddce6e5bdd7677ee"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/4a7b126e9c22f858e3584b19ddce6e5bdd7677ee",
-                "reference": "4a7b126e9c22f858e3584b19ddce6e5bdd7677ee",
-                "shasum": ""
-            },
-            "require": {
-                "symfony/console": "~2.0",
-                "symfony/framework-bundle": "~2.2"
-            },
-            "require-dev": {
-                "doctrine/orm": "~2.2,>=2.2.3",
-                "symfony/doctrine-bridge": "~2.2",
-                "twig/twig": "~1.11"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "2.3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-0": {
-                    "Sensio\\Bundle\\GeneratorBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
-                }
-            ],
-            "description": "This bundle generates code for you",
-            "time": "2013-08-21 18:09:35"
+            "time": "2014-05-22 23:27:44"
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.0.3",
+            "version": "v5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "32edc3b0de0fdc1b10f5c4912e8677b3f411a230"
+                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
-                "reference": "32edc3b0de0fdc1b10f5c4912e8677b3f411a230",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/043e336b871f17a117f76ef8e190eddfc04c8d48",
+                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
+            "require-dev": {
+                "mockery/mockery": "~0.9.1"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.1-dev"
+                    "dev-master": "5.2-dev"
                 }
             },
             "autoload": {
@@ -1270,7 +1519,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Chris Corbyn"
@@ -1282,7 +1533,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2013-12-03 13:33:24"
+            "time": "2014-05-08 08:11:19"
         },
         {
             "name": "symfony/assetic-bundle",
@@ -1349,17 +1600,17 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.0.0",
+            "version": "v1.0.1",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "cac3fdfb111adbe590155f491594636d45129783"
+                "reference": "fdba214b1e087c149843bde976263c53ac10c975"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/cac3fdfb111adbe590155f491594636d45129783",
-                "reference": "cac3fdfb111adbe590155f491594636d45129783",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/fdba214b1e087c149843bde976263c53ac10c975",
+                "reference": "fdba214b1e087c149843bde976263c53ac10c975",
                 "shasum": ""
             },
             "require": {
@@ -1392,25 +1643,25 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-06-03 18:32:07"
+            "time": "2013-10-04 09:12:07"
         },
         {
             "name": "symfony/monolog-bundle",
-            "version": "v2.5.0",
+            "version": "v2.6.0",
             "target-dir": "Symfony/Bundle/MonologBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/MonologBundle.git",
-                "reference": "29a17a347dfc41aed34ce9b72cceaf375635c408"
+                "reference": "e1d4aa99c7440b11e9dfbfef7ed63084401dbc6a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/29a17a347dfc41aed34ce9b72cceaf375635c408",
-                "reference": "29a17a347dfc41aed34ce9b72cceaf375635c408",
+                "url": "https://api.github.com/repos/symfony/MonologBundle/zipball/e1d4aa99c7440b11e9dfbfef7ed63084401dbc6a",
+                "reference": "e1d4aa99c7440b11e9dfbfef7ed63084401dbc6a",
                 "shasum": ""
             },
             "require": {
-                "monolog/monolog": "~1.6",
+                "monolog/monolog": "~1.8",
                 "php": ">=5.3.2",
                 "symfony/config": "~2.3",
                 "symfony/dependency-injection": "~2.3",
@@ -1424,7 +1675,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.5.x-dev"
+                    "dev-master": "2.6.x-dev"
                 }
             },
             "autoload": {
@@ -1439,7 +1690,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -1452,26 +1705,26 @@
                 "log",
                 "logging"
             ],
-            "time": "2014-01-19 13:23:40"
+            "time": "2014-06-04 16:49:13"
         },
         {
             "name": "symfony/swiftmailer-bundle",
-            "version": "v2.3.5",
+            "version": "v2.3.7",
             "target-dir": "Symfony/Bundle/SwiftmailerBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/SwiftmailerBundle.git",
-                "reference": "fcefa9dbd5a1ed20547b0f8a2afd5ad6837ea321"
+                "reference": "e98defd402f72e8b54a029ba4d3ac4cb51dc3577"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/fcefa9dbd5a1ed20547b0f8a2afd5ad6837ea321",
-                "reference": "fcefa9dbd5a1ed20547b0f8a2afd5ad6837ea321",
+                "url": "https://api.github.com/repos/symfony/SwiftmailerBundle/zipball/e98defd402f72e8b54a029ba4d3ac4cb51dc3577",
+                "reference": "e98defd402f72e8b54a029ba4d3ac4cb51dc3577",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.2",
-                "swiftmailer/swiftmailer": ">=4.2.0,<5.1-dev",
+                "swiftmailer/swiftmailer": ">=4.2.0,~5.0",
                 "symfony/swiftmailer-bridge": "~2.1"
             },
             "require-dev": {
@@ -1483,7 +1736,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.2-dev"
+                    "dev-master": "2.3-dev"
                 }
             },
             "autoload": {
@@ -1498,7 +1751,9 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
-                    "email": "fabien@symfony.com"
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
                 },
                 {
                     "name": "Symfony Community",
@@ -1507,20 +1762,20 @@
             ],
             "description": "Symfony SwiftmailerBundle",
             "homepage": "http://symfony.com",
-            "time": "2013-11-21 12:29:01"
+            "time": "2014-04-05 17:15:52"
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.4.2",
+            "version": "v2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "b70633f92ff71ef490af4c17e7ca3f3bf3d0f304"
+                "reference": "59365832a09a1d914d14cbca6a21a7f572760c3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/b70633f92ff71ef490af4c17e7ca3f3bf3d0f304",
-                "reference": "b70633f92ff71ef490af4c17e7ca3f3bf3d0f304",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/59365832a09a1d914d14cbca6a21a7f572760c3b",
+                "reference": "59365832a09a1d914d14cbca6a21a7f572760c3b",
                 "shasum": ""
             },
             "require": {
@@ -1578,6 +1833,7 @@
                 "doctrine/data-fixtures": "1.0.*",
                 "doctrine/dbal": "~2.2",
                 "doctrine/orm": "~2.2,>=2.2.3",
+                "egulias/email-validator": "1.1.0",
                 "ircmaxell/password-compat": "1.0.*",
                 "monolog/monolog": "~1.3",
                 "ocramius/proxy-manager": ">=0.3.1,<0.6-dev",
@@ -1586,7 +1842,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "2.5-dev"
                 }
             },
             "autoload": {
@@ -1622,7 +1878,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-02-12 19:27:03"
+            "time": "2014-05-31 18:45:50"
         },
         {
             "name": "twig/extensions",
@@ -1729,107 +1985,6 @@
             "time": "2014-02-13 10:19:29"
         },
         {
-            "name": "yepsua/commons-bundle",
-            "version": "1.1.x-dev",
-            "target-dir": "Yepsua/CommonsBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/oyepez003/YepsuaCommonsBundle.git",
-                "reference": "c9b82e55aa1b03f839a6addeda37ba9c5772593e"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oyepez003/YepsuaCommonsBundle/zipball/c9b82e55aa1b03f839a6addeda37ba9c5772593e",
-                "reference": "c9b82e55aa1b03f839a6addeda37ba9c5772593e",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": ">=2.3"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "symfony-app-dir": "app",
-                "symfony-web-dir": "web"
-            },
-            "autoload": {
-                "psr-0": {
-                    "Yepsua\\CommonsBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Omar Yepez",
-                    "email": "omar.yepez@yepsua.com"
-                }
-            ],
-            "description": "Yepsua Commons and Utils for Symfony2",
-            "homepage": "http://smartwig.yepsua.com",
-            "keywords": [
-                "Symfony2",
-                "commons",
-                "extensions",
-                "utils"
-            ],
-            "time": "2014-04-24 20:20:52"
-        },
-        {
-            "name": "yepsua/generator-bundle",
-            "version": "1.3.x-dev",
-            "target-dir": "Yepsua/GeneratorBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/oyepez003/YepsuaGeneratorBundle.git",
-                "reference": "b015a426eb270cdc110642fc2c8bbc8e0d3ef5f8"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oyepez003/YepsuaGeneratorBundle/zipball/b015a426eb270cdc110642fc2c8bbc8e0d3ef5f8",
-                "reference": "b015a426eb270cdc110642fc2c8bbc8e0d3ef5f8",
-                "shasum": ""
-            },
-            "require": {
-                "yepsua/rad-bundle": "1.1.x-dev",
-                "yepsua/smartwig-bundle": "1.2.x-dev"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "symfony-app-dir": "app",
-                "symfony-web-dir": "web"
-            },
-            "autoload": {
-                "psr-0": {
-                    "Yepsua\\GeneratorBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Omar Yepez",
-                    "email": "omar.yepez@yepsua.com"
-                }
-            ],
-            "description": "The RICH CRUD Generator for Symfony2",
-            "homepage": "http://smartwig.yepsua.com",
-            "keywords": [
-                "RIA",
-                "admin",
-                "extensions",
-                "generator",
-                "jQuery4PHP",
-                "jquery",
-                "ui"
-            ],
-            "time": "2014-04-24 20:57:17"
-        },
-        {
             "name": "yepsua/jquery4php",
             "version": "1.1.x-dev",
             "source": {
@@ -1919,68 +2074,17 @@
             "time": "2014-04-24 21:47:19"
         },
         {
-            "name": "yepsua/rad-bundle",
-            "version": "1.1.x-dev",
-            "target-dir": "Yepsua/RADBundle",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/oyepez003/YepsuaRADBundle.git",
-                "reference": "ee5358fdb70fe4ae228e1785d75eb1f4e398570c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/oyepez003/YepsuaRADBundle/zipball/ee5358fdb70fe4ae228e1785d75eb1f4e398570c",
-                "reference": "ee5358fdb70fe4ae228e1785d75eb1f4e398570c",
-                "shasum": ""
-            },
-            "require": {
-                "yepsua/commons-bundle": "1.1.x-dev"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "symfony-app-dir": "app",
-                "symfony-web-dir": "web"
-            },
-            "autoload": {
-                "psr-0": {
-                    "Yepsua\\RADBundle": ""
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Omar Yepez",
-                    "email": "omar.yepez@yepsua.com"
-                }
-            ],
-            "description": "YepsuaRADBundle Rapid Application Development for Symfony2 ",
-            "homepage": "http://www.yepsua.com",
-            "keywords": [
-                "SmarTwigBundle",
-                "Symfony2",
-                "admin",
-                "jQuery4PHP",
-                "rad",
-                "smartwig",
-                "twig"
-            ],
-            "time": "2014-04-24 20:22:03"
-        },
-        {
             "name": "yepsua/smartwig",
             "version": "1.1.x-dev",
             "source": {
                 "type": "git",
                 "url": "https://github.com/oyepez003/smartwig.git",
-                "reference": "6c754b6b411f65648eab997afdb9c4790cd8c6c5"
+                "reference": "e4e16f8619158c049e1ed8a8720c3409c9f902a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oyepez003/smartwig/zipball/6c754b6b411f65648eab997afdb9c4790cd8c6c5",
-                "reference": "6c754b6b411f65648eab997afdb9c4790cd8c6c5",
+                "url": "https://api.github.com/repos/oyepez003/smartwig/zipball/e4e16f8619158c049e1ed8a8720c3409c9f902a5",
+                "reference": "e4e16f8619158c049e1ed8a8720c3409c9f902a5",
                 "shasum": ""
             },
             "require": {
@@ -2003,7 +2107,8 @@
                 "MIT"
             ],
             "description": "Ultimate Components Extension for Twig.",
-            "time": "2014-04-24 20:20:02"
+            "homepage": "http://smartwig.yepsua.com",
+            "time": "2014-05-26 21:20:48"
         },
         {
             "name": "yepsua/smartwig-bundle",
@@ -2012,12 +2117,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/oyepez003/YepsuaSmarTwigBundle.git",
-                "reference": "60e161a3393cbda32632b3a7410d09b199cffd1a"
+                "reference": "51de25b4461c11cb45c5531dd00d331b9d5ad18e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/oyepez003/YepsuaSmarTwigBundle/zipball/60e161a3393cbda32632b3a7410d09b199cffd1a",
-                "reference": "60e161a3393cbda32632b3a7410d09b199cffd1a",
+                "url": "https://api.github.com/repos/oyepez003/YepsuaSmarTwigBundle/zipball/51de25b4461c11cb45c5531dd00d331b9d5ad18e",
+                "reference": "51de25b4461c11cb45c5531dd00d331b9d5ad18e",
                 "shasum": ""
             },
             "require": {
@@ -2057,7 +2162,7 @@
                 "twig",
                 "ui"
             ],
-            "time": "2014-04-24 20:22:37"
+            "time": "2014-05-26 21:28:57"
         },
         {
             "name": "yepsua/theme-bundle",
@@ -2110,16 +2215,215 @@
         }
     ],
     "packages-dev": [
-
+        {
+            "name": "sensio/generator-bundle",
+            "version": "v2.3.4",
+            "target-dir": "Sensio/Bundle/GeneratorBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sensiolabs/SensioGeneratorBundle.git",
+                "reference": "4a7b126e9c22f858e3584b19ddce6e5bdd7677ee"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sensiolabs/SensioGeneratorBundle/zipball/4a7b126e9c22f858e3584b19ddce6e5bdd7677ee",
+                "reference": "4a7b126e9c22f858e3584b19ddce6e5bdd7677ee",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/console": "~2.0",
+                "symfony/framework-bundle": "~2.2"
+            },
+            "require-dev": {
+                "doctrine/orm": "~2.2,>=2.2.3",
+                "symfony/doctrine-bridge": "~2.2",
+                "twig/twig": "~1.11"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Sensio\\Bundle\\GeneratorBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                }
+            ],
+            "description": "This bundle generates code for you",
+            "time": "2013-08-21 18:09:35"
+        },
+        {
+            "name": "yepsua/commons-bundle",
+            "version": "1.1.x-dev",
+            "target-dir": "Yepsua/CommonsBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oyepez003/YepsuaCommonsBundle.git",
+                "reference": "9be51803be012a783a9662af46172a3b680b2a6b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oyepez003/YepsuaCommonsBundle/zipball/9be51803be012a783a9662af46172a3b680b2a6b",
+                "reference": "9be51803be012a783a9662af46172a3b680b2a6b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": ">=2.3"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "symfony-app-dir": "app",
+                "symfony-web-dir": "web"
+            },
+            "autoload": {
+                "psr-0": {
+                    "Yepsua\\CommonsBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Omar Yepez",
+                    "email": "omar.yepez@yepsua.com"
+                }
+            ],
+            "description": "Yepsua Commons and Utils for Symfony2",
+            "homepage": "http://www.yepsua.com",
+            "keywords": [
+                "Symfony2",
+                "commons",
+                "extensions",
+                "utils"
+            ],
+            "time": "2014-04-24 22:37:23"
+        },
+        {
+            "name": "yepsua/generator-bundle",
+            "version": "1.3.x-dev",
+            "target-dir": "Yepsua/GeneratorBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oyepez003/YepsuaGeneratorBundle.git",
+                "reference": "f9bf34c339a41cf7847ca689ba08bbfa33f5cf0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oyepez003/YepsuaGeneratorBundle/zipball/f9bf34c339a41cf7847ca689ba08bbfa33f5cf0e",
+                "reference": "f9bf34c339a41cf7847ca689ba08bbfa33f5cf0e",
+                "shasum": ""
+            },
+            "require": {
+                "yepsua/rad-bundle": "1.1.x-dev",
+                "yepsua/smartwig-bundle": "1.2.x-dev"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "symfony-app-dir": "app",
+                "symfony-web-dir": "web"
+            },
+            "autoload": {
+                "psr-0": {
+                    "Yepsua\\GeneratorBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Omar Yepez",
+                    "email": "omar.yepez@yepsua.com"
+                }
+            ],
+            "description": "The RICH CRUD Generator for Symfony2",
+            "homepage": "http://www.yepsua.com",
+            "keywords": [
+                "RIA",
+                "admin",
+                "extensions",
+                "generator",
+                "jQuery4PHP",
+                "jquery",
+                "ui"
+            ],
+            "time": "2014-04-24 22:38:23"
+        },
+        {
+            "name": "yepsua/rad-bundle",
+            "version": "1.1.x-dev",
+            "target-dir": "Yepsua/RADBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/oyepez003/YepsuaRADBundle.git",
+                "reference": "c67620d0ee831ca73d558fd7dc373e9fd45ba8f7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/oyepez003/YepsuaRADBundle/zipball/c67620d0ee831ca73d558fd7dc373e9fd45ba8f7",
+                "reference": "c67620d0ee831ca73d558fd7dc373e9fd45ba8f7",
+                "shasum": ""
+            },
+            "require": {
+                "yepsua/commons-bundle": "1.1.x-dev"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "symfony-app-dir": "app",
+                "symfony-web-dir": "web"
+            },
+            "autoload": {
+                "psr-0": {
+                    "Yepsua\\RADBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Omar Yepez",
+                    "email": "omar.yepez@yepsua.com"
+                }
+            ],
+            "description": "YepsuaRADBundle Rapid Application Development for Symfony2 ",
+            "homepage": "http://www.yepsua.com",
+            "keywords": [
+                "SmarTwigBundle",
+                "Symfony2",
+                "admin",
+                "jQuery4PHP",
+                "rad",
+                "smartwig",
+                "twig"
+            ],
+            "time": "2014-05-26 21:16:51"
+        }
     ],
     "aliases": [
 
     ],
     "minimum-stability": "dev",
     "stability-flags": {
-        "yepsua/generator-bundle": 20,
         "yepsua/theme-bundle": 20,
-        "yepsua/menu-bundle": 20
+        "yepsua/menu-bundle": 20,
+        "yepsua/generator-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

@@ -81,4 +81,3 @@ fos_user:
     user_class: Yepsua\SecurityBundle\Entity\User
     group:
         group_class:    Yepsua\SecurityBundle\Entity\Group
-    
