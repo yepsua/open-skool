@@ -1,6 +1,6 @@
 Al 07-06-2014
 -------------
-
+* Se elimina la carpeta de configuracion de Netbeans y el archivo composer.lock.
 * Se cambia de forma basica la presentacion de los errores por parte de Symfony.
 * Se actualiza a Symfony 2.5.0.
 * Se crea el archivo INSTALL y UPDATE para la ayuda a la instacion y actualizacion del proyecto.
