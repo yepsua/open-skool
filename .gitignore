@@ -8,6 +8,7 @@
 !app/logs/.gitkeep
 /build/
 /vendor/
+/nbproject/
 /bin/
 /composer.phar
 /nbproject/private/
