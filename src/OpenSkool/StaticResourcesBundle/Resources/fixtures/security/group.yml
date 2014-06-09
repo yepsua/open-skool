@@ -1,0 +1,23 @@
+Yepsua\SecurityBundle\Entity\Group:
+  security_group_user:
+    related_roles:
+      - @security_role_user
+    name: Users
+  security_group_student:
+    related_roles:
+      - @security_role_student
+      - @security_role_user
+    name: Students
+  security_group_teacher:
+    related_roles:
+      - @security_role_teacher
+      - @security_role_student
+      - @security_role_user
+    name: Teachers
+  security_group_admin:
+    related_roles: 
+      - @security_role_admin
+      - @security_role_teacher
+      - @security_role_student
+      - @security_role_user
+    name: Administrators

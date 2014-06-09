@@ -1,0 +1,7 @@
+OpenSkool\AdminBundle\Entity\Instituto:
+  fake_instituto:
+    codigo: INST-01
+    nombre: Colegio Universitario de Caracas
+    descripcion: Colegio Universitario de Caracas - Venezuela.
+    direccion: Av. Principal de la Floresta cruce con Av. Francisco de Miranda Urb. La Floresta, Edificio Sucre. Chacao Estado Miranda.
+    acronimo: CUC

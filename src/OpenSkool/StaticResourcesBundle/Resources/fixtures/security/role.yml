@@ -1,0 +1,9 @@
+Yepsua\SecurityBundle\Entity\Role:
+  security_role_user:
+    name: ROLE_USER
+  security_role_admin:
+    name: ROLE_ADMIN
+  security_role_student:
+    name: ROLE_STUDENT
+  security_role_teacher:
+    name: ROLE_TEACHER  

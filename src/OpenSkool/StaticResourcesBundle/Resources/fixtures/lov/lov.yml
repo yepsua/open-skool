@@ -1,0 +1,31 @@
+Yepsua\LOVBundle\Entity\LOV:
+  lov_id_type_venezolano:
+    group: @lov_group_id_type
+    value: V
+    description: Venezolano
+    order_by: 10
+  lov_id_type_extrangero:
+    group: @lov_group_id_type
+    value: E
+    description: Extrangero
+    order_by: 20
+  lov_blood_group_o+:
+    group: @lov_group_blood_group
+    value: 1
+    description: O+
+    order_by: 10
+  lov_person_address_type_hogar:
+    group: @lov_group_person_address_type
+    value: 1
+    description: Hogar
+    order_by: 10
+  lov_person_address_type_oficina:
+    group: @lov_group_person_address_type
+    value: 2
+    description: Oficina
+    order_by: 20
+  lov_person_address_type_trabajo:
+    group: @lov_group_person_address_type
+    value: 3
+    description: Trabajo
+    order_by: 30

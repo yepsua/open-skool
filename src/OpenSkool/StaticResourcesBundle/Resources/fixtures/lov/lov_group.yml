@@ -1,0 +1,7 @@
+Yepsua\LOVBundle\Entity\LOVGroup:
+  lov_group_id_type:
+    groupName: ID_TYPE
+  lov_group_blood_group:
+    groupName: BLOOD_GROUP
+  lov_group_person_address_type:
+    groupName: PERSON_ADDRESS_TYPE

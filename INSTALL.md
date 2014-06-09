@@ -49,8 +49,7 @@ Si quieres cargar datos de ejemplo de una Institucion Academica falsa puedes
 ejecutar el siguiente comando:
 
 ``` bash
-$ app/console doctrine:fixtures:load  --fixtures=src/OpenSkool/StaticResourcesB
-undle/DataFixtures/Fake/ORM/ --append
+$ app/console doctrine:fixtures:load  --fixtures=src/OpenSkool/StaticResourcesBundle/DataFixtures/Faker/ORM/ --append
 ```
 
 Cargar datos de ejemplo de una Institucion falsa permite verificar mejor el funcionamiento
