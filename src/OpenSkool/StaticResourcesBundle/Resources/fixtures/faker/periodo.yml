@@ -1,0 +1,5 @@
+OpenSkool\AdminBundle\Entity\Periodo:
+  fake_periodo_trimestre_1_2014:
+    codigo: TRE-1-2014
+    fechaInicio: 1980-10-10
+    fechaFin: 1980-10-10

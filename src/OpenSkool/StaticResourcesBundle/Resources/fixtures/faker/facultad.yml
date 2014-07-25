@@ -1,0 +1,6 @@
+OpenSkool\AdminBundle\Entity\Facultad:
+  fake_cuc_facultad_cont:
+    codigo: FAC-CUC-CONT
+    nombre: Facultad de Contabilidad
+    instituto: @fake_instituto_cuc
+    carrera: @fake_carrera_lic_contabilidad

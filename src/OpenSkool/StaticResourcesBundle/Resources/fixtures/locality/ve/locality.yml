@@ -1,0 +1,97 @@
+Yepsua\LocalityBundle\Entity\Locality:
+  locality_amazonas:
+    name: Amazonas
+    code: Am
+    country: @country_venezuela
+  locality_anzoategui:
+    name: Anzoátegui
+    code: Anz
+    country: @country_venezuela
+  locality_apure:
+    name: Apure
+    code: Ap
+    country: @country_venezuela
+  locality_aragua:
+    name: Aragua
+    code: Ar
+    country: @country_venezuela
+  locality_barinas:
+    name: Barinas
+    code: Bar
+    country: @country_venezuela
+  locality_bolivar:
+    name: Bolívar
+    code: Bo
+    country: @country_venezuela
+  locality_carabobo:
+    name: Carabobo
+    code: Ca
+    country: @country_venezuela
+  locality_cojedes:
+    name: Cojedes
+    code: Co
+    country: @country_venezuela
+  locality_delta_amacuro:
+    name: Delta Amacuro
+    code: DltaAma
+    country: @country_venezuela
+  locality_distrito_capital:
+    name: Distrito Capital
+    code: DC
+    country: @country_venezuela
+  locality_falcon:
+    name: Falcón
+    code: Fa
+    country: @country_venezuela
+  locality_guarico:
+    name: Guárico
+    code: Gu
+    country: @country_venezuela
+  locality_lara:
+    name: Lara
+    code: La
+    country: @country_venezuela
+  locality_merida:
+    name: Mérida
+    code: Me
+    country: @country_venezuela
+  locality_miranda:
+    name: Miranda
+    code: Mi
+    country: @country_venezuela
+  locality_monagas:
+    name: Monagas
+    code: Mo
+    country: @country_venezuela
+  locality_nueva_esparta:
+    name: Nueva Esparta
+    code: Nva Espta
+    country: @country_venezuela
+  locality_portuguesa:
+    name: Portuguesa
+    code: Pt
+    country: @country_venezuela
+  locality_sucre:
+    name: Sucre
+    code: Su
+    country: @country_venezuela
+  locality_tachira:
+    name: Táchira
+    code: Ta
+    country: @country_venezuela
+  locality_trujillo:
+    name: Trujillo
+    code: Tr
+    country: @country_venezuela
+  locality_vargas:
+    name: Vargas
+    code: Va
+    country: @country_venezuela
+  locality_yaracuy:
+    name: Yaracuy
+    code: Ya
+    country: @country_venezuela
+  locality_zulia:
+    name: Zulia
+    code: Zu
+    country: @country_venezuela

@@ -1,0 +1,56 @@
+{% set tdomain = "OpenSkoolAdminBundle_PensumAsignatura" %}
+{% set entityLabel = "entity.label"|trans([], tdomain ) %}
+
+{% ui_dialog title="dlg.edit.title"|trans({'%name%': entityLabel }) modal="true" widgetVar="dlgEditPensumAsignatura"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+   <div style="width:100%">
+   {% ajax_form id="frmEditPensumAsignatura"
+       update="#pensumasignaturaWorkspace"
+       action=path("pensum_asignatura_update", { "id": entity.id })
+       method="PUT"
+       beforeSubmit=js_function("$('.btnSubmitPensumasignatura').attr('disabled',true);_dlgEditPensumAsignatura = dlgEditPensumAsignatura;")
+       complete=js_function("jqXHR","
+         if(jqXHR.status == 202){
+           _dlgEditPensumAsignatura.wijdialog('destroy');
+           $(_dlgEditPensumAsignatura).remove();
+         }
+         if (jqXHR.status == 200){
+           _dlgEditPensumAsignatura.wijdialog('destroy');
+           $(_dlgEditPensumAsignatura).remove();
+           $.pnotify('" ~ "msg.edit.success"|trans({'%name%': entityLabel }) ~ "');
+           $('#pensumasignaturaGrid').trigger('reloadGrid');
+         }")
+  %}
+
+    {% form_theme edit_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+
+    {{ form_widget(edit_form) }}
+
+    <br/><br/>
+    <hr class="ui-widget-content">
+
+    {% ui_button class="crud-btn-submit btnSubmitPensumasignatura" type="submit" value="action.save"|trans%}
+
+  {% end_ajax_form %}
+
+  {% ajax_form id="frmDeletePensumAsignatura"
+       update="#pensumasignaturaWorkspace"
+       action=path("pensum_asignatura_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitPensumasignatura').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel }) ~ "');
+           dlgEditPensumAsignatura.wijdialog('destroy');
+           $('#pensumasignaturaGrid').trigger('reloadGrid');
+         }")
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitPensumasignatura" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+  </div>
+{% end_ui_dialog %}

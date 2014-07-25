@@ -1,0 +1,29 @@
+<script language="javascript" type="text/javascript">
+  var tabNumVar = 0;
+
+  $(function() {
+    getDetallePlanEstudios();
+  });
+
+  function getDetallePlanEstudios(){
+    if($('#cboPlanEstudios').val()){
+      getDetallePlanEstudiosRC();
+    }
+  }
+
+  function agregarEtapaPlanEstudios(){
+    if($('#cboEtapas').val()){
+      agregarEtapaRC();
+    }else{
+      alert('{{"script.message.etapas.no.seleccionadas"|trans([],tdomain)}}');
+    }
+  }
+
+  function agregarAsignatura(){
+    if($('#cboAsignaturas').val()){
+      agregarEtapaAsignaturaRC();
+    }else{
+      alert('{{"script.message.asignturas.no.seleccionadas"|trans([],tdomain)}}');
+    }
+  }  
+</script>

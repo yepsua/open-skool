@@ -1,0 +1,9 @@
+OpenSkool\AdminBundle\Entity\PlanEstudios:
+  fake_plan_estudios_pensum_bach_ccs:
+    pensum: @fake_pensum_bach_ccs
+    codigo: PLN_BACH_CCS
+    descripcion: Diseño Curricular 01
+  fake_plan_estudios_pensum_bach_hum:
+    pensum: @fake_pensum_bach_hum
+    codigo: PLN_BACH_HUM
+    descripcion: Diseño Curricular 02

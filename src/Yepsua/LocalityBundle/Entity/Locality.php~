@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Locality
  *
  * @ORM\Table(name="locality")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Yepsua\LocalityBundle\Entity\Repository\LocalityRepository")
  */
 class Locality extends BaseAttribute
 {
@@ -22,7 +22,8 @@ class Locality extends BaseAttribute
     private $id;
     
     /**
-     * @ORM\OneToMany(targetEntity="Yepsua\LocalityBundle\Entity\City", mappedBy="locality")
+     * @ORM\ManyToOne(targetEntity="Yepsua\LocalityBundle\Entity\City", cascade={"persist"}, inversedBy="locality")
+     * @ORM\JoinColumn(name="city_id", referencedColumnName="id")
      */
     protected $cities;
 
@@ -31,21 +32,4 @@ class Locality extends BaseAttribute
      * @ORM\JoinColumn(name="country_id", referencedColumnName="id")
      */
     protected $country;
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->city = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
 }

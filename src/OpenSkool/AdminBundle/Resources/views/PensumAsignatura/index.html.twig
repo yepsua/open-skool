@@ -1,0 +1,62 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% set tdomain = "OpenSkoolAdminBundle_PensumAsignatura" %}
+
+{% block content %}
+  <div class="crud_header">
+    <div>
+      <span class="crud_header_title">{{"list.view.title"|trans([], tdomain)}}</span>
+    </div>
+    <table class="crud_header_buttonset">
+      <tr>
+        <td>
+            
+          <button type="button" onclick="rcNewPensumasignatura()" class="btn btn-danger btn-sm">{{ 'action.new'|trans }}</button>                               
+          <button id="btnPopUpPensumasignatura"  onclick="popUpPensumasignatura.wijpopup('show')" type="button" class="btn btn-primary btn-sm">{{ 'menu.more'|trans }}<span class="caret"></span></button>
+                
+          {% ui_popup  autoHide=true
+                       widgetVar="popUpPensumasignatura"
+                       position={'of':jQuery("#btnPopUpPensumasignatura"),
+                                 'offset':'0 0'}%}
+
+            {% ui_panel class="dropdown-menu-panel" %}
+              <ul onclick="popUpPensumasignatura.wijpopup('hide')" class="dropdown-menu dropdown-menu-visible" role="menu">
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcEditPensumasignatura()" href="#">{{ 'action.edit'|trans }}</a></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcShowPensumasignatura()" href="#">{{ 'action.show'|trans }}</a></li>
+                <li role="presentation" class="divider"></li>
+                <li role="presentation"><a role="menuitem" tabindex="-1" onclick="rcDeletePensumasignatura()" href="#">{{ 'action.delete'|trans }}</a></li>
+              </ul>
+            {% end_ui_panel %}
+
+          {% end_ui_popup %}
+          
+        </td>
+      </tr>
+    </table>
+  </div>
+  {{ component_render(grid) }}
+  <div id="pensumasignaturaWorkspace"></div>
+  
+  {% remote_command update="#pensumasignaturaWorkspace" type="GET" url=path("pensum_asignatura_new") 
+                    name="rcNewPensumasignatura" %}
+
+  {% remote_command update="#pensumasignaturaWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#pensumasignaturaGrid','" ~ "msg.batch.empty"|trans ~ "')") 
+                    url=arg(path("pensum_asignatura_edit", { "id": "'+ $('#pensumasignaturaGrid').jqGrid('getGridParam','selrow')+'"}) | raw_url_decode)  
+                    name="rcEditPensumasignatura" %}
+
+  {% remote_command update="#pensumasignaturaWorkspace" type="POST"
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#pensumasignaturaGrid','" ~ "msg.batch.empty"|trans ~ "') && confirm('" ~ "msg.batch.delete.confirmation"|trans ~ "')")
+                    complete=js_function("jqXHR","
+                      if (jqXHR.status == 200){
+                        $.pnotify('" ~ "msg.batch.delete.success"|trans ~ "');
+                        $('#pensumasignaturaGrid').trigger('reloadGrid')
+                      }")
+                    url=arg(path("pensum_asignatura_delete", { "id": "'+ $('#pensumasignaturaGrid').jqGrid('getGridParam','selarrrow')+'"}) | raw_url_decode)  
+                    name="rcDeletePensumasignatura" %}
+
+  {% remote_command update="#pensumasignaturaWorkspace" type="GET" 
+                    beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#pensumasignaturaGrid','" ~ "msg.batch.empty"|trans ~ "')")
+                    url=arg(path('pensum_asignatura_show', { "id": "'+ SmarTwig.grid.selectedRow('#pensumasignaturaGrid')+'"}) | raw_url_decode)  
+                    name="rcShowPensumasignatura" %}
+                                                                                      
+{% endblock content %}

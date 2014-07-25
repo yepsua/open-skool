@@ -27,7 +27,7 @@
     {% ajax_status onstart="$.blockUI({'message':'"~ 'msg.please.wait'|trans ~ "'})"
           onsuccess="$.unblockUI()"
           oncomplete="$.unblockUI();$('.crud-btn-submit').removeAttr('disabled');"
-          onerror=js_function("event,jqXHR,ajaxSettings,thrownError","$.unblockUI();alert('Ha ocurrido un error: ' + thrownError)")
+          onerror=js_function("event,jqXHR,ajaxSettings,thrownError","$.unblockUI(); if(thrownError != 'canceled') alert('Ha ocurrido un error: ' + thrownError)")
           for="document" %}
 
 {% endblock %}   
@@ -39,7 +39,9 @@
 {% block layout_include %}
     {% include 'YepsuaSmarTwigBundle::smartwigAssets.html.twig' %}
     {% include 'YepsuaGeneratorBundle::yepsuaGeneratorAssets.html.twig' %}
+    {% include 'OpenSkoolCoreBundle::assets.html.twig' %}
     <script type="text/javascript" src="{{ asset('bundles/yepsuasmartwig/jquery4php-assets/js/plugins/jqgrid/i18n/grid.locale-es.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/yepsuasmartwig/jquery4php-assets/js/ui/i18n/jquery.ui.datepicker-es.js') }}"></script>
     {% block include '' %}
 {% endblock %}
 

@@ -1,0 +1,10 @@
+OpenSkool\AdminBundle\Entity\Grupo:
+  fake_grupo_etapa_anio_1:
+    codigo: AÑO-1
+    nombre: Primer Año
+  fake_grupo_etapa_anio_2:
+    codigo: AÑO-2
+    nombre: Segundo Año
+  fake_grupo_etapa_anio_3:
+    codigo: AÑO-3 
+    nombre: Tercer Año

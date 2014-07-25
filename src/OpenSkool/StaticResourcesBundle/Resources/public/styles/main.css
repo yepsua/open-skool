@@ -1,0 +1,35 @@
+.ui-list{
+  margin: 0; 
+  padding: 0;
+  list-style-type: none;
+  width: 70%;
+}
+
+.ui-list > * {
+  text-align: left;
+}
+
+.ui-list-item{
+  margin: 0 5px 5px 5px; 
+  padding: 5px; 
+  font-size: 1.2em;
+}
+
+.inactive-item{
+  text-decoration: line-through;
+}
+
+.sortable{
+  list-style-type: decimal; 
+  cursor:move;
+}
+
+.groupable{
+  cursor:crosshair;
+  
+}
+
+.ui-list-item-button{
+  float:right;
+  margin-top: -2px;
+}

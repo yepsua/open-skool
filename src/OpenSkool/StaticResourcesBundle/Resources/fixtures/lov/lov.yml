@@ -29,3 +29,13 @@ Yepsua\LOVBundle\Entity\LOV:
     value: 3
     description: Trabajo
     order_by: 30
+  lov_person_unidad_curricular_type_uc_1:
+    group: @lov_group_unidad_curricular_type
+    value: 1
+    description: Tipo unidad curricular 1
+    order_by: 10
+  lov_person_unidad_curricular_type_uc_2:
+    group: @lov_group_unidad_curricular_type
+    value: 2
+    description: Tipo unidad curricular 2
+    order_by: 20

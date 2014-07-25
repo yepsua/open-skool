@@ -5,3 +5,5 @@ Yepsua\LOVBundle\Entity\LOVGroup:
     groupName: BLOOD_GROUP
   lov_group_person_address_type:
     groupName: PERSON_ADDRESS_TYPE
+  lov_group_unidad_curricular_type:
+    groupName: UNIDAD_CURRICULAR_TYPE

@@ -1,0 +1,38 @@
+{{"tab.etapas.label.ordenar"|trans([],tdomain)}}
+<br/><br/>
+<div align="center">
+<ol id="sortableEtapas" class="ui-list sortable">
+  {% for etapaPlan in etapasPlan %}
+    <li id="{{ etapaPlan.id}}" class="item-etapa ui-list-item {{ etapaPlan.activo ? '': 'ui-state-disabled' }}  ui-widget-header">
+      {{ etapaPlan.etapa }}
+      <button id="btnPopUpAsignatura{{etapaPlan.id}}" onclick="popUpAsignatura{{etapaPlan.id}}.wijpopup('show')" type="button" class="btn btn-primary btn-xs ui-list-item-button">{{ 'menu.more'|trans }} <span class="caret"></span></button>
+    </li>
+    {% ui_popup id="popUp" ~ etapaPlan.id  autoHide=true
+                 widgetVar="popUpAsignatura" ~ etapaPlan.id
+                 position={'of':jQuery("#btnPopUpAsignatura" ~ etapaPlan.id)}%}
+      {% ui_panel class="dropdown-menu-panel" %}
+        <ul onclick="popUpAsignatura{{etapaPlan.id}}.wijpopup('hide')" class="dropdown-menu dropdown-menu-visible" role="menu">
+          {% if etapaPlan.activo %}
+          <li onclick="desactivarEtapa({{etapaPlan.id}});" role="presentation"><a role="menuitem" tabindex="-1" href="#">{{ 'action.deactivate'|trans }}</a></li>
+          {% else %}
+          <li onclick="activarEtapa({{etapaPlan.id}});" role="presentation"><a role="menuitem" tabindex="-1" href="#">{{ 'action.activate'|trans }}</a></li>
+          {% endif %}
+          <li role="presentation" class="divider"></li>
+          <li onclick="eliminarEtapa({{etapaPlan.id}});" role="presentation"><a role="menuitem" tabindex="-1" href="#">{{ 'action.delete'|trans }}</a></li>
+        </ul>
+      {% end_ui_panel %}
+    {% end_ui_popup %}
+  {% else %}  
+    {{"tab.etapas.label.data.not.found"|trans([],tdomain)}}
+    {% ui_effect for="#btnAddEtapa" effect="bounce" %}
+  {% endfor %}
+</ol>
+</div>
+<br/>
+
+<button id="btnAddEtapa" onclick="dlgEtapa.wijdialog('open');" type="button" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-plus"></i> {{ 'action.add'|trans }}</button>
+{% if etapasPlan is not empty and etapasPlan|length > 1 %}
+<button onclick="ordenarEtapas()" type="button" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-sort"></i> {{ 'action.order'|trans }}</button>
+{% endif %}
+
+{% ui_sortable for="#sortableEtapas" items="li:not(.ui-state-disabled)"%}

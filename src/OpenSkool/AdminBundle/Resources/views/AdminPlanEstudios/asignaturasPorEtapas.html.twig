@@ -1,0 +1,21 @@
+{% set tdomain = "OpenSkoolAdminBundle_PlanEstudiosWizard" %}
+{% block content %}
+  <div align="center">
+    <ol class="ui-list">
+      {% for asignaturaPlan in asignaturasPlan %}
+        <li id="{{ asignaturaPlan.id }}" class="ui-list-item ui-widget-header">
+          {{asignaturaPlan.pensumAsignatura.asignatura }} - ({{ asignaturaPlan.pensumAsignatura.codigo}})
+          <button onclick="eliminarEtapaAsignatura({{asignaturaPlan.id }})" type="button" class="btn btn-primary btn-xs ui-list-item-button">{{ 'action.delete'|trans }}</button>
+        </li>
+      {% else %}
+        {{"tab.asignatura.etapas.label.data.not.found"|trans([],tdomain)}}
+        {% ui_effect for="#btnAddAsignatura" effect="bounce" %}
+      {% endfor %}
+    </ol>
+  </div>
+  <br/>
+  <button id="btnAddAsignatura" onclick="dlgAsignatura.wijdialog('open');" type="button" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-plus"></i> {{ 'action.add'|trans }}</button>
+
+  {% include 'OpenSkoolAdminBundle:AdminPlanEstudios:dialog_asignatura.html.twig' %}
+  
+{% endblock %}

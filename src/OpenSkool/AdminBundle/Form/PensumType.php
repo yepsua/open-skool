@@ -2,13 +2,13 @@
 
 namespace OpenSkool\AdminBundle\Form;
 
-use Symfony\Component\Form\AbstractType;
+use Yepsua\RADBundle\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 class PensumType extends AbstractType
-{
-        /**
+{     
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
@@ -17,7 +17,19 @@ class PensumType extends AbstractType
         $builder
             ->add('instituto')
             ->add('carrera')
+            ->add('pensumPadre')
+            /*->add('asignaturas', 'ui_entity', array(
+              'class' => 'OpenSkoolAdminBundle:Asignatura',
+              'multiple' => true,
+              'widget_options' => array(
+                'height' => 250
+              )
+            ))*/
         ;
+        if ($this->isFormTypeNew()){
+            $builder->add('CreatePlanEstudio','checkbox', array('mapped' => false,'required' => false));
+            $builder->add('CodigoPlanEstudio',null, array('mapped' => false, 'required' => false));
+        }
     }
     
     /**

@@ -82,7 +82,7 @@ class Periodo
      * @param \DateTime $fechaInicio
      * @return Periodo
      */
-    public function setFechaInicio($fechaInicio)
+    public function setFechaInicio(\DateTime $fechaInicio)
     {
         $this->fechaInicio = $fechaInicio;
 
@@ -105,7 +105,7 @@ class Periodo
      * @param \DateTime $fechaFin
      * @return Periodo
      */
-    public function setFechaFin($fechaFin)
+    public function setFechaFin(\DateTime $fechaFin)
     {
         $this->fechaFin = $fechaFin;
 

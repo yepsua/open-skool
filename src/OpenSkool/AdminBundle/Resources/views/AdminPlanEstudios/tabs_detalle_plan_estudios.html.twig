@@ -1,0 +1,17 @@
+  {% ui_tabs select=js_function("event, ui","tabNumVar = ui.index") selected=tabNum id="uitabs2" widgetVar="uitabs" %}
+    {% ui_tab label="tab.etapas"|trans([],tdomain) %}
+      {% if includeContent %}
+        {% include 'OpenSkoolAdminBundle:AdminPlanEstudios:tab_etapas.html.twig' %}
+      {% endif %}
+    {% end_ui_tab %} 
+    {% ui_tab rendered=etapasPlan is not empty label="tab.grupos"|trans([],tdomain) %}
+      {% if includeContent %}
+        {% include 'OpenSkoolAdminBundle:AdminPlanEstudios:tab_grupos.html.twig' %}
+      {% endif %}
+    {% end_ui_tab  %}
+    {% ui_tab rendered=etapasPlan is not empty label="tab.asignatura.etapas"|trans([],tdomain) %}
+      {% if includeContent %}
+        {% include 'OpenSkoolAdminBundle:AdminPlanEstudios:tab_asignatura_etapas.html.twig' %}
+      {% endif %}
+    {% end_ui_tab %}
+  {% end_ui_tabs %}

@@ -17,7 +17,11 @@
       <tr>
         <td><b>{{"Carrera"|trans([],tdomain)}}:</b></td>
         <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.carrera} %}</td>
-      </tr>      
+      </tr>   
+      <tr>
+        <td><b>{{"Pensumpadre"|trans([],tdomain)}}:</b></td>
+        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.pensumPadre} %}</td>
+      </tr>
     </tbody>
   </table>
 

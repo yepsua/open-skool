@@ -1,0 +1,19 @@
+OpenSkool\AdminBundle\Entity\Asignatura:
+  fake_asignatura_matI:
+    codigo: MAT-01
+    nombre: Matematica I
+  fake_asignatura_matII:
+    codigo: MAT-02
+    nombre: Matematica II
+  fake_asignatura_contI:
+    codigo: CONT-01
+    nombre: Contabilidad I
+  fake_asignatura_contII:
+    codigo: CONT-02
+    nombre: Contabilidad II
+  fake_asignatura_bioI:
+    codigo: BIO-01
+    nombre: Biologia I
+  fake_asignatura_bioII:
+    codigo: BIO-02
+    nombre: Biologia II

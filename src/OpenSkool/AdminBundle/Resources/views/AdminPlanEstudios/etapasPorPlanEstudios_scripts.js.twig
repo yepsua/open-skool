@@ -1,0 +1,83 @@
+<script language="javascript" type="text/javascript">
+  var desagruparIds = new Array();
+  var etapasIds = new Array();
+  var ordenEtapasIds = new Array();
+  var etapaPlanId;
+  var etapaActiva;
+  var asignaturaEtapaId;
+
+  function ordenarEtapas() {
+    $('#sortableEtapas li.item-etapa').each(function(index) {
+      id = $(this).attr('id');
+      if (id) {
+        ordenEtapasIds[index] = id;
+      }
+    });
+    ordenarEtapasRC();
+  }
+
+  function desagruparEtapas(button) {
+    $(button).parent().find('span').each(function(index) {
+      id = $(this).attr('id');
+      if (id) {
+        desagruparIds[index] = id;
+      }
+    });
+    desagruparEtapasRC();
+  }
+
+  function agruparEtapas(callRC) {
+    desagruparIds = new Array();
+    $('#selectableEtapas li.ui-selected').each(function(index) {
+      id = $(this).attr('id');
+      if (id) {
+        etapasIds[index] = id;
+      }
+    });
+    if (etapasIds.length) {
+      if (callRC) {
+        if ($('#cboGrupos').val()) {
+          dlgGrupo.wijdialog('close');
+          agruparEtapasRC();
+        } else {
+          alert('{{"script.message.seleccione.un.grupo"|trans([],tdomain)}}');
+        }
+      } else {
+        dlgGrupo.wijdialog('open');
+      }
+    } else {
+      alert('{{"script.message.seleccione.las.etapas"|trans([],tdomain)}}');
+    }
+  }
+
+  function eliminarEtapa(etapaId) {
+    if (confirm('{{"script.confirm.eliminar.etapa"|trans([],tdomain)}}')) {
+      etapaPlanId = etapaId;
+      eliminarEtapaRC();
+    }
+  }
+
+  function eliminarEtapaAsignatura(asignaturaId) {
+    if (confirm('{{"script.confirm.eliminar.asignatura"|trans([],tdomain)}}')) {
+      asignaturaEtapaId = asignaturaId;
+      eliminarEtapaAsignaturaRC();
+    }
+  }
+
+  function activarEtapa(etapaId) {
+    etapaActiva = "true";
+    cambiarEstadoEtapa('{{"script.confirm.activar.etapa"|trans([],tdomain)}}', etapaId);
+  }
+
+  function desactivarEtapa(etapaId) {
+    etapaActiva = "false";
+    cambiarEstadoEtapa('{{"script.confirm.desactivar.etapa"|trans([],tdomain)}}', etapaId);
+  }
+
+  function cambiarEstadoEtapa(mensaje, etapaId) {
+    if (confirm(mensaje)) {
+      etapaPlanId = etapaId;
+      activarEtapaRC();
+    }
+  }
+</script>

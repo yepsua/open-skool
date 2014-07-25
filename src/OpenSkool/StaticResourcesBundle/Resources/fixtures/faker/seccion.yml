@@ -1,0 +1,13 @@
+OpenSkool\AdminBundle\Entity\Seccion:
+  fake_seccion_a:
+    codigo: A
+    descripcion: Sección A
+  fake_seccion_b:
+    codigo: B
+    descripcion: Sección B
+  fake_seccion_21:
+    codigo: 21
+    descripcion: Sección 21
+  fake_seccion_201473_73:
+    codigo: 2014-73
+    descripcion: Sección 2014-73

@@ -1,0 +1,19 @@
+OpenSkool\AdminBundle\Entity\GrupoEtapaPlanEstudios:
+  fake_grupo_1_etapa_1_plan_estudios_pensum_bach_ccs:
+    grupo: @fake_grupo_etapa_anio_1
+    etapaPlanEstudios: @fake_etapa_1_plan_estudios_pensum_bach_ccs
+  fake_grupo_1_etapa_2_plan_estudios_pensum_bach_ccs:
+    grupo: @fake_grupo_etapa_anio_1
+    etapaPlanEstudios: @fake_etapa_2_plan_estudios_pensum_bach_ccs
+  fake_grupo_2_etapa_3_plan_estudios_pensum_bach_ccs:
+    grupo: @fake_grupo_etapa_anio_2
+    etapaPlanEstudios: @fake_etapa_3_plan_estudios_pensum_bach_ccs
+  fake_grupo_2_etapa_4_plan_estudios_pensum_bach_ccs:
+    grupo: @fake_grupo_etapa_anio_2
+    etapaPlanEstudios: @fake_etapa_4_plan_estudios_pensum_bach_ccs
+  fake_grupo_3_etapa_5_plan_estudios_pensum_bach_ccs:
+    grupo: @fake_grupo_etapa_anio_3
+    etapaPlanEstudios: @fake_etapa_5_plan_estudios_pensum_bach_ccs
+  fake_grupo_3_etapa_6_plan_estudios_pensum_bach_ccs:
+    grupo: @fake_grupo_etapa_anio_3
+    etapaPlanEstudios: @fake_etapa_6_plan_estudios_pensum_bach_ccs

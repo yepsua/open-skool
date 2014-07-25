@@ -1,0 +1,34 @@
+{% extends "OpenSkoolThemeBundle::layout.html.twig" %}
+{% set tdomain = "OpenSkoolAdminBundle_PlanEstudiosWizard" %}
+{% block content %}
+  <div class="crud_header">
+    <div>
+      <span class="crud_header_title">{{"list.view.title"|trans([],tdomain)}}</span>
+    </div>
+  </div>
+  <div>
+  {{"index.label.seleccionar.plan"|trans([],tdomain)}}
+
+  <select id="cboPlanEstudios" name="cboPlanEstudios" onchange="if($(this).val() !== ''){getDetallePlanEstudios();}">
+      <option value=""></option>
+    {% for planEstudio in planEstudios %}
+      <option value="{{ planEstudio.id }}">{{ planEstudio }}</option>
+    {% endfor %}
+  </select>
+
+  {% remote_command update="#adminPlanEstudiosWorkspace" type="GET"
+     url=arg(path("detalle_admin_plan_estudios", { "id": "'+ $('#cboPlanEstudios').val()+'", "tabNum": "' tabNumVar '"}) | raw_url_decode)  
+     name="getDetallePlanEstudiosRC" 
+  %}
+  </div>
+  <div id="adminPlanEstudiosWorkspace">
+    {% include 'OpenSkoolAdminBundle:AdminPlanEstudios:tabs_detalle_plan_estudios.html.twig' with { 'includeContent' : false, 'tabNum' : 0, 'etapasPlan' : null}  %}
+  </div>
+  
+  {% include 'OpenSkoolAdminBundle:AdminPlanEstudios:dialog_etapa.html.twig' %}
+  
+  {% include 'OpenSkoolAdminBundle:AdminPlanEstudios:dialog_grupo.html.twig' %}
+  
+  {% include 'OpenSkoolAdminBundle:AdminPlanEstudios:index_scripts.js.twig' %}
+
+{% endblock %}

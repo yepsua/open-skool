@@ -1,0 +1,16 @@
+OpenSkool\AdminBundle\Entity\Titulo:
+  fake_titulo_bach:
+    codigo: TIT-BACH
+    nombre: Bachiller
+    descripcion: Titulo para Bachiller.
+    abreviatura: Bach.
+  fake_titulo_tsu:
+    codigo: TIT-TSU
+    nombre: Tecnico Superior Universitario
+    descripcion: Titulo para TSU.
+    abreviatura: TSU.
+  fake_titulo_lic:
+    codigo: TIT-LIC
+    nombre: Licenciado
+    descripcion: Titulo para Lic.
+    abreviatura: Lic.

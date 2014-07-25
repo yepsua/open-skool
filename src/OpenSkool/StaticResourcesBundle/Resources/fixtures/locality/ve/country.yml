@@ -1,0 +1,4 @@
+Yepsua\LocalityBundle\Entity\Country:
+  country_venezuela:
+    name: Venezuela
+    code: VE

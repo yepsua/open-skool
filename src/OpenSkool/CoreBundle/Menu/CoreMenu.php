@@ -20,7 +20,9 @@ class CoreMenu extends MenuTree
         
             $instutoMenu = $menuManager->getItem('mnu.institucion',array('route' => 'instituto'));
             $instutoMenu->addChild($menuManager->newItem('mnu.institucion.change', array('route' => 'change_instituto')));
-            $instutoMenu->addChild($menuManager->newItem('mnu.institucion.pensum', array('route' => 'pensum')));
+              $pensum = $menuManager->getItem('mnu.institucion.pensum', array('route' => 'pensum'));
+              $pensum->addChild($menuManager->newItem('mnu.institucion.pensum.asignaturas', array('route' => 'pensum_asignatura')));
+            $instutoMenu->addChild($pensum);
             
             $coreMenu->addChild($instutoMenu);
         
@@ -40,7 +42,7 @@ class CoreMenu extends MenuTree
             
             //PLAN_ESTUDIOS_MENU
             $planEstudiosMenu = $menuManager->getItem('mnu.plan.estudios');
-            $planEstudiosMenu->addChild($menuManager->newItem('mnu.plan.estudios.admin', array('route' => 'not_implemented')));
+            $planEstudiosMenu->addChild($menuManager->newItem('mnu.plan.estudios.admin', array('route' => 'admin_plan_estudios')));
             $planEstudiosMenu->addChild($menuManager->newItem('mnu.plan.estudios.etapas', array('route' => 'not_implemented')));
             $planEstudiosMenu->addChild($menuManager->newItem('mnu.plan.estudios.grupos', array('route' => 'not_implemented')));
             $coreMenu->addChild($planEstudiosMenu);

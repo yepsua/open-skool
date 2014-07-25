@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * City
  *
  * @ORM\Table(name="city")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Yepsua\LocalityBundle\Entity\Repository\CityRepository")
  */
 class City extends BaseAttribute
 {
@@ -22,41 +22,7 @@ class City extends BaseAttribute
     private $id;
     
     /**
-     * @ORM\ManyToOne(targetEntity="Yepsua\LocalityBundle\Entity\Locality", cascade={"persist"}, inversedBy="cities")
-     * @ORM\JoinColumn(name="locality_id", referencedColumnName="id")
+     * @ORM\OneToMany(targetEntity="Yepsua\LocalityBundle\Entity\Locality", mappedBy="cities")
      */
     protected $locality;
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
-     * Set locality
-     *
-     * @param \Yepsua\LocalityBundle\Entity\Locality $locality
-     * @return City
-     */
-    public function setLocality(\Yepsua\LocalityBundle\Entity\Locality $locality = null)
-    {
-        $this->locality = $locality;
-
-        return $this;
-    }
-
-    /**
-     * Get locality
-     *
-     * @return \Yepsua\LocalityBundle\Entity\Locality 
-     */
-    public function getLocality()
-    {
-        return $this->locality;
-    }
 }

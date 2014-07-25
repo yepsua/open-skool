@@ -1,0 +1,21 @@
+OpenSkool\AdminBundle\Entity\Mencion:
+  fake_mencion_ccs:
+    codigo: MEN-CCS
+    nombre: Ciencias
+    descripcion: Mencion Ciencias.
+    abreviatura: Ccs.
+  fake_mencion_hum:
+    codigo: MEN-HUM
+    nombre: Humanidades
+    descripcion: Mencion Humanidades.
+    abreviatura: Hum.
+  fake_mencion_informatica:
+    codigo: MEN-INF
+    nombre: Informatica
+    descripcion: Mencion Informatica.
+    abreviatura: Inf.
+  fake_mencion_contabilidad:
+    codigo: MEN-CONT
+    nombre: Contabilidad
+    descripcion: Mencion Contabilidad.
+    abreviatura: Cont.

@@ -1,0 +1,41 @@
+OpenSkool\AdminBundle\Entity\PensumAsignatura:
+  fake_pensum_bach_ccs_asignatura_matI:
+    codigo: MAT I
+    codigoCurricular: MAT I
+    electiva: false
+    unidadesCredito: 2
+    horasTeoricas: 4
+    horasPracticas: 0
+    tipoUnidadCurricular: @lov_person_unidad_curricular_type_uc_1
+    pensum: @fake_pensum_bach_ccs
+    asignatura: @fake_asignatura_matI
+  fake_pensum_bach_ccs_asignatura_matII:
+    codigo: MAT II
+    codigoCurricular: MAT II
+    electiva: true
+    unidadesCredito: 2
+    horasTeoricas: 4
+    horasPracticas: 0
+    tipoUnidadCurricular: @lov_person_unidad_curricular_type_uc_1
+    pensum: @fake_pensum_bach_ccs
+    asignatura: @fake_asignatura_matII
+  fake_pensum_bach_ccs_asignatura_contI:
+    codigo: CONT-01
+    codigoCurricular: CONT-01
+    electiva: true
+    unidadesCredito: 2
+    horasTeoricas: 4
+    horasPracticas: 0
+    tipoUnidadCurricular: @lov_person_unidad_curricular_type_uc_1
+    pensum: @fake_pensum_bach_ccs
+    asignatura: @fake_asignatura_contI
+  fake_pensum_bach_ccs_asignatura_contII:
+    codigo: CONT-02
+    codigoCurricular: CONT-02
+    electiva: true
+    unidadesCredito: 2
+    horasTeoricas: 4
+    horasPracticas: 0
+    tipoUnidadCurricular: @lov_person_unidad_curricular_type_uc_1
+    pensum: @fake_pensum_bach_ccs
+    asignatura: @fake_asignatura_contII

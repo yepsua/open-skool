@@ -1,0 +1,31 @@
+OpenSkool\AdminBundle\Entity\EtapaPlanEstudios:
+  fake_etapa_1_plan_estudios_pensum_bach_ccs:
+    planEstudios: @fake_plan_estudios_pensum_bach_ccs
+    etapa: @fake_etapa_1
+    activo: true
+    orden: 1
+  fake_etapa_2_plan_estudios_pensum_bach_ccs:
+    planEstudios: @fake_plan_estudios_pensum_bach_ccs
+    etapa: @fake_etapa_2
+    activo: true
+    orden: 2
+  fake_etapa_3_plan_estudios_pensum_bach_ccs:
+    planEstudios: @fake_plan_estudios_pensum_bach_ccs
+    etapa: @fake_etapa_3
+    activo: true
+    orden: 3
+  fake_etapa_4_plan_estudios_pensum_bach_ccs:
+    planEstudios: @fake_plan_estudios_pensum_bach_ccs
+    etapa: @fake_etapa_4
+    activo: true
+    orden: 4
+  fake_etapa_5_plan_estudios_pensum_bach_ccs:
+    planEstudios: @fake_plan_estudios_pensum_bach_ccs
+    etapa: @fake_etapa_5
+    activo: true
+    orden: 5
+  fake_etapa_6_plan_estudios_pensum_bach_ccs:
+    planEstudios: @fake_plan_estudios_pensum_bach_ccs
+    etapa: @fake_etapa_6
+    activo: true
+    orden: 6

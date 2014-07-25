@@ -1,0 +1,9 @@
+{% set tdomain = "OpenSkoolAdminBundle_PlanEstudiosWizard" %}
+{% block content %}
+  
+{% include 'OpenSkoolAdminBundle:AdminPlanEstudios:tabs_detalle_plan_estudios.html.twig' with { 'includeContent' : true}  %}
+    
+{% include 'OpenSkoolAdminBundle:AdminPlanEstudios:remote_commands.html.twig' %}
+{% include 'OpenSkoolAdminBundle:AdminPlanEstudios:etapasPorPlanEstudios_scripts.js.twig' %}
+
+{% endblock %}

@@ -33,15 +33,14 @@ class AppKernel extends Kernel
             new OpenSkool\PeopleBundle\OpenSkoolPeopleBundle(),
             new OpenSkool\SecurityBundle\OpenSkoolSecurityBundle(),
             new OpenSkool\LOVBundle\OpenSkoolLOVBundle(),
-            new OpenSkool\LocalityBundle\OpenSkoolLocalityBundle(),
-            new OpenSkool\StaticResourcesBundle\OpenSkoolStaticResourcesBundle(),
+            new OpenSkool\LocalityBundle\OpenSkoolLocalityBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();
-            $bundles[] = new OpenSkool\AssetsBundle\OpenSkoolAssetsBundle();
+            $bundles[] = new OpenSkool\StaticResourcesBundle\OpenSkoolStaticResourcesBundle();
             $bundles[] = new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle();
             $bundles[] = new Hautelook\AliceBundle\HautelookAliceBundle();
         }

@@ -1,0 +1,21 @@
+OpenSkool\AdminBundle\Entity\Etapa:
+  fake_etapa_1:
+    codigo: SEMESTRE-1
+    nombre: Primer Semestre
+  fake_etapa_2:
+    codigo: SEMESTRE-2
+    nombre: Segundo Semestre
+  fake_etapa_3:
+    codigo: SEMESTRE-3
+    nombre: Tercer Semestre
+  fake_etapa_4:
+    codigo: SEMESTRE-4
+    nombre: Cuarto Semestre
+  fake_etapa_5:
+    codigo: SEMESTRE-5
+    nombre: Quinto Semestre
+  fake_etapa_6:
+    codigo: SEMESTRE-6
+    nombre: Sexto Semestre
+    
+    

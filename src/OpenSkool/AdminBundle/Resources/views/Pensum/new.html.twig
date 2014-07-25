@@ -1,7 +1,7 @@
 {% set tdomain = "OpenSkoolAdminBundle_Pensum" %}
 {% set entityLabel = "entity.label"|trans([],tdomain) %}
 
-{% ui_dialog widgetVar="dlgNewPensum" title="dlg.create.title"|trans({'%name%': entityLabel}) modal="true"
+{% ui_dialog width="600" height="550" widgetVar="dlgNewPensum" title="dlg.create.title"|trans({'%name%': entityLabel}) modal="true"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
     <div style="width:100%">
     {% ajax_form id="frmNewPensum"

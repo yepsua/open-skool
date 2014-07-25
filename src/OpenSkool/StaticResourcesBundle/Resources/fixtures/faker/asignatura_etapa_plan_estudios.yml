@@ -1,0 +1,13 @@
+OpenSkool\AdminBundle\Entity\AsignaturaEtapaPlanEstudios:
+  fake_mat_I_etapa_1_plan_estudios_pensum_bach_ccs:
+    pensumAsignatura: @fake_pensum_bach_ccs_asignatura_matI
+    etapaPlanEstudios: @fake_etapa_1_plan_estudios_pensum_bach_ccs
+  fake_contI_etapa_1_plan_estudios_pensum_bach_ccs:
+    pensumAsignatura: @fake_pensum_bach_ccs_asignatura_contI
+    etapaPlanEstudios: @fake_etapa_1_plan_estudios_pensum_bach_ccs
+  fake_mat_II_etapa_2_plan_estudios_pensum_bach_ccs:
+    pensumAsignatura: @fake_pensum_bach_ccs_asignatura_matII
+    etapaPlanEstudios: @fake_etapa_2_plan_estudios_pensum_bach_ccs
+  fake_contII_etapa_2_plan_estudios_pensum_bach_ccs:
+    pensumAsignatura: @fake_pensum_bach_ccs_asignatura_contII
+    etapaPlanEstudios: @fake_etapa_2_plan_estudios_pensum_bach_ccs

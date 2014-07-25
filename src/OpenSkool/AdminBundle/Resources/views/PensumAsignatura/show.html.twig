@@ -1,0 +1,82 @@
+{% set tdomain = "OpenSkoolAdminBundle_PensumAsignatura" %}
+{% set entityLabel = "entity.label"|trans([], tdomain ) %}
+
+{% ui_dialog widgetVar="dlgShowPensumAsignatura" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
+             close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
+  <div style="width:100%">
+  <table class="record_properties">
+    <tbody>
+      <tr>
+        <td><b>{{"Id"|trans([], tdomain)}}:</b></td>
+        <td>{{ entity.id }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Codigo"|trans([], tdomain)}}:</b></td>
+        <td>{{ entity.codigo }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Codigocurricular"|trans([], tdomain)}}:</b></td>
+        <td>{{ entity.codigoCurricular }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Electiva"|trans([], tdomain)}}:</b></td>
+        <td>{{ entity.electiva }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Unidadescredito"|trans([], tdomain)}}:</b></td>
+        <td>{{ entity.unidadesCredito }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Horasteoricas"|trans([], tdomain)}}:</b></td>
+        <td>{{ entity.horasTeoricas }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Horaspracticas"|trans([], tdomain)}}:</b></td>
+        <td>{{ entity.horasPracticas }}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Tipounidadcurricular"|trans([], tdomain)}}:</b></td>
+        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.tipoUnidadCurricular} %}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Pensum"|trans([], tdomain)}}:</b></td>
+        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.pensum} %}</td>
+      </tr>
+      <tr>
+        <td><b>{{"Asignatura"|trans([], tdomain)}}:</b></td>
+        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.asignatura} %}</td>
+      </tr>      
+    </tbody>
+  </table>
+
+  <br/><br/>
+  <hr class="ui-widget-content">
+    
+  {% ui_button class="crud-btn-submit" onclick="rcPensumAsignaturaEditAgain()" value="action.edit"|trans %}
+  {% remote_command update="#pensumasignaturaWorkspace" 
+       beforeSend=js_function("dlgShowPensumAsignatura.wijdialog('destroy');") 
+       type="GET" 
+       url=path("pensum_asignatura_edit", { "id": entity.id }) 
+       name="rcPensumAsignaturaEditAgain" %}
+    
+  {% ajax_form id="frmDeletePensumAsignatura"
+       update="#pensumasignaturaWorkspace"
+       action=path("pensum_asignatura_delete", { "id": entity.id })
+       method="DELETE"
+       beforeSubmit=js_function("$('.btnSubmitPensumasignatura').attr('disabled',true);")
+       complete=js_function("jqXHR","
+         if (jqXHR.status == 200){
+           $.pnotify('" ~ "msg.delete.success"|trans({'%name%': entityLabel}) ~ "');
+           dlgShowPensumAsignatura.wijdialog('destroy');
+           $('#pensumasignaturaGrid').trigger('reloadGrid');
+         }") 
+  %}
+
+    {{ form_widget(delete_form) }}
+    {% ui_button class="crud-btn-submit btnSubmitPensumasignatura" type="submit" 
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+                 value="action.delete"|trans %}
+
+  {% end_ajax_form %}
+    </div>
+{% end_ui_dialog %}

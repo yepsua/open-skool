@@ -30,8 +30,12 @@ class Pensum
      * @ORM\ManyToOne(targetEntity="OpenSkool\AdminBundle\Entity\Carrera", cascade={"persist"})
      */
     private $carrera;
-
-
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="OpenSkool\AdminBundle\Entity\Pensum", cascade={"persist"})
+     */
+    private $pensumPadre;
+    
     /**
      * Get id
      *
@@ -86,5 +90,32 @@ class Pensum
     public function getCarrera()
     {
         return $this->carrera;
+    }
+
+    /**
+     * Set pensumPadre
+     *
+     * @param \OpenSkool\AdminBundle\Entity\Pensum $pensumPadre
+     * @return Pensum
+     */
+    public function setPensumPadre(\OpenSkool\AdminBundle\Entity\Pensum $pensumPadre = null)
+    {
+        $this->pensumPadre = $pensumPadre;
+
+        return $this;
+    }
+
+    /**
+     * Get pensumPadre
+     *
+     * @return \OpenSkool\AdminBundle\Entity\Pensum 
+     */
+    public function getPensumPadre()
+    {
+        return $this->pensumPadre;
+    }
+    
+    public function __toString() {
+      return sprintf('%s-%s',$this->instituto, $this->carrera);
     }
 }

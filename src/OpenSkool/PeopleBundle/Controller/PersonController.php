@@ -371,13 +371,20 @@ class PersonController extends Controller
      */
     public function detailAction()
     {
-      $userDetail = $this->getUser()->getUserDetail();
+      /*$userDetail = $this->getUser()->getUserDetail();
       if($userDetail !== null){
         $this->validateIsXmlHttpRequest = false;
         return $this->showAction($userDetail->getId());
       }else{
         return $this->redirect($this->generateUrl('core_home'));
+      }*/
+      
+      $userDetail = $this->getUser()->getUserDetail();
+      if($userDetail === null){
+        $userDetail = $this->getRepository('OpenSkoolPeopleBundle:Person')->createUserDetail($this->getUser());
       }
+      $this->validateIsXmlHttpRequest = false;
+      return $this->showAction($userDetail->getId());
     }
     
     /**

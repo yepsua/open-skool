@@ -1,4 +1,0 @@
-YepsuaLocalityBundle:
-    resource: "@YepsuaLocalityBundle/Controller/"
-    type:     annotation
-    prefix:   /

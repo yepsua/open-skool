@@ -57,7 +57,7 @@
   {% remote_command update="#pensumWorkspace" type="GET" 
                     beforeSend=js_function("return SmarTwig.grid.hasSelectedRow('#pensumGrid','" ~ "msg.batch.empty"|trans ~ "')")
                     url=arg(path('pensum_show', { "id": "'+ SmarTwig.grid.selectedRow('#pensumGrid')+'"}) | raw_url_decode)  
-                    name="rcShowPensum" %}
+                    name="rcShowPensum" %}               
               
 {% endblock content %}
   

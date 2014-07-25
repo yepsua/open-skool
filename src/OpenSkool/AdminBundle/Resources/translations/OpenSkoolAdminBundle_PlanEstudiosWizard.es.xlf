@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="OpenSkoolAdminBundle_PlanEstudiosWizard.en.xlf">
+        <body>
+            <trans-unit id="index.label.seleccionar.plan">
+                <source>index.label.seleccionar.plan</source>
+                <target>Seleccione el plan de estudios a consultar.</target>
+            </trans-unit>
+            <trans-unit id="tab.etapas">
+                <source>tab.etapas</source>
+                <target>Etapas</target>
+            </trans-unit>
+            <trans-unit id="tab.grupos">
+                <source>tab.grupos</source>
+                <target>Grupos</target>
+            </trans-unit>
+            <trans-unit id="tab.asignatura.etapas">
+                <source>tab.asignatura.etapas</source>
+                <target>Asignatura por Etapas</target>
+            </trans-unit>
+            <trans-unit id="tab.etapas.label.ordenar">
+                <source>tab.etapas.label.ordenar</source>
+                <target>Ordene arrastrando y soltando de la siguiente lista las etapas:</target>
+            </trans-unit>
+            <trans-unit id="tab.grupo.label.agrupar">
+                <source>tab.grupo.label.agrupar</source>
+                <target>Seleccione las Etapas que desea agrupar:</target>
+            </trans-unit>
+            <trans-unit id="dialog.etapa.label.agregar.etapa">
+                <source>dialog.etapa.label.agregar.etapa</source>
+                <target>Seleccione la etapa a agregar al plan estudio.</target>
+            </trans-unit>
+            <trans-unit id="dialog.etapa.form.label.etapa">
+                <source>dialog.etapa.form.label.etapa</source>
+                <target>Etapa:</target>
+            </trans-unit>
+            <trans-unit id="dialog.etapa.title">
+                <source>dialog.etapa.title</source>
+                <target>Agregar Etapa</target>
+            </trans-unit>
+            <trans-unit id="dialog.grupo.title">
+                <source>dialog.grupo.title</source>
+                <target>Agrupar Etapas</target>
+            </trans-unit>
+            <trans-unit id="dialog.grupo.label.agregar.grupo">
+                <source>dialog.grupo.label.agregar.grupo</source>
+                <target>Seleccione el grupo al que quiere asociar las etapas.</target>
+            </trans-unit>
+            <trans-unit id="dialog.grupo.form.label.grupo">
+                <source>dialog.grupo.form.label.grupo</source>
+                <target>Grupo</target>
+            </trans-unit>
+            <trans-unit id="tab.asignatura.etapas.form.label.etapa">
+                <source>tab.asignatura.etapas.form.label.etapa</source>
+                <target>Seleccione la etapa a la que se va agregar la asignatura:</target>
+            </trans-unit>
+            <trans-unit id="dialog.asignatura.title">
+                <source>dialog.asignatura.title</source>
+                <target>Agregar Asignatura</target>
+            </trans-unit>
+            <trans-unit id="dialog.asignatura.label.agregar.asignatura">
+                <source>dialog.asignatura.label.agregar.asignatura</source>
+                <target>Seleccione la Asignatura a sera agregada a la Etapa.</target>
+            </trans-unit>
+            <trans-unit id="dialog.asignatura.form.label.asignatura">
+                <source>dialog.asignatura.form.label.asignatura</source>
+                <target>Asignatura</target>
+            </trans-unit>
+            <trans-unit id="tab.etapas.label.data.not.found">
+                <source>tab.etapas.label.data.not.found</source>
+                <target>El Plan de Estudios seleccionado no tiene Etapas asignadas</target>
+            </trans-unit>
+            <trans-unit id="tab.asignatura.etapas.label.data.not.found">
+                <source>tab.asignatura.etapas.label.data.not.found</source>
+                <target>La Etapa seleccionada no tiene Asignaturas asignadas</target>
+            </trans-unit>
+            <trans-unit id="script.message.etapas.no.seleccionadas">
+                <source>script.message.etapas.no.seleccionadas</source>
+                <target>Seleccione una Etapa</target>
+            </trans-unit>
+            <trans-unit id="script.message.asignturas.no.seleccionadas">
+                <source>script.message.asignturas.no.seleccionadas</source>
+                <target>Seleccione una Asignatura</target>
+            </trans-unit>
+            <trans-unit id="script.message.seleccione.un.grupo">
+                <source>script.message.seleccione.un.grupo</source>
+                <target>Seleccione un Grupo</target>
+            </trans-unit>
+            <trans-unit id="script.message.seleccione.las.etapas">
+                <source>script.message.seleccione.las.etapas</source>
+                <target>Seleccione las Etapas que desea agrupar</target>
+            </trans-unit>
+            <trans-unit id="script.confirm.eliminar.etapa">
+                <source>script.confirm.eliminar.etapa</source>
+                <target>La Etapa sera Eliminada</target>
+            </trans-unit>
+            <trans-unit id="script.confirm.eliminar.asignatura">
+                <source>script.confirm.eliminar.asignatura</source>
+                <target>La Asignatura sera Eliminada</target>
+            </trans-unit>
+            <trans-unit id="script.confirm.activar.etapa">
+                <source>script.confirm.activar.etapa</source>
+                <target>La Etapa sera activada</target>
+            </trans-unit>
+            <trans-unit id="script.confirm.desactivar.etapa">
+                <source>script.confirm.desactivar.etapa</source>
+                <target>La Etapa sera desactivada</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

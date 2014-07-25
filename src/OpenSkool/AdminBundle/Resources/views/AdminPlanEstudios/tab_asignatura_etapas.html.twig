@@ -1,0 +1,10 @@
+{{"tab.asignatura.etapas.form.label.etapa"|trans([],tdomain)}}
+<select id="cboEtapaPlanEstudios" onchange="if($(this).val() !== ''){getAsignaturaPorEtapasRC();}">
+  <option value=""></option>
+  {% for etapaPlan in etapasPlan if etapaPlan.activo %}
+    <option value="{{etapaPlan.id}}">{{ etapaPlan.etapa }}</option>
+  {% endfor %}
+</select>
+<br/><br/>
+<div id="asignaturaPorEtapasWorkspace"></div>
+<div id="asignaturaPorEtapasWorkspace2"></div>

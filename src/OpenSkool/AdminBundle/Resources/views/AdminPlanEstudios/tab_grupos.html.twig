@@ -1,0 +1,36 @@
+{{"tab.grupo.label.agrupar"|trans([],tdomain)}}
+<br/><br/>
+<div align="center">
+  <ol class="ui-list">
+    {% set gId = '' %}
+    {% for grupoEtapasPlan in gruposEtapasPlan %}
+      {% if(grupoEtapasPlan.grupo.id != gId) %}
+      {% if(grupoEtapasPlan.grupo.id != gId and not loop.first) %}
+      </li>
+      {% endif %}
+      <li id="{{ grupoEtapasPlan.id}}" class="ui-list-item ui-widget-header">
+        {{ grupoEtapasPlan.grupo }} - <span id="{{grupoEtapasPlan.id}}" class="{{ grupoEtapasPlan.etapaPlanEstudios.activo ? '' : 'inactive-item'}}">{{ grupoEtapasPlan.etapaPlanEstudios.etapa }}</span>
+        <button onclick="desagruparEtapas(this)" type="button" class="btn btn-primary btn-xs ui-list-item-button">{{ 'action.ungroup'|trans }}</button>
+      {% else %}  
+        , <span id="{{grupoEtapasPlan.id}}" class="{{ grupoEtapasPlan.etapaPlanEstudios.activo ? '' : 'inactive-item'}}">{{ grupoEtapasPlan.etapaPlanEstudios.etapa }}</span>
+      {% endif %}
+      {% set gId = grupoEtapasPlan.grupo.id %}
+    {% endfor %}
+  </ol>
+  <ol class="ui-list" id="selectableEtapas">
+    {% set mostrarAgrupar = false %}
+    {% for etapaPlan in etapasPlan if etapaPlan.id in etapasNoAgrupadasId and etapaPlan.activo %}
+        {% set mostrarAgrupar = true %}
+        <li id="{{ etapaPlan.id }}" class="groupable ui-list-item ui-widget-header">
+          {{ etapaPlan.etapa }}
+        </li>
+    {% endfor %}
+  </ol>
+</div>
+<br/>
+
+{% if mostrarAgrupar  %}
+<button onclick="agruparEtapas()" type="button" class="btn btn-danger btn-sm"><i class="glyphicon glyphicon-random"></i> {{ 'action.group'|trans }}</button>
+{% endif  %}
+
+{% ui_selectable for="#selectableEtapas" %}

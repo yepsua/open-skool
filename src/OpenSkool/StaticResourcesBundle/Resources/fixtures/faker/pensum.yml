@@ -1,0 +1,7 @@
+OpenSkool\AdminBundle\Entity\Pensum:
+  fake_pensum_bach_ccs:
+    instituto: @fake_instituto_cuc
+    carrera: @fake_carrera_bach_ccs
+  fake_pensum_bach_hum:
+    instituto: @fake_instituto_cuc
+    carrera: @fake_carrera_bach_hum

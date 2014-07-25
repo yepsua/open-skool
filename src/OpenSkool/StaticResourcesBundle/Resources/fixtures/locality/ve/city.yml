@@ -1,0 +1,5 @@
+Yepsua\LocalityBundle\Entity\City:
+  city_caracas:
+    name: Caracas
+    code: Ccs
+    locality: @locality_distrito_capital

@@ -1,0 +1,55 @@
+{% remote_command update="#asignaturaPorEtapasWorkspace" type="GET"
+   preUpdate="if(typeof dlgAsignatura != 'undefined') dlgAsignatura.remove()"
+   url=arg(path("asignatura_por_etapa", { "planEstudiosId": "'+ $('#cboPlanEstudios').val()+'","etapaId": "'+ $('#cboEtapaPlanEstudios').val()+'"}) | raw_url_decode)  
+   name="getAsignaturaPorEtapasRC"
+%}
+
+{% remote_command update="#asignaturaPorEtapasWorkspace" type="DELETE"
+   postUpdate="getDetallePlanEstudios()"
+   url=arg(path("desagrupar_etapas_plan_estudios", { "desagruparIds": "'+ desagruparIds +'"}) | raw_url_decode)  
+   name="desagruparEtapasRC" 
+%}
+
+{% remote_command update="#asignaturaPorEtapasWorkspace" type="PUT"
+   postUpdate="getDetallePlanEstudios()"
+   url=arg(path("agrupar_etapas_plan_estudios", { "etapasIds": "'+ etapasIds +'",  "grupoId": "'+ $('#cboGrupos').val()+'"}) | raw_url_decode)  
+   name="agruparEtapasRC" 
+%}
+
+{% remote_command update="#asignaturaPorEtapasWorkspace" type="PUT"
+   postUpdate="getDetallePlanEstudios()"
+   url=arg(path("ordenar_etapas_plan_estudios", { "etapasIds": "'+ ordenEtapasIds +'" }) | raw_url_decode)  
+   name="ordenarEtapasRC" 
+%}
+
+{% remote_command update="#asignaturaPorEtapasWorkspace" type="PUT"
+   preUpdate="dlgEtapa.wijdialog('open')"
+   postUpdate="getDetallePlanEstudios()"
+   proccess="#cboPlanEstudios"
+   url=arg(path("agregar_etapa_plan_estudios", { "planEstudiosId": "'+ $('#cboPlanEstudios').val()+'", "etapaId": "'+ $('#cboEtapas').val()+'"}) | raw_url_decode)  
+   name="agregarEtapaRC"
+%}
+
+ {% remote_command update="#asignaturaPorEtapasWorkspace" type="DELETE"
+   postUpdate="getDetallePlanEstudios()"
+   url=arg(path("eliminar_etapa_plan_estudios", { "etapaId": "'+ etapaPlanId +'"}) | raw_url_decode)
+   name="eliminarEtapaRC"
+ %}
+
+ {% remote_command update="#asignaturaPorEtapasWorkspace" type="DELETE"
+   postUpdate="getDetallePlanEstudios()"
+   url=arg(path("activar_etapa_plan_estudios", { "etapaId": "'+ etapaPlanId +'", "activo": "'+ etapaActiva +'"}) | raw_url_decode)
+   name="activarEtapaRC"
+ %}
+
+ {% remote_command update="#asignaturaPorEtapasWorkspace2" type="PUT"
+   postUpdate="getAsignaturaPorEtapasRC()"
+   url=arg(path("agregar_etapa_asignatura", { "etapaId": "'+ $('#cboEtapaPlanEstudios').val()+'", "asignaturaId": "'+ $('#cboAsignaturas').val()+'"}) | raw_url_decode)
+   name="agregarEtapaAsignaturaRC"
+ %}
+
+ {% remote_command update="#asignaturaPorEtapasWorkspace2" type="DELETE"
+   postUpdate="getAsignaturaPorEtapasRC()"
+   url=arg(path("eliminar_etapa_asignatura", { "asignaturaEtapaId": "' + asignaturaEtapaId + '"}) | raw_url_decode)
+   name="eliminarEtapaAsignaturaRC"
+ %}

@@ -1,0 +1,17 @@
+OpenSkool\AdminBundle\Entity\Turno:
+  fake_turno_manana:
+    codigo: MNA
+    nombre: Mañana
+    descripcion: Turno - Mañana
+  fake_turno_tarde:
+    codigo: TDE
+    nombre: Tarde
+    descripcion: Turno - Tarde
+  fake_turno_noche:
+    codigo: NCH
+    nombre: Noche
+    descripcion: Turno - Noche
+  fake_turno_sabatino:
+    codigo: SAB
+    nombre: Sabatino
+    descripcion: Turno - Sabatino

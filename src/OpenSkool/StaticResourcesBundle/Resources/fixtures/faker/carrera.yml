@@ -1,0 +1,17 @@
+OpenSkool\AdminBundle\Entity\Carrera:
+  fake_carrera_bach_ccs:
+    codigo: BACH-CCS
+    titulo: @fake_titulo_bach
+    mencion: @fake_mencion_ccs
+  fake_carrera_bach_hum:
+    codigo: BACH-HUM
+    titulo: @fake_titulo_bach
+    mencion: @fake_mencion_hum
+  fake_carrera_tsu_informatica:
+    codigo: TSU-INF
+    titulo: @fake_titulo_tsu
+    mencion: @fake_mencion_informatica
+  fake_carrera_lic_contabilidad:
+    codigo: LIC-CONT
+    titulo: @fake_titulo_lic
+    mencion: @fake_mencion_contabilidad

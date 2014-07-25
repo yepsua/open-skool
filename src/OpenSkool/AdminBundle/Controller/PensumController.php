@@ -29,6 +29,8 @@ use \YsGridRow as GridRow;
  */
 class PensumController extends Controller
 {
+    const REPOSITORY_NAMESPACE = 'OpenSkoolAdminBundle:Pensum';
+  
     /**
      * Lists all Pensum entities.
      *
@@ -47,7 +49,8 @@ class PensumController extends Controller
         $fields = array(
           'pensum.id' => array('hidden' => true),              
           'instituto.id' => array('title' => 'Instituto', 'width'=> 300, 'association' => 'OpenSkool\AdminBundle\Entity\Instituto'),        
-          'carrera.id' => array('title' => 'Carrera', 'width'=> 300, 'association' => 'OpenSkool\AdminBundle\Entity\Carrera'),  
+          'carrera.id' => array('title' => 'Carrera', 'width'=> 200, 'association' => 'OpenSkool\AdminBundle\Entity\Carrera'),
+          'pensumPadre.id' => array('title' => 'Pensumpadre', 'width'=> 300, 'association' => 'OpenSkool\AdminBundle\Entity\Pensum'),  
         );
   
         $grid->setArrayGridField($fields);
@@ -70,7 +73,6 @@ class PensumController extends Controller
             }
             
             JQuery::useComponent(JQueryConstant::COMPONENT_JQGRID);
-            $em = $this->getDoctrine()->getManager();
             $orderBy = $this->getRequest()->get('sidx');
             $page = $this->getRequest()->get("page", 1);
             $rows = $this->getRequest()->get("rows", 1);
@@ -78,13 +80,14 @@ class PensumController extends Controller
             $filters = $this->getRequest()->get('filters', null);
             $response = new GridResponse();
             
-            $repository = $em->getRepository('OpenSkoolAdminBundle:Pensum');
+            $repository = $this->getEntityRepository();
             $count = Dao::count($repository);
             
             if($count > 0){
                 $query = Dao::buildQuery($repository, 'pensum', $orderBy, $sord, $filters);
                 $query = $query->leftJoin('pensum.instituto','instituto');
                 $query = $query->leftJoin('pensum.carrera','carrera');
+                $query = $query->leftJoin('pensum.pensumPadre','pensumPadre');
                 $query->setMaxResults($rows)->setFirstResult(($page - 1) * $rows);
                 $entities = $query->getQuery()->getResult();
                 
@@ -92,8 +95,9 @@ class PensumController extends Controller
                     $row = new GridRow();
                     $row->setId($entitie->getId());
                     $row->newCell($entitie->getId());          
-                    $row->newCell(ObjectUtil::__toString__($entitie->getInstituto()));          
-                    $row->newCell(ObjectUtil::__toString__($entitie->getCarrera()));    
+                    $row->newCell(ObjectUtil::__toString__($entitie->getInstituto()));        
+                    $row->newCell(ObjectUtil::__toString__($entitie->getCarrera()));
+                    $row->newCell(ObjectUtil::__toString__($entitie->getPensumPadre())); 
                     $response->addGridRow($row);
                 }
             }
@@ -122,7 +126,9 @@ class PensumController extends Controller
     {
         try{
             $entity  = new Pensum();
-            $form = $this->createForm(new PensumType(), $entity);
+            $pensumType = new PensumType();
+            $pensumType->setFormType(PensumType::FORM_TYPE_NEW);
+            $form = $this->createForm($pensumType, $entity);
             $form->bind($request);
 
             if ($form->isValid()) {
@@ -171,7 +177,9 @@ class PensumController extends Controller
             }
         
             $entity = new Pensum();
-            $form   = $this->createForm(new PensumType(), $entity);
+            $pensumType = new PensumType();
+            $pensumType->setFormType(PensumType::FORM_TYPE_NEW);
+            $form   = $this->createForm($pensumType, $entity);
 
             return array(
                 'entity' => $entity,
@@ -196,10 +204,8 @@ class PensumController extends Controller
             if(!$this->getRequest()->isXmlHttpRequest()){
                 return $this->redirect($this->generateUrl('pensum'));
             }
-        
-            $em = $this->getDoctrine()->getManager();
-
-            $entity = $em->getRepository('OpenSkoolAdminBundle:Pensum')->find($id);
+            
+            $entity = $this->getEntityRepository()->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('msg.unable.to.find.entity');
@@ -231,9 +237,7 @@ class PensumController extends Controller
                 return $this->redirect($this->generateUrl('pensum'));
             }
             
-            $em = $this->getDoctrine()->getManager();
-
-            $entity = $em->getRepository('OpenSkoolAdminBundle:Pensum')->find($id);
+            $entity = $this->getEntityRepository()->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('msg.unable.to.find.entity');
@@ -263,8 +267,7 @@ class PensumController extends Controller
     public function updateAction(Request $request, $id)
     {
         try{
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('OpenSkoolAdminBundle:Pensum')->find($id);
+            $entity = $this->getEntityRepository()->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('msg.unable.to.find.entity');
@@ -315,7 +318,7 @@ class PensumController extends Controller
             $id = strpos($id,',') ? explode(',', $id) : array($id);
             if ($form->isValid()) {
                 $em = $this->getDoctrine()->getManager();
-                $entities = $em->getRepository('OpenSkoolAdminBundle:Pensum')->findById($id);
+                $entities = $this->getEntityRepository()->findById($id);
 
                 foreach ($entities as $entity){
                   if (!$entity) {

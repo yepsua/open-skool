@@ -1,0 +1,15 @@
+{% ui_dialog width=340 title="dialog.grupo.title"|trans([],tdomain) autoOpen=false widgetVar="dlgGrupo" modal=true %}
+  {{"dialog.grupo.label.agregar.grupo"|trans([],tdomain)}}
+  
+  <br/><br/>
+  {{"dialog.grupo.form.label.grupo"|trans([],tdomain)}}
+  <select id="cboGrupos" name="cboGrupos">
+    <option value=""></option>
+    {% for grupo in grupos %}
+    <option value="{{ grupo.id }}">{{ grupo }}</option>
+    {% endfor %}
+  </select>
+  <br/><br/>
+  <hr class="ui-widget-content">
+  {% ui_button onclick="agruparEtapas(true)" id="btnAsociarGrupo" class="crud-btn-submit" type="submit" value="action.save"|trans%}
+{% end_ui_dialog %}
