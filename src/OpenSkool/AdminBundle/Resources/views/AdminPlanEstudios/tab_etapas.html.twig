@@ -5,13 +5,13 @@
   {% for etapaPlan in etapasPlan %}
     <li id="{{ etapaPlan.id}}" class="item-etapa ui-list-item {{ etapaPlan.activo ? '': 'ui-state-disabled' }}  ui-widget-header">
       {{ etapaPlan.etapa }}
-      <button id="btnPopUpAsignatura{{etapaPlan.id}}" onclick="popUpAsignatura{{etapaPlan.id}}.wijpopup('show')" type="button" class="btn btn-primary btn-xs ui-list-item-button">{{ 'menu.more'|trans }} <span class="caret"></span></button>
+      <button id="btnPopUpEtapa{{etapaPlan.id}}" onclick="popUpEtapa{{etapaPlan.id}}.wijpopup('show')" type="button" class="btn btn-primary btn-xs ui-list-item-button">{{ 'menu.more'|trans }} <span class="caret"></span></button>
     </li>
     {% ui_popup id="popUp" ~ etapaPlan.id  autoHide=true
-                 widgetVar="popUpAsignatura" ~ etapaPlan.id
-                 position={'of':jQuery("#btnPopUpAsignatura" ~ etapaPlan.id)}%}
+                 widgetVar="popUpEtapa" ~ etapaPlan.id
+                 position={'of':jQuery("#btnPopUpEtapa" ~ etapaPlan.id)}%}
       {% ui_panel class="dropdown-menu-panel" %}
-        <ul onclick="popUpAsignatura{{etapaPlan.id}}.wijpopup('hide')" class="dropdown-menu dropdown-menu-visible" role="menu">
+        <ul onclick="popUpEtapa{{etapaPlan.id}}.wijpopup('hide')" class="dropdown-menu dropdown-menu-visible" role="menu">
           {% if etapaPlan.activo %}
           <li onclick="desactivarEtapa({{etapaPlan.id}});" role="presentation"><a role="menuitem" tabindex="-1" href="#">{{ 'action.deactivate'|trans }}</a></li>
           {% else %}

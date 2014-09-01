@@ -4,9 +4,20 @@
     <ol class="ui-list">
       {% for asignaturaPlan in asignaturasPlan %}
         <li id="{{ asignaturaPlan.id }}" class="ui-list-item ui-widget-header">
-          {{asignaturaPlan.pensumAsignatura.asignatura }} - ({{ asignaturaPlan.pensumAsignatura.codigo}})
-          <button onclick="eliminarEtapaAsignatura({{asignaturaPlan.id }})" type="button" class="btn btn-primary btn-xs ui-list-item-button">{{ 'action.delete'|trans }}</button>
+          {{asignaturaPlan }} 
+          <button id="btnPopUpAsignatura{{asignaturaPlan.id}}" onclick="popUpAsignatura{{asignaturaPlan.id}}.wijpopup('show')" type="button" class="btn btn-primary btn-xs ui-list-item-button">{{ 'menu.more'|trans }} <span class="caret"></span></button>
         </li>
+        {% ui_popup id="popUpAsignatura" ~ asignaturaPlan.id  autoHide=true
+             widgetVar="popUpAsignatura" ~ asignaturaPlan.id
+             position={'of':jQuery("#btnPopUpAsignatura" ~ asignaturaPlan.id)}%}
+          {% ui_panel class="dropdown-menu-panel" %}
+            <ul onclick="popUpAsignatura{{asignaturaPlan.id}}.wijpopup('hide')" class="dropdown-menu dropdown-menu-visible" role="menu">
+              <li onclick="obtenerPrelaciones({{asignaturaPlan.id }});" role="presentation"><a role="menuitem" tabindex="-1" href="#">Prelaciones</a></li>
+              <li role="presentation" class="divider"></li>
+              <li onclick="eliminarEtapaAsignatura({{asignaturaPlan.id }});" role="presentation"><a role="menuitem" tabindex="-1" href="#">{{ 'action.delete'|trans }}</a></li>
+            </ul>
+          {% end_ui_panel %}
+        {% end_ui_popup %}
       {% else %}
         {{"tab.asignatura.etapas.label.data.not.found"|trans([],tdomain)}}
         {% ui_effect for="#btnAddAsignatura" effect="bounce" %}

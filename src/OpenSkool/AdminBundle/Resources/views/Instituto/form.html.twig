@@ -1,0 +1,64 @@
+<div class="container-fluid" style="width:99%">
+  <div class="row ui-state-error-text">
+    {{ form_errors(form) }}
+  </div>
+  <div class="row" style="margin-bottom: 20px">
+    <div class="col-md-4">
+      <div class="control-group">
+        <label class="control-label" for="textinput">{{ form_label(form.codigo) }}:</label>
+        <div class="controls">
+          {{ form_widget(form.codigo) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="control-group">
+        <label class="control-label" for="textinput">{{ form_label(form.nombre) }}:</label>
+        <div class="controls">
+          {{ form_widget(form.nombre) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="textinput">{{ form_label(form.acronimo) }}:</label>
+        <div class="controls">
+          {{ form_widget(form.acronimo) }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 20px">
+    <div class="col-md-12">
+      <div class="control-group">
+        <label class="control-label" for="textarea">{{ form_label(form.descripcion) }}:</label>
+        <div class="controls">                     
+          {{ form_widget(form.descripcion, { 'attr': {'style': 'width:95%'} }) }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 20px">
+    <div class="col-md-12">
+      <div class="control-group">
+        <label class="control-label" for="textarea">{{ form_label(form.direccion) }}:</label>
+        <div class="controls">                     
+          {{ form_widget(form.direccion, { 'attr': {'style': 'width:95%'} }) }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-bottom: 20px">
+    <div class="col-md-12">
+      <div class="control-group">
+        <label class="control-label" for="filebutton">{{ form_label(form.imagenFile) }}:</label>
+        <div class="controls">
+          {{ form_widget(form.imagenFile) }}
+          {% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : form.imagenFile} %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ form_rest(form) }}

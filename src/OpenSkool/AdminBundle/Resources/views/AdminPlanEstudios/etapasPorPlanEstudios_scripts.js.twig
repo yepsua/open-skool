@@ -5,6 +5,7 @@
   var etapaPlanId;
   var etapaActiva;
   var asignaturaEtapaId;
+  var prelacionId;
 
   function ordenarEtapas() {
     $('#sortableEtapas li.item-etapa').each(function(index) {
@@ -40,13 +41,13 @@
           dlgGrupo.wijdialog('close');
           agruparEtapasRC();
         } else {
-          alert('{{"script.message.seleccione.un.grupo"|trans([],tdomain)}}');
+          alert('{{"script.message.seleccione.grupo"|trans([],tdomain)}}');
         }
       } else {
         dlgGrupo.wijdialog('open');
       }
     } else {
-      alert('{{"script.message.seleccione.las.etapas"|trans([],tdomain)}}');
+      alert('{{"script.message.seleccione.etapas"|trans([],tdomain)}}');
     }
   }
 
@@ -78,6 +79,26 @@
     if (confirm(mensaje)) {
       etapaPlanId = etapaId;
       activarEtapaRC();
+    }
+  }
+  
+  function obtenerPrelaciones(asignaturaId){
+    asignaturaEtapaId = asignaturaId;
+    getPrelacionesAsignaturaRC();
+  }
+  
+  function agregarAsignaturaPrelacion(){
+    if ($('#cboAsignaturaPrelacion').val()) {
+      agregarAsignaturaPrelacionRC();
+    } else {
+      alert('{{"script.message.seleccione.prelacion"|trans([],tdomain)}}');
+    }
+  }
+  
+  function eliminarAsignaturaPrelacion(_prelacionId, message){
+    prelacionId = _prelacionId;
+    if(confirm(message)){
+      eliminarAsignaturaPrelacionRC();
     }
   }
 </script>

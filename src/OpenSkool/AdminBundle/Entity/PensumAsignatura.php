@@ -24,7 +24,7 @@ class PensumAsignatura
     /**
      * @var string
      *
-     * @ORM\Column(name="codigo", type="string", length=16)
+     * @ORM\Column(name="codigo", type="string", length=16, nullable=true)
      */
     private $codigo;
 
@@ -306,6 +306,13 @@ class PensumAsignatura
     }
     
     public function __toString() {
-      return sprintf('%s-%s',$this->getPensum(),$this->getAsignatura());
+      //return sprintf('%s-%s',$this->getPensum(),$this->getAsignatura());
+      $codigo = $this->getCodigo();
+      if($codigo != null){
+        $pattern = sprintf('%s (%s)',$this->getAsignatura()->getNombre(),$codigo);
+      }else{
+        $pattern = sprintf('%s',$this->getAsignatura());
+      }
+      return $pattern;
     }
 }

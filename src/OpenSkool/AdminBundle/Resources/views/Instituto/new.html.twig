@@ -1,7 +1,7 @@
 {% set tdomain = "OpenSkoolAdminBundle_Instituto" %}
 {% set entityLabel = "entity.label"|trans([],tdomain) %}
 
-{% ui_dialog widgetVar="dlgNewInstituto" title="dlg.create.title"|trans({'%name%': entityLabel}) modal="true"
+{% ui_dialog width="700" resizable="false" widgetVar="dlgNewInstituto" title="dlg.create.title"|trans({'%name%': entityLabel}) modal="true"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
     <div style="width:100%">
     {% ajax_form id="frmNewInstituto"
@@ -26,9 +26,7 @@
          }") 
   %}
 
-    {% form_theme form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
-
-    {{ form_widget(form) }}
+    {% include "OpenSkoolAdminBundle:Instituto:form.html.twig" with { 'form' : form} %}
 
     <br/><br/>
     <hr class="ui-widget-content">

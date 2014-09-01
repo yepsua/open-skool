@@ -1,42 +1,69 @@
 {% set tdomain = "OpenSkoolAdminBundle_Instituto" %}
 {% set entityLabel = "entity.label"|trans([],tdomain) %}
 
-{% ui_dialog widgetVar="dlgShowInstituto" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
+{% ui_dialog width="700" widgetVar="dlgShowInstituto" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
   <div style="width:100%">
-  <table class="record_properties">
-    <tbody>
-      <tr>
-        <td><b>{{"Id"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.id }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Codigo"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.codigo }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Nombre"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.nombre }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Descripcion"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.descripcion }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Direccion"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.direccion }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Acronimo"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.acronimo }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Imagen"|trans([],tdomain)}}:</b></td>
-        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.imagen} %}</td>
-      </tr>
-    </tbody>
-  </table>
-
+  
+  <div class="container-fluid" style="width:99%">
+    <div class="row" style="margin-bottom: 20px">
+      <div class="col-md-4">
+        <div class="control-group">
+          <label class="control-label" for="textinput">{{"Codigo"|trans([],tdomain)}}:</label>
+          <div class="controls">
+            {{ entity.codigo }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="control-group">
+          <label class="control-label" for="textinput">{{"Nombre"|trans([],tdomain)}}:</label>
+          <div class="controls">
+            {{ entity.nombre }}
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <!-- Text input-->
+        <div class="control-group">
+          <label class="control-label" for="textinput">{{"Acronimo"|trans([],tdomain)}}:</label>
+          <div class="controls">
+            {{ entity.acronimo }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom: 20px">
+      <div class="col-md-12">
+        <div class="control-group">
+          <label class="control-label" for="textarea">{{"Descripcion"|trans([],tdomain)}}:</label>
+          <div class="controls">                     
+           {{ entity.descripcion }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom: 20px">
+      <div class="col-md-12">
+        <div class="control-group">
+          <label class="control-label" for="textarea">{{"Direccion"|trans([],tdomain)}}:</label>
+          <div class="controls">                     
+            {{ entity.direccion }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="margin-bottom: 20px">
+      <div class="col-md-12">
+        <div class="control-group">
+          <label class="control-label" for="filebutton">{{"Imagen"|trans([],tdomain)}}:</label>
+          <div class="controls">
+            {% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.imagen} %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <br/><br/>
   <hr class="ui-widget-content">
     
@@ -66,5 +93,5 @@
                  value="action.delete"|trans %}
 
   {% end_ajax_form %}
-    <div style="width:100%">
+  </div>
 {% end_ui_dialog %}

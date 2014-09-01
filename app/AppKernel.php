@@ -33,7 +33,7 @@ class AppKernel extends Kernel
             new OpenSkool\PeopleBundle\OpenSkoolPeopleBundle(),
             new OpenSkool\SecurityBundle\OpenSkoolSecurityBundle(),
             new OpenSkool\LOVBundle\OpenSkoolLOVBundle(),
-            new OpenSkool\LocalityBundle\OpenSkoolLocalityBundle()
+            new OpenSkool\LocalityBundle\OpenSkoolLocalityBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

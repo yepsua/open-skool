@@ -33,3 +33,15 @@
   float:right;
   margin-top: -2px;
 }
+
+.ui-panel-title{
+  font-size: 13px;
+}
+
+.btn-esm{
+  height: 20px;
+}
+
+.btn-esm > .glyphicon {
+  top: -2px
+}

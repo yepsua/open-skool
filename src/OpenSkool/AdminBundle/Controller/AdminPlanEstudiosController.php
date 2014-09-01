@@ -267,4 +267,91 @@ class AdminPlanEstudiosController extends Controller
       }
     }
     
+    /**
+     * 
+     *
+     * @Route("etapa/asignatura/{asignaturaEtapaId}/prelaciones", name="mostrar_asignatura_prelaciones")
+     * @Method("GET")
+     * @Template()
+     */
+    public function asignaturaPrelacionesAction($asignaturaEtapaId){
+      try{
+        return $this->detallePrelacion($asignaturaEtapaId);
+      }catch(\Exception $ex){
+        return $this->exceptionManagerNotification($ex);
+      }
+    }
+    
+    private function detallePrelacion($asignaturaEtapaId){
+        $repoAsignaturaEtapa = $this->getEntityRepository('OpenSkoolAdminBundle:AsignaturaEtapaPlanEstudios');
+        $asignaturaPlan = $repoAsignaturaEtapa->find($asignaturaEtapaId);
+        $asignaturasPensum = array();
+        $prelaciones = array();
+        
+        if($asignaturaPlan){
+          $repoPrelacion = $this->getEntityRepository('OpenSkoolAdminBundle:Prelacion');
+          $prelaciones = $repoPrelacion->obtenerPrelacionesAsignatura($asignaturaEtapaId);
+          
+          if($prelaciones){
+            $asignaturasEtapaId = array();
+            $asignaturasEtapaId[] = $asignaturaEtapaId;
+            
+            foreach ($prelaciones as $prelacion){
+              $asignaturasEtapaId[] = $prelacion->getPrelacion()->getId();
+            }
+            
+          }else{
+            $asignaturasEtapaId = $asignaturaEtapaId;
+          }
+
+          $asignaturasPensum = $repoAsignaturaEtapa->obtenerPorPlanEstudios($asignaturaPlan->getEtapaPlanEstudios()->getPlanEstudios()->getId(), $asignaturasEtapaId);
+        }
+        
+        return array(
+          'asignaturaPlan' => $asignaturaPlan,
+          'asignaturasPensum' => $asignaturasPensum,
+          'prelaciones' => $prelaciones
+        );
+    }
+    
+    /**
+     * 
+     *
+     * @Route("etapa/asignatura/{asignaturaEtapaId}/prelacion/{asignaturaPrelacionId}/agregar", name="agregar_asignatura_prelacion")
+     * @Method("GET")
+     * @Template(template="OpenSkoolAdminBundle:AdminPlanEstudios:detalle_prelacion.html.twig")
+     */
+    public function agregarAsignaturaPrelacionAction($asignaturaEtapaId, $asignaturaPrelacionId){
+      try{
+        $repoPrelacion = $this->getEntityRepository('OpenSkoolAdminBundle:Prelacion');
+        $repoPrelacion->crearPrelacion($asignaturaEtapaId,$asignaturaPrelacionId);
+        return $this->detallePrelacion($asignaturaEtapaId);
+      }catch(\Exception $ex){
+        return $this->exceptionManagerNotification($ex);
+      }
+    }
+    
+    /**
+     * 
+     *
+     * @Route("/prelacion/{prelacionId}/eliminar", name="eliminar_asignatura_prelacion")
+     * @Method("GET")
+     * @Template(template="OpenSkoolAdminBundle:AdminPlanEstudios:detalle_prelacion.html.twig")
+     */
+    public function eliminarPrelacionAction($prelacionId){
+      try{
+        $repoPrelacion = $this->getEntityRepository('OpenSkoolAdminBundle:Prelacion');
+        $prelacion = $repoPrelacion->find($prelacionId);
+        if($prelacion){
+          $asignaturaEtapaId = $prelacion->getAsignatura()->getId();
+          $repoPrelacion->eliminarPrelacion($prelacion);
+          return $this->detallePrelacion($asignaturaEtapaId);
+        }else{
+          $this->throwNotFoundException();
+        }
+      }catch(\Exception $ex){
+        return $this->exceptionManagerNotification($ex);
+      }
+    }
+    
 }

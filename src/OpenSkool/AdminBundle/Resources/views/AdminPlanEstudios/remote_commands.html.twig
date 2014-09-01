@@ -53,3 +53,18 @@
    url=arg(path("eliminar_etapa_asignatura", { "asignaturaEtapaId": "' + asignaturaEtapaId + '"}) | raw_url_decode)
    name="eliminarEtapaAsignaturaRC"
  %}
+ 
+  {% remote_command update="#asignaturaPorEtapasWorkspace2" type="GET"
+     url=arg(path("mostrar_asignatura_prelaciones", { "asignaturaEtapaId": "' + asignaturaEtapaId + '"}) | raw_url_decode)
+     name="getPrelacionesAsignaturaRC"
+   %}
+   
+  {% remote_command update="#detallePrelacionWorkspace" type="GET"
+     url=arg(path("agregar_asignatura_prelacion", { "asignaturaEtapaId": "' + asignaturaEtapaId + '", "asignaturaPrelacionId" : "'+ $('#cboAsignaturaPrelacion').val()+'" }) | raw_url_decode)
+     name="agregarAsignaturaPrelacionRC"
+   %}
+   
+   {% remote_command update="#detallePrelacionWorkspace" type="GET"
+     url=arg(path("eliminar_asignatura_prelacion", { "prelacionId": "' + prelacionId + '" }) | raw_url_decode)
+     name="eliminarAsignaturaPrelacionRC"
+   %}

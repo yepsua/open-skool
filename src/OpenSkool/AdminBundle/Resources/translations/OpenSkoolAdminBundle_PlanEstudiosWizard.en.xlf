@@ -74,6 +74,10 @@
                 <source>tab.asignatura.etapas.label.data.not.found</source>
                 <target>La Etapa seleccionada no tiene Asignaturas asignadas</target>
             </trans-unit>
+            <trans-unit id="dialog.detalle.prelacion.data.not.found">
+                <source>dialog.detalle.prelacion.data.not.found</source>
+                <target>La Asignatura seleccionada no tiene Prelaciones asignadas</target>
+            </trans-unit>
             <trans-unit id="script.message.etapas.no.seleccionadas">
                 <source>script.message.etapas.no.seleccionadas</source>
                 <target>Seleccione una Etapa</target>
@@ -82,13 +86,17 @@
                 <source>script.message.asignturas.no.seleccionadas</source>
                 <target>Seleccione una Asignatura</target>
             </trans-unit>
-            <trans-unit id="script.message.seleccione.un.grupo">
-                <source>script.message.seleccione.un.grupo</source>
+            <trans-unit id="script.message.seleccione.grupo">
+                <source>script.message.seleccione.grupo</source>
                 <target>Seleccione un Grupo</target>
             </trans-unit>
-            <trans-unit id="script.message.seleccione.las.etapas">
-                <source>script.message.seleccione.las.etapas</source>
+            <trans-unit id="script.message.seleccione.etapas">
+                <source>script.message.seleccione.etapas</source>
                 <target>Seleccione las Etapas que desea agrupar</target>
+            </trans-unit>
+            <trans-unit id="script.message.seleccione.prelacion">
+                <source>script.message.seleccione.prelacion</source>
+                <target>Seleccione una Prelación</target>
             </trans-unit>
             <trans-unit id="script.confirm.eliminar.etapa">
                 <source>script.confirm.eliminar.etapa</source>

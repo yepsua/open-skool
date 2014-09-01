@@ -90,4 +90,8 @@ class AsignaturaEtapaPlanEstudios
     {
         return $this->etapaPlanEstudios;
     }
+    
+    public function __toString(){
+      return (string) $this->getPensumAsignatura();
+    }
 }

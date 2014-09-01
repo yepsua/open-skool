@@ -10,6 +10,7 @@
 /vendor/
 /nbproject/
 /bin/
-/composer.phar
 /nbproject/
 /composer.lock
+/gush.phar
+*.php~

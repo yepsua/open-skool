@@ -1,0 +1,31 @@
+{% if asignaturasPensum is not empty %}
+  Asignaturas
+  <select id="cboAsignaturaPrelacion">
+    <option value=""></option>
+    {% for asignatura in asignaturasPensum %}
+      <option value="{{asignatura.id}}">{{ asignatura.pensumAsignatura.asignatura }}</option>
+    {% endfor %}
+  </select>
+
+  <button title="Agregar" id="btnAddPrelacion" onclick="agregarAsignaturaPrelacion()" type="button" class="btn btn-danger btn-esm btn-sm"><i class="glyphicon glyphicon-plus"></i></button>
+<br/>
+{% endif %}
+<br/>
+{% ui_panel title="Prelaciones Asingadas a <b>'"~ asignaturaPlan.pensumAsignatura ~ "'</b>" %}
+  <br/>
+  <div align="center">
+    <ol class="ui-list">
+          {% for prelacion in prelaciones %}
+          <li class="ui-list-item ui-widget-header">
+            {{ prelacion.prelacion }}
+            <button onclick="eliminarAsignaturaPrelacion({{ prelacion.id }},'Desea eliminar la Prelacion {{ prelacion.prelacion }}')" title="Eliminar" type="button" class="btn btn-primary btn-xs ui-list-item-button"><i class="glyphicon glyphicon-trash"></i></button>
+          </li>
+          {% else %}
+            {{"dialog.detalle.prelacion.data.not.found"|trans([],tdomain)}}
+            <br/><br/>
+            {% ui_effect for="#btnAddPrelacion" effect="pulsate" %}
+          {% endfor %}
+    </ol>
+  </div>
+{% end_ui_panel %}
+<br/><br/>

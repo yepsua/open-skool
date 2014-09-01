@@ -13,15 +13,15 @@ class FixtureLoader extends DataFixtureLoader
     {
         return  array(
             // LOV BUNDLE
-            __DIR__ . '\..\..\Resources\fixtures\lov\lov_group.yml',
-            __DIR__ . '\..\..\Resources\fixtures\lov\lov.yml',
+            __DIR__ . '/../../Resources/fixtures/lov/lov_group.yml',
+            __DIR__ . '/../../Resources/fixtures/lov/lov.yml',
             // SECURITY BUNDLE
-            __DIR__ . '\..\..\Resources\fixtures\security\role.yml',
-            __DIR__ . '\..\..\Resources\fixtures\security\group.yml',
+            __DIR__ . '/../../Resources/fixtures/security/role.yml',
+            __DIR__ . '/../../Resources/fixtures/security/group.yml',
             // LOCALITY BUNDLE
-            __DIR__ . '\..\..\Resources\fixtures\locality\ve\country.yml',
-            __DIR__ . '\..\..\Resources\fixtures\locality\ve\locality.yml',
-            __DIR__ . '\..\..\Resources\fixtures\locality\ve\city.yml',
+            __DIR__ . '/../../Resources/fixtures/locality/ve/country.yml',
+            __DIR__ . '/../../Resources/fixtures/locality/ve/locality.yml',
+            __DIR__ . '/../../Resources/fixtures/locality/ve/city.yml',
         );
     }
 }

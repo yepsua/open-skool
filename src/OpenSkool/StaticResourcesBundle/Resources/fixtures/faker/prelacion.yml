@@ -1,0 +1,7 @@
+OpenSkool\AdminBundle\Entity\Prelacion:
+  fake_prelacion_matI_con_matII:
+    asignatura: @fake_mat_I_etapa_1_plan_estudios_pensum_bach_ccs
+    prelacion: @fake_mat_II_etapa_2_plan_estudios_pensum_bach_ccs
+  fake_prelacion_contI_con_contII:
+    asignatura: @fake_contI_etapa_1_plan_estudios_pensum_bach_ccs
+    prelacion: @fake_contII_etapa_2_plan_estudios_pensum_bach_ccs

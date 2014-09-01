@@ -125,6 +125,12 @@ class Asignatura
      * @return type
      */
     public function __toString() {
-        return $this->getNombre();
+      $codigo = $this->getCodigo();
+      if($codigo != null){
+        $value = sprintf('%s (%s)',$this->getNombre(),$codigo);
+      }else{
+        $value = $this->getNombre();
+      }
+      return $value;
     }
 }
