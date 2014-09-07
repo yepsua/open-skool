@@ -13,4 +13,6 @@
 /nbproject/
 /composer.lock
 /gush.phar
+/app/SymfonyRequirements.php
+/app/check.php
 *.php~
