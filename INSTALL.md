@@ -21,35 +21,35 @@ cd open-skool
 ```
 
 ``` bash
-composer.phar selfupdate
+php composer.phar selfupdate
 ```
 
 Ejecuta el siguiente comando que instalara las dependencias de la aplicación y luego
 solocitara la configuraión para la conexion a la Base de Datos.
 
 ``` bash
-composer.phar install
+php composer.phar install
 ```
 
 El siguiente comando crea el esquema de Base de Datos, es muy importante que configures 
 bien los datos de conexion a la Base de Datos ya que este comando los utiliza.
 
 ``` bash
-app/console doctrine:schema:update --force
+php app/console doctrine:schema:update --force
 ```
 
 Ahora se cargan los datos basicos para que la aplicacion pueda funcionar 
 (Fixtures), responda "Y" al ejecutar el siguiente comando:
 
 ``` bash
-app/console doctrine:fixtures:load
+php app/console doctrine:fixtures:load
 ```
 
 Si quieres cargar datos de ejemplo de una Institucion Academica ficticia puedes 
 ejecutar el siguiente comando:
 
 ``` bash
-app/console doctrine:fixtures:load  --fixtures=src/OpenSkool/StaticResourcesBundle/DataFixtures/Faker/ORM/ --append
+php app/console doctrine:fixtures:load  --fixtures=src/OpenSkool/StaticResourcesBundle/DataFixtures/Faker/ORM/ --append
 ```
 
 Cargar datos de ejemplo de una Institucion ficticia permite verificar mejor el funcionamiento
@@ -61,7 +61,7 @@ a las claves unicas en algunos campos de las tablas de Base de datos.
 Por ultimo se crea el usuario administrador.
 
 ``` bash
-app/console fos:user:create --super-admin admin admin@mail.com password
+php app/console fos:user:create --super-admin admin admin@mail.com password
 ```
 
 2) Ejecución
