@@ -1,0 +1,94 @@
+<div class="container-fluid" style="width:99%">
+  <div class="row ui-state-error-text">
+      <div class="col-md-12">
+          {{ form_errors(form) }}
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="control-group">
+        <label class="control-label" for="textinput">{{ form_label(form.codigo) }}:</label>
+        <div class="controls">
+          {{ form_widget(form.codigo) }}
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="control-group">
+        <label class="control-label" for="textinput">{{ form_label(form.codigoCurricular) }}:</label>
+        <div class="controls">
+          {{ form_widget(form.codigoCurricular) }}
+        </div>
+      </div>
+    </div>
+
+  </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="control-group">
+                <label class="control-label" for="textinput">{{ form_label(form.electiva) }}:</label>
+                <div class="controls">
+                    {{ form_widget(form.electiva, { 'attr': {'style' : 'width:auto'} }) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="control-group">
+                <label class="control-label" for="textinput">{{ form_label(form.unidadesCredito) }}:</label>
+                <div class="controls">
+                    {{ form_widget(form.unidadesCredito) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="control-group">
+                <label class="control-label" for="textinput">{{ form_label(form.horasTeoricas) }}:</label>
+                <div class="controls">
+                    {{ form_widget(form.horasTeoricas) }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="control-group">
+                <label class="control-label" for="textinput">{{ form_label(form.horasPracticas) }}:</label>
+                <div class="controls">
+                    {{ form_widget(form.horasPracticas) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="control-group">
+                <label class="control-label" for="textinput">{{ form_label(form.tipoUnidadCurricular) }}:</label>
+                <div class="controls">
+                    {{ form_widget(form.tipoUnidadCurricular) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="control-group">
+                <label class="control-label" for="textinput">{{ form_label(form.pensum) }}:</label>
+                <div class="controls">
+                    {{ form_widget(form.pensum) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="control-group">
+                <label class="control-label" for="textinput">{{ form_label(form.asignatura) }}:</label>
+                <div class="controls">
+                    {{ form_widget(form.asignatura) }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ form_rest(form) }}
+

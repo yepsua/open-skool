@@ -1,7 +1,7 @@
 {% set tdomain = "OpenSkoolAdminBundle_Pensum" %}
 {% set entityLabel = "entity.label"|trans([],tdomain) %}
 
-{% ui_dialog width="600" height="550" title="dlg.edit.title"|trans({'%name%': entityLabel }) modal="true" widgetVar="dlgEditPensum"
+{% ui_dialog width="600" title="dlg.edit.title"|trans({'%name%': entityLabel }) modal="true" widgetVar="dlgEditPensum"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
    <div style="width:100%">
    {% ajax_form id="frmEditPensum"
@@ -22,11 +22,8 @@
          }")
   %}
 
-    {% form_theme edit_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+    {% include "OpenSkoolAdminBundle:Pensum:form.html.twig" with { 'form' : edit_form} %}
 
-    {{ form_widget(edit_form) }}
-
-    <br/><br/>
     <hr class="ui-widget-content">
 
     {% ui_button class="crud-btn-submit btnSubmitPensum" type="submit" value="action.save"|trans%}
@@ -47,8 +44,8 @@
   %}
 
     {{ form_widget(delete_form) }}
-    {% ui_button class="crud-btn-submit btnSubmitPensum" type="submit" 
-                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+    {% ui_button class="crud-btn-submit btnSubmitPensum" type="submit"
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')"
                  value="action.delete"|trans %}
 
   {% end_ajax_form %}

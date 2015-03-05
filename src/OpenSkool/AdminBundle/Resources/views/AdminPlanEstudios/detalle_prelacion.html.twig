@@ -1,17 +1,28 @@
 {% if asignaturasPensum is not empty %}
-  Asignaturas
-  <select id="cboAsignaturaPrelacion">
-    <option value=""></option>
-    {% for asignatura in asignaturasPensum %}
-      <option value="{{asignatura.id}}">{{ asignatura.pensumAsignatura.asignatura }}</option>
-    {% endfor %}
-  </select>
+    <div class="row">
+        <div class="col-md-10">
+            <div class="control-group">
+                <label class="control-label" for="textinput">Asignaturas:</label>
 
-  <button title="Agregar" id="btnAddPrelacion" onclick="agregarAsignaturaPrelacion()" type="button" class="btn btn-danger btn-esm btn-sm"><i class="glyphicon glyphicon-plus"></i></button>
+                <div class="controls">
+                    <select id="cboAsignaturaPrelacion">
+                        <option value=""></option>
+                        {% for asignatura in asignaturasPensum %}
+                            <option value="{{asignatura.id}}">{{ asignatura.pensumAsignatura.asignatura }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1">
+            </br>
+            <button title="Agregar" id="btnAddPrelacion" onclick="agregarAsignaturaPrelacion()" type="button" class="btn btn-danger btn-esm btn-sm"><i class="glyphicon glyphicon-plus"></i></button>
+        </div>
+    </div>
 <br/>
 {% endif %}
 <br/>
-{% ui_panel title="Prelaciones Asingadas a <b>'"~ asignaturaPlan.pensumAsignatura ~ "'</b>" %}
+{% ui_panel style="width:100%" title="Prelaciones Asingadas a <b>'"~ asignaturaPlan.pensumAsignatura ~ "'</b>" %}
   <br/>
   <div align="center">
     <ol class="ui-list">

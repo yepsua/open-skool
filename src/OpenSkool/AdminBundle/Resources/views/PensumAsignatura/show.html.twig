@@ -1,55 +1,97 @@
 {% set tdomain = "OpenSkoolAdminBundle_PensumAsignatura" %}
 {% set entityLabel = "entity.label"|trans([], tdomain ) %}
 
-{% ui_dialog widgetVar="dlgShowPensumAsignatura" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
+{% ui_dialog width="500" widgetVar="dlgShowPensumAsignatura" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
-  <div style="width:100%">
-  <table class="record_properties">
-    <tbody>
-      <tr>
-        <td><b>{{"Id"|trans([], tdomain)}}:</b></td>
-        <td>{{ entity.id }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Codigo"|trans([], tdomain)}}:</b></td>
-        <td>{{ entity.codigo }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Codigocurricular"|trans([], tdomain)}}:</b></td>
-        <td>{{ entity.codigoCurricular }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Electiva"|trans([], tdomain)}}:</b></td>
-        <td>{{ entity.electiva }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Unidadescredito"|trans([], tdomain)}}:</b></td>
-        <td>{{ entity.unidadesCredito }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Horasteoricas"|trans([], tdomain)}}:</b></td>
-        <td>{{ entity.horasTeoricas }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Horaspracticas"|trans([], tdomain)}}:</b></td>
-        <td>{{ entity.horasPracticas }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Tipounidadcurricular"|trans([], tdomain)}}:</b></td>
-        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.tipoUnidadCurricular} %}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Pensum"|trans([], tdomain)}}:</b></td>
-        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.pensum} %}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Asignatura"|trans([], tdomain)}}:</b></td>
-        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.asignatura} %}</td>
-      </tr>      
-    </tbody>
-  </table>
 
-  <br/><br/>
+    <div class="container-fluid" style="width:99%">
+      <div class="row">
+          <div class="col-md-6">
+              <div class="control-group">
+                  <label class="control-label" for="textinput">{{"Codigo"|trans([], tdomain)}}:</label>
+                  <div class="controls">
+                      {{ entity.codigo }}
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="control-group">
+                  <label class="control-label" for="textinput">{{"Codigocurricular"|trans([], tdomain)}}:</label>
+                  <div class="controls">
+                      {{ entity.codigoCurricular }}
+                  </div>
+              </div>
+          </div>
+
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+              <div class="control-group">
+                  <label class="control-label" for="textinput">{{"Electiva"|trans([], tdomain)}}:</label>
+                  <div class="controls">
+                      {{ entity.electiva }}
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="control-group">
+                  <label class="control-label" for="textinput">{{"Unidadescredito"|trans([], tdomain)}}:</label>
+                  <div class="controls">
+                      {{  entity.unidadesCredito }}
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-6">
+              <div class="control-group">
+                  <label class="control-label" for="textinput">{{"Horasteoricas"|trans([], tdomain)}}:</label>
+                  <div class="controls">
+                      {{ entity.horasTeoricas }}
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="control-group">
+                  <label class="control-label" for="textinput">{{"Horaspracticas"|trans([], tdomain)}}:</label>
+                  <div class="controls">
+                      {{ entity.horasPracticas }}
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="control-group">
+                  <label class="control-label" for="textinput">{{"Tipounidadcurricular"|trans([], tdomain)}}:</label>
+                  <div class="controls">
+                      {% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.tipoUnidadCurricular} %}
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="control-group">
+                  <label class="control-label" for="textinput">{{"Pensum"|trans([], tdomain)}}:</label>
+                  <div class="controls">
+                      {% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.pensum} %}
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="control-group">
+                  <label class="control-label" for="textinput">{{"Asignatura"|trans([], tdomain)}}:</label>
+                  <div class="controls">
+                      {% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.asignatura} %}
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+
   <hr class="ui-widget-content">
     
   {% ui_button class="crud-btn-submit" onclick="rcPensumAsignaturaEditAgain()" value="action.edit"|trans %}
@@ -78,5 +120,5 @@
                  value="action.delete"|trans %}
 
   {% end_ajax_form %}
-    </div>
+
 {% end_ui_dialog %}

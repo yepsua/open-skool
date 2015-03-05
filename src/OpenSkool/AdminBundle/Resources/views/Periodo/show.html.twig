@@ -3,29 +3,38 @@
 
 {% ui_dialog widgetVar="dlgShowPeriodo" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
-  <div style="width:100%">
-  <table class="record_properties">
-    <tbody>
-      <tr>
-        <td><b>{{"Id"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.id }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Codigo"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.codigo }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Fechainicio"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.fechaInicio|date('Y-m-d H:i:s') }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Fechafin"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.fechaFin|date('Y-m-d H:i:s') }}</td>
-      </tr>      
-    </tbody>
-  </table>
 
-  <br/><br/>
+    <div class="container-fluid" style="width:99%">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="control-group">
+                    <label class="control-label" for="textinput">{{"Codigo"|trans([],tdomain)}}:</label>
+                    <div class="controls">
+                        {{ entity.codigo }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="control-group">
+                    <label class="control-label" for="textinput">{{"Fechainicio"|trans([],tdomain)}}:</label>
+                    <div class="controls">
+                        {{ entity.fechaInicio|date('Y-m-d H:i:s') }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="control-group">
+                    <label class="control-label" for="textinput">{{"Fechafin"|trans([],tdomain)}}:</label>
+                    <div class="controls">
+                        {{ entity.fechaFin|date('Y-m-d H:i:s') }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
   <hr class="ui-widget-content">
     
   {% ui_button class="crud-btn-submit" onclick="rcPeriodoEditAgain()" value="action.edit"|trans %}
@@ -54,5 +63,4 @@
                  value="action.delete"|trans %}
 
   {% end_ajax_form %}
-    <div style="width:100%">
 {% end_ui_dialog %}

@@ -3,29 +3,40 @@
 
 {% ui_dialog widgetVar="dlgShowCarrera" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
-  <div style="width:100%">
-  <table class="record_properties">
-    <tbody>
-      <tr>
-        <td><b>{{"Id"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.id }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Codigo"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.codigo }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Titulo"|trans([],tdomain)}}:</b></td>
-        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.titulo} %}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Mencion"|trans([],tdomain)}}:</b></td>
-        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.mencion} %}</td>
-      </tr>      
-    </tbody>
-  </table>
 
-  <br/><br/>
+  <div class="container-fluid" style="width:99%">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="control-group">
+                  <label class="control-label" for="textinput">{{"Codigo"|trans([],tdomain)}}:</label>
+                  <div class="controls">
+                      {{ entity.codigo }}
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="control-group">
+                  <label class="control-label" for="textinput">{{"Titulo"|trans([],tdomain)}}:</label>
+                  <div class="controls">
+                      {% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.titulo} %}
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-12">
+              <div class="control-group">
+                  <label class="control-label" for="textinput">{{"Mencion"|trans([],tdomain)}}:</label>
+                  <div class="controls">
+                      {% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.mencion} %}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+
   <hr class="ui-widget-content">
     
   {% ui_button class="crud-btn-submit" onclick="rcCarreraEditAgain()" value="action.edit"|trans %}
@@ -54,5 +65,5 @@
                  value="action.delete"|trans %}
 
   {% end_ajax_form %}
-    <div style="width:100%">
+
 {% end_ui_dialog %}

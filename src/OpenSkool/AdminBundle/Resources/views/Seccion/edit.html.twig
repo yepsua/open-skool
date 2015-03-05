@@ -22,12 +22,9 @@
          }")
   %}
 
-    {% form_theme edit_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+   {% include "OpenSkoolAdminBundle:Seccion:form.html.twig" with { 'form' : edit_form} %}
 
-    {{ form_widget(edit_form) }}
-
-    <br/><br/>
-    <hr class="ui-widget-content">
+   <hr class="ui-widget-content">
 
     {% ui_button class="crud-btn-submit btnSubmitSeccion" type="submit" value="action.save"|trans%}
 

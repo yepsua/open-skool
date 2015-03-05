@@ -137,7 +137,7 @@ class PensumController extends Controller
                 $em->flush();
                 
                 if($this->getRequest()->get('_loop_create')){
-                    $form = $this->createForm(new PensumType(), new Pensum());
+                    $form = $this->createForm($pensumType, new Pensum());
                     return $this->render('OpenSkoolAdminBundle:Pensum:new.html.twig',array(
                       'entity'      => $entity,
                       'form' => $form->createView())

@@ -15,8 +15,8 @@ class PensumType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('instituto')
-            ->add('carrera')
+            ->add('instituto', null, array('required' => true))
+            ->add('carrera', null, array('required' => true))
             ->add('pensumPadre')
             /*->add('asignaturas', 'ui_entity', array(
               'class' => 'OpenSkoolAdminBundle:Asignatura',

@@ -6,10 +6,6 @@
                 <source>how.to.resolve</source>
                 <target>Como resolverlo...</target>
             </trans-unit>
-            <trans-unit id="no.institute.msg">
-                <source>no.institute.msg</source>
-                <target>Mensaje para informar que no existe Institutos creados</target>
-            </trans-unit>
             <trans-unit id="create.institute.link">
                 <source>create.institute.link</source>
                 <target>Crear Institución</target>

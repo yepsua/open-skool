@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Prelacion
  *
- * @ORM\Table()
+ * @ORM\Table(name="prelacion")
  * @ORM\Entity(repositoryClass="OpenSkool\AdminBundle\Entity\Repository\PrelacionRepository")
  */
 class Prelacion

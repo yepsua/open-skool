@@ -16,7 +16,7 @@ class SeccionType extends AbstractType
     {
         $builder
             ->add('codigo')
-            ->add('descripcion')
+            ->add('descripcion', 'textarea')
         ;
     }
     
