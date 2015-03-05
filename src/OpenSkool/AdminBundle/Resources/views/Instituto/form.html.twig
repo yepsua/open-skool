@@ -1,6 +1,8 @@
 <div class="container-fluid" style="width:99%">
   <div class="row ui-state-error-text">
-    {{ form_errors(form) }}
+      <div class="col-md-12">
+          {{ form_errors(form) }}
+      </div>
   </div>
   <div class="row" style="margin-bottom: 20px">
     <div class="col-md-4">
@@ -34,7 +36,7 @@
       <div class="control-group">
         <label class="control-label" for="textarea">{{ form_label(form.descripcion) }}:</label>
         <div class="controls">                     
-          {{ form_widget(form.descripcion, { 'attr': {'style': 'width:95%'} }) }}
+          {{ form_widget(form.descripcion) }}
         </div>
       </div>
     </div>
@@ -44,7 +46,7 @@
       <div class="control-group">
         <label class="control-label" for="textarea">{{ form_label(form.direccion) }}:</label>
         <div class="controls">                     
-          {{ form_widget(form.direccion, { 'attr': {'style': 'width:95%'} }) }}
+          {{ form_widget(form.direccion) }}
         </div>
       </div>
     </div>

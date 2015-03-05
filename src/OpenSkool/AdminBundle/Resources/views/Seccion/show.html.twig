@@ -3,26 +3,31 @@
 
 {% ui_dialog widgetVar="dlgShowSeccion" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
-  <div style="width:100%">
-  <table class="record_properties">
-    <tbody>
-      <tr>
-        <td><b>{{"Id"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.id }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Codigo"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.codigo }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Descripcion"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.descripcion }}</td>
-      </tr>      
-    </tbody>
-  </table>
 
-  <br/><br/>
-  <hr class="ui-widget-content">
+    <div class="container-fluid" style="width:99%">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="control-group">
+                    <label class="control-label" for="textinput">{{"Codigo"|trans([],tdomain)}}:</label>
+                    <div class="controls">
+                        {{ entity.codigo }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="control-group">
+                    <label class="control-label" for="textinput">{{"Descripcion"|trans([],tdomain)}}:</label>
+                    <div class="controls">
+                        {{ entity.descripcion }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="ui-widget-content">
     
   {% ui_button class="crud-btn-submit" onclick="rcSeccionEditAgain()" value="action.edit"|trans %}
   {% remote_command update="#seccionWorkspace" 
@@ -50,5 +55,5 @@
                  value="action.delete"|trans %}
 
   {% end_ajax_form %}
-    <div style="width:100%">
+
 {% end_ui_dialog %}

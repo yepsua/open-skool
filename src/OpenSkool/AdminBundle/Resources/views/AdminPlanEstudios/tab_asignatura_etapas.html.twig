@@ -1,10 +1,23 @@
-{{"tab.asignatura.etapas.form.label.etapa"|trans([],tdomain)}}
-<select id="cboEtapaPlanEstudios" onchange="if($(this).val() !== ''){getAsignaturaPorEtapasRC();}">
-  <option value=""></option>
-  {% for etapaPlan in etapasPlan if etapaPlan.activo %}
-    <option value="{{etapaPlan.id}}">{{ etapaPlan.etapa }}</option>
-  {% endfor %}
-</select>
-<br/><br/>
+<div class="container-fluid with-default-margin">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="control-group">
+                <label class="control-label"
+                       for="textinput">{{"tab.asignatura.etapas.form.label.etapa"|trans([],tdomain)}}</label>
+
+                <div class="controls">
+                    <select id="cboEtapaPlanEstudios" onchange="if($(this).val() !== ''){getAsignaturaPorEtapasRC();}">
+                        <option value=""></option>
+                        {% for etapaPlan in etapasPlan if etapaPlan.activo %}
+                            <option value="{{etapaPlan.id}}">{{ etapaPlan.etapa }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 <div id="asignaturaPorEtapasWorkspace"></div>
 <div id="asignaturaPorEtapasWorkspace2"></div>

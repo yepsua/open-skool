@@ -1,7 +1,7 @@
 {% set tdomain = "OpenSkoolAdminBundle_PensumAsignatura" %}
 {% set entityLabel = "entity.label"|trans([], tdomain ) %}
 
-{% ui_dialog widgetVar="dlgNewPensumAsignatura" title="dlg.create.title"|trans({'%name%': entityLabel}) modal="true"
+{% ui_dialog width="500" widgetVar="dlgNewPensumAsignatura" title="dlg.create.title"|trans({'%name%': entityLabel}) modal="true"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
     <div style="width:100%">
     {% ajax_form id="frmNewPensumAsignatura"
@@ -22,11 +22,8 @@
          }") 
   %}
 
-    {% form_theme form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+    {% include "OpenSkoolAdminBundle:PensumAsignatura:form.html.twig" with { 'form' : form} %}
 
-    {{ form_widget(form) }}
-
-    <br/><br/>
     <hr class="ui-widget-content">
 
     <input checked="checked" id="_loop_create" type="checkbox" name="_loop_create" />

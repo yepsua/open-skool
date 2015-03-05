@@ -1,15 +1,29 @@
 {% ui_dialog width=340 title="dialog.etapa.title"|trans([],tdomain) autoOpen=false widgetVar="dlgEtapa" modal=true %}
-  {{"dialog.etapa.label.agregar.etapa"|trans([],tdomain)}}
 
-  <br/><br/>
-  {{"dialog.etapa.form.label.etapa"|trans([],tdomain)}}
-  <select id="cboEtapas" name="cboEtapas">
-    <option value=""></option>
-    {% for etapa in etapas %}
-    <option value="{{ etapa.id }}">{{ etapa }}</option>
-    {% endfor %}
-  </select>
-  <br/><br/>
-  <hr class="ui-widget-content">
+<div class="container-fluid" style="width:99%">
+
+    <i title="{{ 'dialog.etapa.label.agregar.etapa'|trans([],tdomain) }}"
+       class="help-tooltip glyphicon glyphicon-info-sign"></i>
+    {% ui_tooltip for=".help-tooltip" label=js_function("return $(this).attr('title')") %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="control-group">
+                <label class="control-label" for="textinput">{{ "dialog.etapa.form.label.etapa"|trans([],tdomain) }}
+                    :</label>
+
+                <div class="controls">
+                    <select id="cboEtapas" name="cboEtapas">
+                        <option value=""></option>
+                        {% for etapa in etapas %}
+                            <option value="{{ etapa.id }}">{{ etapa }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="ui-widget-content">
   {% ui_button onclick="agregarEtapaPlanEstudios()" id="btnAgregarEtapa" class="crud-btn-submit" type="submit" value="action.save"|trans %}
 {% end_ui_dialog %}

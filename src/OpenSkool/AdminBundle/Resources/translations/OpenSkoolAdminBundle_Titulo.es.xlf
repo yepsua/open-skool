@@ -24,7 +24,7 @@
             </trans-unit>
             <trans-unit id="Nombre">
                 <source>Nombre</source>
-                <target>Nombre del Instituto</target>
+                <target>Nombre</target>
             </trans-unit>
             <trans-unit id="Descripcion">
                 <source>Descripcion</source>

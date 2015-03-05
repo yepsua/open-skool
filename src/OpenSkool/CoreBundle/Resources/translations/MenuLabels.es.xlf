@@ -6,6 +6,62 @@
                 <source>mnu.institucion</source>
                 <target>Instituciones</target>
             </trans-unit>
+              <trans-unit id="mnu.institucion.change">
+                  <source>mnu.institucion.change</source>
+                  <target>Cambiar Institución</target>
+              </trans-unit>
+              <trans-unit id="mnu.institucion.pensum">
+                  <source>mnu.institucion.pensum</source>
+                  <target>Pesums</target>
+              </trans-unit>
+              <trans-unit id="mnu.institucion.pensum.asignaturas">
+                  <source>mnu.institucion.pensum.asignaturas</source>
+                  <target>Asignaturas-Pensum</target>
+              </trans-unit>
+            <trans-unit id="mnu.plan.estudios">
+                <source>mnu.plan.estudios</source>
+                <target>Plan de Estudios</target>
+            </trans-unit>
+              <trans-unit id="mnu.plan.estudios.admin">
+                  <source>mnu.plan.estudios.admin</source>
+                  <target>Administrar Planes</target>
+              </trans-unit>
+              <trans-unit id="mnu.plan.estudios.etapas">
+                  <source>mnu.plan.estudios.etapas</source>
+                  <target>Etapas</target>
+              </trans-unit>
+              <trans-unit id="mnu.plan.estudios.grupos">
+                  <source>mnu.plan.estudios.grupos</source>
+                  <target>Grupos</target>
+              </trans-unit>
+            <trans-unit id="mnu.oferta">
+                <source>mnu.oferta</source>
+                <target>Ofertas</target>
+            </trans-unit>
+              <trans-unit id="mnu.oferta.academica">
+                  <source>mnu.oferta.academica</source>
+                  <target>Oferta Academica</target>
+              </trans-unit>
+              <trans-unit id="mnu.oferta.seccion">
+                  <source>mnu.oferta.seccion</source>
+                  <target>Oferta por Sección</target>
+              </trans-unit>
+              <trans-unit id="mnu.oferta.grupos">
+                  <source>mnu.oferta.grupos</source>
+                  <target>Oferta por Sección</target>
+              </trans-unit>  
+            <trans-unit id="mnu.inscripcion">
+                <source>mnu.inscripcion</source>
+                <target>Inscripción</target>
+            </trans-unit>
+              <trans-unit id="mnu.inscripcion.pre">
+                  <source>mnu.inscripcion.pre</source>
+                  <target>Pre-Inscripción</target>
+              </trans-unit>
+              <trans-unit id="mnu.inscripcion.post">
+                  <source>mnu.inscripcion.post</source>
+                  <target>Inscripción</target>
+              </trans-unit>
             <trans-unit id="mnu.admin">
                 <source>mnu.admin</source>
                 <target>Administración</target>
@@ -60,8 +116,12 @@
                 </trans-unit>
             <trans-unit id="mnu.settings">
                 <source>mnu.settings</source>
-                <target>Configuración</target>
+                <target>Sistema</target>
             </trans-unit>
+                <trans-unit id="mnu.settings.general">
+                    <source>mnu.settings.general</source>
+                    <target>Configuración</target>
+                </trans-unit>            
                 <trans-unit id="mnu.settings.lov">
                     <source>mnu.settings.lov</source>
                     <target>Listas de Valores</target>
@@ -89,6 +149,22 @@
                     <trans-unit id="mnu.settings.locality.city">
                         <source>mnu.settings.locality.city</source>
                         <target>Ciudades</target>
+                    </trans-unit>
+                <trans-unit id="mnu.profile">
+                    <source>mnu.profile</source>
+                    <target>Mi Perfil</target>
+                </trans-unit>
+                    <trans-unit id="mnu.profile.detail">
+                        <source>mnu.profile.detail</source>
+                        <target>Detalle</target>
+                    </trans-unit>
+                    <trans-unit id="mnu.profile.settings">
+                        <source>mnu.profile.settings</source>
+                        <target>Configuración</target>
+                    </trans-unit>
+                    <trans-unit id="mnu.profile.logout">
+                        <source>mnu.profile.logout</source>
+                        <target>Salir</target>
                     </trans-unit>
         </body>
     </file>

@@ -22,11 +22,8 @@
          }")
   %}
 
-    {% form_theme edit_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+    {% include "OpenSkoolAdminBundle:Turno:form.html.twig" with { 'form' : edit_form} %}
 
-    {{ form_widget(edit_form) }}
-
-    <br/><br/>
     <hr class="ui-widget-content">
 
     {% ui_button class="crud-btn-submit btnSubmitTurno" type="submit" value="action.save"|trans%}

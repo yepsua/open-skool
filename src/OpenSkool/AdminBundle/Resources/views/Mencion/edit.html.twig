@@ -1,7 +1,7 @@
 {% set tdomain = "OpenSkoolAdminBundle_Mencion" %}
 {% set entityLabel = "entity.label"|trans([],tdomain) %}
 
-{% ui_dialog title="dlg.edit.title"|trans({'%name%': entityLabel }) modal="true" widgetVar="dlgEditMencion"
+{% ui_dialog width="400" title="dlg.edit.title"|trans({'%name%': entityLabel }) modal="true" widgetVar="dlgEditMencion"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
    <div style="width:100%">
    {% ajax_form id="frmEditMencion"
@@ -22,11 +22,8 @@
          }")
   %}
 
-    {% form_theme edit_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+    {% include "OpenSkoolAdminBundle:Mencion:form.html.twig" with { 'form' : edit_form} %}
 
-    {{ form_widget(edit_form) }}
-
-    <br/><br/>
     <hr class="ui-widget-content">
 
     {% ui_button class="crud-btn-submit btnSubmitMencion" type="submit" value="action.save"|trans%}

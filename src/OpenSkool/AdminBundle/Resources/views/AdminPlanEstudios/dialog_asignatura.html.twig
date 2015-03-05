@@ -1,14 +1,28 @@
-  {% ui_dialog width=340 title="dialog.asignatura.title"|trans([],tdomain) autoOpen=false widgetVar="dlgAsignatura" modal=true %}
-    {{"dialog.asignatura.label.agregar.asignatura"|trans([],tdomain)}}
-    <br/><br/>
-    {{"dialog.asignatura.form.label.asignatura"|trans([],tdomain)}}
-    <select id="cboAsignaturas" name="cboAsignaturas">
-      <option value=""></option>
-      {% for pensumAsignatura in pensumAsignaturas %}
-      <option value="{{ pensumAsignatura.id }}">{{ pensumAsignatura.asignatura }}</option>
-      {% endfor %}
-    </select>
-    <br/><br/>
-    <hr class="ui-widget-content">
-    {% ui_button onclick="agregarAsignatura()" id="btnAsociarGrupo" class="crud-btn-submit" type="submit" value="action.save"|trans %}
+{% ui_dialog width=340 title="dialog.asignatura.title"|trans([],tdomain) autoOpen=false widgetVar="dlgAsignatura" modal=true %}
+<div class="container-fluid" style="width:99%">
+
+    <i title="{{ 'dialog.asignatura.label.agregar.asignatura'|trans([],tdomain) }}"
+       class="help-tooltip glyphicon glyphicon-info-sign"></i>
+    {% ui_tooltip for=".help-tooltip" label=js_function("return $(this).attr('title')") %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="control-group">
+                <label class="control-label"
+                       for="textinput">{{ "dialog.asignatura.form.label.asignatura"|trans([],tdomain) }}:</label>
+
+                <div class="controls">
+                    <select id="cboAsignaturas" name="cboAsignaturas">
+                        <option value=""></option>
+                        {% for pensumAsignatura in pensumAsignaturas %}
+                            <option value="{{ pensumAsignatura.id }}">{{ pensumAsignatura.asignatura }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr class="ui-widget-content">
+{% ui_button onclick="agregarAsignatura()" id="btnAsociarGrupo" class="crud-btn-submit" type="submit" value="action.save"|trans %}
   {% end_ui_dialog %}

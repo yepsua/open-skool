@@ -1,35 +1,44 @@
 {% set tdomain = "OpenSkoolAdminBundle_Pensum" %}
 {% set entityLabel = "entity.label"|trans([],tdomain) %}
 
-{% ui_dialog widgetVar="dlgShowPensum" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
+{% ui_dialog width="600" widgetVar="dlgShowPensum" title="dlg.show.title"|trans({'%name%': entityLabel}) modal="true"
              close=js_function('$(this).dialog( "destroy" );$(this).remove();') %}
-  <div style="width:100%">
-  <table class="record_properties">
-    <tbody>
-      <tr>
-        <td><b>{{"Id"|trans([],tdomain)}}:</b></td>
-        <td>{{ entity.id }}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Instituto"|trans([],tdomain)}}:</b></td>
-        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.instituto} %}</td>
-      </tr>
-      <tr>
-        <td><b>{{"Carrera"|trans([],tdomain)}}:</b></td>
-        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.carrera} %}</td>
-      </tr>   
-      <tr>
-        <td><b>{{"Pensumpadre"|trans([],tdomain)}}:</b></td>
-        <td>{% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.pensumPadre} %}</td>
-      </tr>
-    </tbody>
-  </table>
 
-  <br/><br/>
+<div class="container-fluid" style="width:99%">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="control-group">
+                <label class="control-label" for="textinput">{{"Instituto"|trans([],tdomain)}}:</label>
+                <div class="controls">
+                    {% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.instituto} %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="control-group">
+                <label class="control-label" for="textinput">{{"Carrera"|trans([],tdomain)}}:</label>
+                <div class="controls">
+                    {% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.carrera} %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="control-group">
+                <label class="control-label" for="textinput">{{"Pensumpadre"|trans([],tdomain)}}:</label>
+                <div class="controls">
+                    {% include "YepsuaCommonsBundle::toUL.html.twig" with { 'entities' : entity.pensumPadre} %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
   <hr class="ui-widget-content">
-    
+
   {% ui_button class="crud-btn-submit" onclick="rcPensumEditAgain()" value="action.edit"|trans %}
-  {% remote_command update="#pensumWorkspace" 
+  {% remote_command update="#pensumWorkspace"
        beforeSend=js_function("dlgShowPensum.wijdialog('destroy');") 
        type="GET" 
        url=path("pensum_edit", { "id": entity.id }) 
@@ -54,5 +63,5 @@
                  value="action.delete"|trans %}
 
   {% end_ajax_form %}
-    <div style="width:100%">
+
 {% end_ui_dialog %}

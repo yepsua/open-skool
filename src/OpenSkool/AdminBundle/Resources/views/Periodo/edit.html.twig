@@ -22,12 +22,9 @@
          }")
   %}
 
-    {% form_theme edit_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+   {% include "OpenSkoolAdminBundle:Periodo:form.html.twig" with { 'form' : edit_form} %}
 
-    {{ form_widget(edit_form) }}
-
-    <br/><br/>
-    <hr class="ui-widget-content">
+   <hr class="ui-widget-content">
 
     {% ui_button class="crud-btn-submit btnSubmitPeriodo" type="submit" value="action.save"|trans%}
 
@@ -47,8 +44,8 @@
   %}
 
     {{ form_widget(delete_form) }}
-    {% ui_button class="crud-btn-submit btnSubmitPeriodo" type="submit" 
-                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')" 
+    {% ui_button class="crud-btn-submit btnSubmitPeriodo" type="submit"
+                 onclick="return confirm('" ~ "msg.delete.confirmation"|trans({'%name%': entityLabel }) ~ "')"
                  value="action.delete"|trans %}
 
   {% end_ajax_form %}

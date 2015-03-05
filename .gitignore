@@ -17,3 +17,4 @@
 /app/SymfonyRequirements.php
 /app/check.php
 *.php~
+/gush.phar

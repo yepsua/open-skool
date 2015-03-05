@@ -26,7 +26,7 @@ class AdminPlanEstudiosController extends Controller
      */
     public function indexAction(){
       try{
-      
+
         $repository = $this->getEntityRepository();
         $planEstudios = $repository->findAll();
 

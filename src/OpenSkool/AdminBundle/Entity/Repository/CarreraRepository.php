@@ -5,6 +5,7 @@ namespace OpenSkool\AdminBundle\Entity\Repository;
 use Yepsua\RADBundle\ORM\EntityRepository;
 
 use OpenSkool\AdminBundle\Entity\Instituto;
+use OpenSkool\AdminBundle\Entity\Pensum;
 
 /**
  * CarreraRepository

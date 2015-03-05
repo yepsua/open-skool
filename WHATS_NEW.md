@@ -1,3 +1,10 @@
+Al 05-03-2015
+-------------
+* Se actualiza la version de composer.phar
+* Se agrega el atributo name las estidades del Bundle OpenSkooAdminBundle
+* Se modifica el archivo README.md
+* Se resuelve el issue #10 (Mejorar la presentacion de formularios)
+
 Al 01-09-2014
 -------------
 * Se actualiza a Symfony 2.5.3

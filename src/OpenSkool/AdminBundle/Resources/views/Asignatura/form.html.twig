@@ -1,0 +1,39 @@
+<div class="container-fluid" style="width:99%">
+  <div class="row ui-state-error-text">
+      <div class="col-md-12">
+          {{ form_errors(form) }}
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="control-group">
+        <label class="control-label" for="textinput">{{ form_label(form.codigo) }}:</label>
+        <div class="controls">
+          {{ form_widget(form.codigo) }}
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="control-group">
+                <label class="control-label" for="textinput">{{ form_label(form.nombre) }}:</label>
+                <div class="controls">
+                    {{ form_widget(form.nombre) }}
+                </div>
+            </div>
+        </div>
+    </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="control-group">
+        <label class="control-label" for="textinput">{{ form_label(form.asignaturaPadre) }}:</label>
+        <div class="controls">
+          {{ form_widget(form.asignaturaPadre) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{ form_rest(form) }}
+

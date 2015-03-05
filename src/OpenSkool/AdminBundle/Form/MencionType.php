@@ -17,7 +17,7 @@ class MencionType extends AbstractType
         $builder
             ->add('codigo')
             ->add('nombre')
-            ->add('descripcion')
+            ->add('descripcion', 'textarea')
             ->add('abreviatura')
         ;
     }

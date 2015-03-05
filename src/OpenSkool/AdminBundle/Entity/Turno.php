@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Turno
  *
- * @ORM\Table()
+ * @ORM\Table(name="turno")
  * @ORM\Entity
  */
 class Turno

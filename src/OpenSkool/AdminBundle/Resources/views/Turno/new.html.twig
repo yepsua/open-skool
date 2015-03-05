@@ -22,11 +22,8 @@
          }") 
   %}
 
-    {% form_theme form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+    {% include "OpenSkoolAdminBundle:Turno:form.html.twig" with { 'form' : form} %}
 
-    {{ form_widget(form) }}
-
-    <br/><br/>
     <hr class="ui-widget-content">
 
     <input checked="checked" id="_loop_create" type="checkbox" name="_loop_create" />

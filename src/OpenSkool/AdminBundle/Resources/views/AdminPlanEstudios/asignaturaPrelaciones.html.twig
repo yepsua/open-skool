@@ -1,6 +1,8 @@
 {% set tdomain = "OpenSkoolAdminBundle_PlanEstudiosWizard" %}
 {% ui_dialog close=js_function("$(this).remove()") width=540 title="Prelaciones" widgetVar="dlgPrelaciones" modal=true %}
-  <div id="detallePrelacionWorkspace">
-    {% include 'OpenSkoolAdminBundle:AdminPlanEstudios:detalle_prelacion.html.twig' %}
+  <div class="container-fluid" style="width:99%">
+      <div id="detallePrelacionWorkspace">
+        {% include 'OpenSkoolAdminBundle:AdminPlanEstudios:detalle_prelacion.html.twig' %}
+      </div>
   </div>
 {% end_ui_dialog %}

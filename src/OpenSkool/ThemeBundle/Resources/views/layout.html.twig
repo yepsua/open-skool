@@ -42,7 +42,64 @@
     {% include 'OpenSkoolCoreBundle::assets.html.twig' %}
     <script type="text/javascript" src="{{ asset('bundles/yepsuasmartwig/jquery4php-assets/js/plugins/jqgrid/i18n/grid.locale-es.js') }}"></script>
     <script type="text/javascript" src="{{ asset('bundles/yepsuasmartwig/jquery4php-assets/js/ui/i18n/jquery.ui.datepicker-es.js') }}"></script>
+    
+    <style type="text/css">
+    label {
+        margin-bottom: 0px;
+    }
+
+    form > .container-fluid > .row {
+        margin-bottom: 10px;
+    }
+
+    form > .container-fluid > .ui-state-error-text {
+        margin-bottom: 0px;
+    }
+
+    .ui-dialog-content > .container-fluid > .row {
+        margin-bottom: 10px;
+    }
+
+    .control-group > .controls > input,
+    .control-group > .controls > select,
+    .control-group > .controls > textarea {
+        height: auto;
+        padding: 4px 6px;
+        background: #fff none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+        color: #555;
+        display: block;
+        font-size: 14px;
+        line-height: 1.42857;
+        transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+        vertical-align: middle;
+    }
+
+    .controls > input, .controls > select, .controls > textarea {
+        width: 99%;
+    }
+
+    .wijmo-wijmenu-parent > .wijmo-wijmenu-link > .ui-icon-triangle-1-e{
+        float:right !important;
+    }
+
+    .default-margin, .with-default-margin > .row{
+        margin: 15px;
+    }
+
+    .margin-bottom, .with-margin-bottom > .row{
+        margin-bottom: 15px;
+    }
+
+  </style>
+    
     {% block include '' %}
+        
+        
+  
+        
 {% endblock %}
 
 {% block layout_main_menu %}

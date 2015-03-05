@@ -6,6 +6,26 @@
                 <source>app.title</source>
                 <target>%instituto% | Sistema de Control de Estudio</target>
             </trans-unit>
-        </body>
+            <trans-unit id="app.view.user.detail.title">
+                <source>app.view.user.detail.title</source>
+                <target>Detalle de Usuario</target>
+            </trans-unit>
+            <trans-unit id="app.view.user.detail.tab.address">
+                <source>app.view.user.detail.tab.address</source>
+                <target>Direcciones</target>
+            </trans-unit>
+            <trans-unit id="app.view.user.detail.tab.contacts">
+                <source>app.view.user.detail.tab.contacts</source>
+                <target>Contactos</target>
+            </trans-unit>
+            <trans-unit id="app.view.user.detail.tab.user">
+                <source>app.view.user.detail.tab.user</source>
+                <target>Usuario</target>
+            </trans-unit>
+            <trans-unit id="app.label.sorry">
+                <source>app.label.sorry</source>
+                <target>Disculpe</target>
+            </trans-unit>
+        </body> 
     </file>
 </xliff>

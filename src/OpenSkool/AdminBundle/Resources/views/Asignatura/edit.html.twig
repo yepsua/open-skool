@@ -22,14 +22,11 @@
          }")
   %}
 
-    {% form_theme edit_form 'YepsuaSmarTwigBundle:Form:table_layout.html.twig' %}
+  {% include "OpenSkoolAdminBundle:Asignatura:form.html.twig" with { 'form' : edit_form} %}
 
-    {{ form_widget(edit_form) }}
+  <hr class="ui-widget-content">
 
-    <br/><br/>
-    <hr class="ui-widget-content">
-
-    {% ui_button class="crud-btn-submit btnSubmitAsignatura" type="submit" value="action.save"|trans%}
+  {% ui_button class="crud-btn-submit btnSubmitAsignatura" type="submit" value="action.save"|trans%}
 
   {% end_ajax_form %}
 
