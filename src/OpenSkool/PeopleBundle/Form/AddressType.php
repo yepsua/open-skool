@@ -25,12 +25,12 @@ class AddressType extends AbstractType
         
         $suscriber->add('country', array(
           'class'=> 'YepsuaLocalityBundle:Country',
-          'empty_value' => 'form.choice.empty.country'
+          'placeholder' => 'form.choice.empty.country'
         ));
         
         $suscriber->add('locality', array(
           'class'=> 'YepsuaLocalityBundle:Locality',
-          'empty_value' => 'form.choice.empty.locality',
+          'placeholder' => 'form.choice.empty.locality',
           'query_builder' => array(
               'method' => '_findAllByCountry',
               'args' => array(
@@ -40,7 +40,7 @@ class AddressType extends AbstractType
         
         $suscriber->add('city', array(
           'class'=> 'YepsuaLocalityBundle:City',
-          'empty_value' => 'form.choice.empty.city',
+          'placeholder' => 'form.choice.empty.city',
           'query_builder' => array(
               'method' => '_findAllByLocality',
               'args' => array(
