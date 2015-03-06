@@ -36,15 +36,15 @@ class AddLocalityEventSubscriber implements EventSubscriberInterface
         
         $city = $accessor->getValue($data, 'city');
         
-        $options1 = array('empty_value' => 'form.choice.empty.locality','class' => 'YepsuaLocalityBundle:Locality');
+        $options1 = array('placeholder' => 'form.choice.empty.locality','class' => 'YepsuaLocalityBundle:Locality');
         $options2 = array(
           'class' => 'YepsuaLocalityBundle:Country', 
-          'empty_value' => 'form.choice.empty.country', 
+          'placeholder' => 'form.choice.empty.country', 
           'query_builder'=> function(EntityRepository $er) {
             return $er->createQueryBuilder('country');
         });
         
-        $options3 = array('empty_value' => 'form.choice.empty.city', 'class' => 'YepsuaLocalityBundle:City');
+        $options3 = array('placeholder' => 'form.choice.empty.city', 'class' => 'YepsuaLocalityBundle:City');
 
         if($city !== null){
 

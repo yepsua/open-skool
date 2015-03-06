@@ -97,7 +97,7 @@ class RelatedEntityEventSubscriber implements EventSubscriberInterface
     
     public static function getDefaultOptions(){
       return array(
-        'empty_value' => static::$DEFAULT_LABEL_VALUE
+        'placeholder' => static::$DEFAULT_LABEL_VALUE
       );
     }
     
