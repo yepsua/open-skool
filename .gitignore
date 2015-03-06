@@ -11,6 +11,7 @@
 /nbproject/
 /bin/
 /nbproject/
+/.idea/
 /composer.lock
 /gush.phar
 /composer.phar

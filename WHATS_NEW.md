@@ -1,3 +1,11 @@
+Al 06-03-2015
+-------------
+* Se actualiza a la rama 2.6 de Symfony
+* Se actualiza el codigo de open-skool para adaptarse a los cambios de Sf2.6
+* Se elimina la actualizacion automatica del debugbar ya que esa funcionalidad la provee desde ahora sf2.6
+* Se agrega la carpeta /.idea al archivo gitignore
+* Se actualiza los bundles: yepsua/generator-bundle
+
 Al 05-03-2015
 -------------
 * Se actualiza la version de composer.phar

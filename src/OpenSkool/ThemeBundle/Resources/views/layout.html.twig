@@ -4,26 +4,6 @@
 
 {% block layout_ajax_status %}
 
-    <script>
-      $(document).ready(function() {
-        $("body").ajaxComplete(function(event, XMLHttpRequest, ajaxOption){
-          if(XMLHttpRequest.getResponseHeader('x-debug-token') && $('.sf-toolbarreset').is(':visible')) {
-              closeButton =  $('.sf-toolbarreset').find('.hide-button');
-              closeButton.html('<br/>Loading');
-              $.get('{{ asset('app_dev.php') }}/_wdt/'+XMLHttpRequest.getResponseHeader('x-debug-token'),function(data){
-              $('.sf-toolbarreset').remove();
-              $('body').append(data);
-              closeButton.html('');
-            });
-          }else{
-            if(XMLHttpRequest.status === 500){
-              $('body').html(XMLHttpRequest.responseText);
-            }
-          }
-        });
-      });
-    </script>
-
     {% ajax_status onstart="$.blockUI({'message':'"~ 'msg.please.wait'|trans ~ "'})"
           onsuccess="$.unblockUI()"
           oncomplete="$.unblockUI();$('.crud-btn-submit').removeAttr('disabled');"
